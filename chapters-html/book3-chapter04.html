@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 3, Глава IV: Как торговля городов помогла селу — Адам Смит, Богатство народов">
+  
+  <title>Книга 3, Глава IV: Торговля городов и село — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Three Ways */
+    .three-ways {
+      margin: var(--space-8) 0;
+    }
+    
+    .ways-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .way-item {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .way-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      height: 48px;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: var(--text-lg);
+      flex-shrink: 0;
+    }
+    
+    .way-content {
+      flex: 1;
+    }
+    
+    .way-title {
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    
+    .way-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Feudal Decline */
+    .feudal-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+      border-radius: var(--radius-lg);
+    }
+    
+    .feudal-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .feudal-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    
+    .feudal-stage {
+      text-align: center;
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      min-width: 140px;
+    }
+    
+    .feudal-stage.before {
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+    }
+    
+    .feudal-stage.after {
+      background: #f0fff4;
+      border: 2px solid #68d391;
+    }
+    
+    .feudal-icon {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-1);
+    }
+    
+    .feudal-label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+    
+    .feudal-arrow {
+      font-size: var(--text-xl);
+      color: #38a169;
+    }
+    
+    /* Comparison */
+    .comparison-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .comparison-box {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .comparison-box.before {
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+    }
+    
+    .comparison-box.after {
+      background: #f0fff4;
+      border: 2px solid #38a169;
+    }
+    
+    .comparison-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .comparison-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .comparison-title {
+      font-weight: 700;
+    }
+    
+    .comparison-box.before .comparison-title { color: #c53030; }
+    .comparison-box.after .comparison-title { color: #276749; }
+    
+    .comparison-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: var(--text-sm);
+    }
+    
+    .comparison-list li {
+      padding: var(--space-1) 0;
+    }
+    
+    /* Revolution */
+    .revolution-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+      border-radius: var(--radius-lg);
+    }
+    
+    .revolution-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    /* America vs Europe */
+    .comparison-table {
+      margin: var(--space-8) 0;
+    }
+    
+    .comp-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .comp-table th,
+    .comp-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .comp-table th {
+      background: var(--color-bg-section);
+      font-weight: 600;
+    }
+    
+    .comp-table tr:last-child td {
+      border-bottom: none;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 3</span>
+        <span class="chapter-number">Глава IV</span>
+      </div>
+      <h1 class="chapter-title">Как торговля городов помогла селу</h1>
+      <div class="chapter-summary">
+        <p>Три пути: рынок для продукта, улучшение земли купцами, установление порядка. Тщеславие феодалов разрушило их власть.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Three Ways -->
+    <section class="chapter-section">
+      <h2>Три пути влияния городов</h2>
+      
+      <div class="three-ways">
+        <div class="ways-list">
+          <div class="way-item">
+            <div class="way-num">1</div>
+            <div class="way-content">
+              <div class="way-title">🛒 Готовый рынок</div>
+              <div class="way-desc">
+                Город — рынок для сырого продукта деревни. Поощряет обработку и улучшение земли. 
+                Близость города даёт лучшую цену фермерам.
+              </div>
+            </div>
+          </div>
+          
+          <div class="way-item">
+            <div class="way-num">2</div>
+            <div class="way-content">
+              <div class="way-title">💰 Купцы становятся землевладельцами</div>
+              <div class="way-desc">
+                Купцы приучены вкладывать капитал с прибылью. Коренные помещики тратят без пользы. 
+                Купцы — смелые предприниматели, помещики — робкие.
+              </div>
+            </div>
+          </div>
+          
+          <div class="way-item">
+            <div class="way-num">3</div>
+            <div class="way-content">
+              <div class="way-title">⚖️ Порядок и управление</div>
+              <div class="way-desc">
+                Торговля разрушила власть феодалов. Землевладельцы перестали содержать свиту — 
+                стали покупать товары. Так установился порядок в деревне.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 2: Feudal Decline -->
+    <section class="chapter-section">
+      <h2>Как было разрушено могущество баронов</h2>
+      
+      <div class="feudal-section">
+        <div class="feudal-title">
+          <span style="font-size: var(--text-2xl);">👑</span>
+          <h3 style="margin: 0;">Революция через торговлю</h3>
+        </div>
+        
+        <div class="feudal-diagram">
+          <div class="feudal-stage before">
+            <div class="feudal-icon">🏰</div>
+            <div class="feudal-label">Феодал + 1000 слуг</div>
+            <div style="font-size: var(--text-xs); color: var(--color-text-muted);">
+              Власть и влияние
+            </div>
+          </div>
+          
+          <span class="feudal-arrow">→</span>
+          
+          <div class="feudal-stage">
+            <div class="feudal-icon">💎</div>
+            <div class="feudal-label">Покупка роскоши</div>
+            <div style="font-size: var(--text-xs); color: var(--color-text-muted);">
+              Бриллиантовые пряжки
+            </div>
+          </div>
+          
+          <span class="feudal-arrow">→</span>
+          
+          <div class="feudal-stage after">
+            <div class="feudal-icon">✅</div>
+            <div class="feudal-label">Равенство</div>
+            <div style="font-size: var(--text-xs); color: var(--color-text-muted);">
+              Как любой мещанин
+            </div>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4); color: var(--color-text-light);">
+          «Всё для себя, ничего для других» — правило властителей.
+          Ради безделушек они продали свою власть.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 3: Before and After -->
+    <section class="chapter-section">
+      <h2>До и после торговли</h2>
+      
+      <div class="comparison-section">
+        <div class="comparison-grid">
+          <div class="comparison-box before">
+            <div class="comparison-header">
+              <span class="comparison-icon">⚔️</span>
+              <span class="comparison-title">Без торговли</span>
+            </div>
+            <ul class="comparison-list">
+              <li>❌ Доход 10,000 фунтов = содержание 1000 семей</li>
+              <li>❌ Все зависят от феодала</li>
+              <li>❌ Деревенское гостеприимство</li>
+              <li>❌ Войны между баронами</li>
+              <li>❌ Насилие и грабежи</li>
+              <li>❌ Король не может обуздать феодалов</li>
+            </ul>
+          </div>
+          
+          <div class="comparison-box after">
+            <div class="comparison-header">
+              <span class="comparison-icon">✅</span>
+              <span class="comparison-title">С торговлей</span>
+            </div>
+            <ul class="comparison-list">
+              <li>✅ Доход 10,000 фунтов = 20 слуг</li>
+              <li>✅ Рабочие независимы</li>
+              <li>✅ Покупка товаров, не содержание людей</li>
+              <li>✅ Порядок в деревне</li>
+              <li>✅ Мир и управление</li>
+              <li>✅ Никто не мешает правосудию</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 4: Revolution -->
+    <section class="chapter-section">
+      <h2>Непреднамеренная революция</h2>
+      
+      <div class="revolution-section">
+        <div class="revolution-title">
+          <span style="font-size: var(--text-xl);">🎯</span>
+          <h3 style="margin: 0;">Никто не планировал!</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Революция совершена двумя классами людей, которые не имели ни малейшего намерения 
+          служить обществу:
+        </p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4); margin-top: var(--space-4);">
+          <div style="padding: var(--space-3); background: var(--color-bg-card); border-radius: var(--radius-md);">
+            <strong>🏰 Феодалы</strong><br>
+            <span style="font-size: var(--text-sm); color: var(--color-text-light);">
+              Мотив: самое смешное тщеславие
+            </span>
+          </div>
+          
+          <div style="padding: var(--space-3); background: var(--color-bg-card); border-radius: var(--radius-md);">
+            <strong>🏪 Купцы</strong><br>
+            <span style="font-size: var(--text-sm); color: var(--color-text-light);">
+              Мотив: зашибить копейку при случае
+            </span>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4); font-style: italic;">
+          «Безумие одних и трудолюбие других» — но никто не предвидел великой революции!
+        </p>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Торговля и промышленность городов явились в Европе не следствием, 
+          а причиной развития деревни. Но такой порядок противоречит естественному ходу вещей 
+          и потому отличается медленностью.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 5: America vs Europe -->
+    <section class="chapter-section">
+      <h2>Америка vs Европа</h2>
+      
+      <div class="comparison-table">
+        <table class="comp-table">
+          <thead>
+            <tr>
+              <th>Показатель</th>
+              <th>🇺🇸 Америка</th>
+              <th>🇪🇺 Европа</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Удвоение населения</td>
+              <td style="color: #38a169; font-weight: 600;">20-25 лет</td>
+              <td style="color: #e53e3e;">~500 лет</td>
+            </tr>
+            <tr>
+              <td>Основной капитал</td>
+              <td>🌾 Земледелие</td>
+              <td>🏪 Торговля + мануфактура</td>
+            </tr>
+            <tr>
+              <td>Цена земли</td>
+              <td>Почти даром</td>
+              <td>Монопольная</td>
+            </tr>
+            <tr>
+              <td>Мелкие собственники</td>
+              <td style="color: #38a169;">Много</td>
+              <td style="color: #e53e3e;">Мало (майорат)</td>
+            </tr>
+            <tr>
+              <td>Стимул улучшать</td>
+              <td style="color: #38a169;">Высокий</td>
+              <td style="color: #e53e3e;">Низкий</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Главный вывод Книги 3
+        </h3>
+        <p style="margin-bottom: 0;">
+          Естественный путь — земледелие → мануфактура → торговля — обеспечивает быстрый рост. 
+          Европа пошла наоборот — и это замедлило развитие. 
+          Торговля разрушила феодализм, но непреднамеренно!
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Города помогали селу тремя путями: рынок, капитал, порядок</li>
+          <li>Купцы лучше помещиков улучшают землю</li>
+          <li>Торговля разрушила власть феодалов через их тщеславие</li>
+          <li>Феодалы променяли власть на бриллиантовые пряжки</li>
+          <li>Никто не планировал эту революцию</li>
+          <li>Американский путь быстрее европейского</li>
+          <li>Мелкие собственники — лучшие улучшатели земли</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book3-chapter03.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава III: О развитии городов</span>
+          </div>
+        </a>
+        <a href="book4-chapter01.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Книга 4, Глава I: О меркантилистической системе</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 4, Глава V: О премиях — Адам Смит, Богатство народов">
+  
+  <title>Книга 4, Глава V: О премиях — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Bounty Concept */
+    .bounty-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .bounty-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    /* Double Tax */
+    .tax-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .tax-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .tax-diagram {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .tax-diagram {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .tax-box {
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      border: 2px solid var(--color-border);
+    }
+    
+    .tax-box.first { border-color: #d69e2e; }
+    .tax-box.second { border-color: #e53e3e; }
+    
+    /* Spain Portugal */
+    .spain-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+      border-radius: var(--radius-lg);
+    }
+    
+    .spain-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    /* Grain vs Manufactures */
+    .comparison-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .comparison-box {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .comparison-box.grain {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .comparison-box.manufactures {
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #9f7aea;
+    }
+    
+    .comparison-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .comparison-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .comparison-title {
+      font-weight: 700;
+    }
+    
+    .comparison-box.grain .comparison-title { color: #276749; }
+    .comparison-box.manufactures .comparison-title { color: #6b46c1; }
+    
+    /* Winners */
+    .winners-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: #fef3e2;
+      border: 2px solid #d69e2e;
+      border-radius: var(--radius-lg);
+    }
+    
+    .winners-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 4</span>
+        <span class="chapter-number">Глава V</span>
+      </div>
+      <h1 class="chapter-title">О премиях</h1>
+      <div class="chapter-summary">
+        <p>Премии за вывоз — платить иностранцам, чтобы они покупали наши товары. Бессмыслица! Больше всех выигрывают торговцы зерном, а народ платит двойной налог.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: The Idea -->
+    <section class="chapter-section">
+      <h2>Идея вывозных премий</h2>
+      
+      <div class="bounty-section">
+        <div class="bounty-title">
+          <span style="font-size: var(--text-xl);">💰</span>
+          <h3 style="margin: 0;">Платить иностранцам за покупку наших товаров</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Купцы и мануфактуристы не могут обеспечить монополию на внешнем рынке 
+          (как на внутреннем). Поэтому решили:
+        </p>
+        
+        <div style="padding: var(--space-3); background: var(--color-bg-card); border-radius: var(--radius-md); margin-top: var(--space-3); text-align: center;">
+          <strong>Платить иностранцам, чтобы они покупали наши товары!</strong>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-3); color: var(--color-text-light);">
+          Так меркантилистическая система хочет обогатить страну через торговый баланс.
+        </p>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Премии нужны только убыточным отраслям
+        </h3>
+        <p style="margin-bottom: 0;">
+          Если купец может продавать товары с обычной прибылью — премия не нужна. 
+          Премия нужна только там, где цена не покрывает капитал + прибыль. 
+          Каждая операция съедает часть капитала!
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Double Tax -->
+    <section class="chapter-section">
+      <h2>Двойной налог на народ</h2>
+      
+      <div class="tax-section">
+        <div class="tax-title">
+          <span style="font-size: var(--text-xl);">💸</span>
+          <h3 style="margin: 0;">Премия на хлеб = два налога</h3>
+        </div>
+        
+        <div class="tax-diagram">
+          <div class="tax-box first">
+            <h4 style="color: #975a16; margin-bottom: var(--space-2);">Налог 1: Премия</h4>
+            <p style="font-size: var(--text-sm); margin: 0;">
+              Народ платит из бюджета. 
+              <br>Пример: 5 шилл. за каждый вывезенный квартер пшеницы.
+            </p>
+          </div>
+          
+          <div class="tax-box second">
+            <h4 style="color: #c53030; margin-bottom: var(--space-2);">Налог 2: Повышенная цена</h4>
+            <p style="font-size: var(--text-sm); margin: 0;">
+              Премия повышает цену хлеба на внутреннем рынке. 
+              <br>Все покупают хлеб дороже!
+            </p>
+          </div>
+        </div>
+        
+        <div style="margin-top: var(--space-4); padding: var(--space-3); background: #fff5f5; border-radius: var(--radius-md); text-align: center;">
+          <strong style="color: #c53030;">Второй налог гораздо тяжелее первого!</strong>
+          <br>
+          <span style="font-size: var(--text-sm);">
+            Соотношение вывоза к потреблению = 1:31. 
+            На каждые 5 шилл. премии — 6 ф. 4 шилл. переплаты за хлеб!
+          </span>
+        </div>
+      </div>
+      
+      <div style="margin-top: var(--space-6); padding: var(--space-4); background: var(--color-bg-card); border-radius: var(--radius-lg);">
+        <h4 style="margin-bottom: var(--space-2);">⚠️ Последствия:</h4>
+        <ul style="margin: 0; padding-left: var(--space-5); font-size: var(--text-sm);">
+          <li>Понижение уровня жизни рабочих</li>
+          <li>Увеличение денежной зарплаты</li>
+          <li>Сокращение занятости в промышленности</li>
+          <li>Ограничение населения страны</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Section 3: Spain and Portugal -->
+    <section class="chapter-section">
+      <h2>Аналогия с Испанией и Португалией</h2>
+      
+      <div class="spain-section">
+        <div class="spain-title">
+          <span style="font-size: var(--text-xl);">🇪🇸 🇵🇹</span>
+          <h3 style="margin: 0;">Премия = политика Испании и Португалии</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-3);">
+          Испания и Португалия владеют рудниками. Золото и серебро там дешевле. 
+          Но запреты на вывоз делают их ещё дешевле внутри, а в других странах — дороже.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
+          <div style="padding: var(--space-2); background: var(--color-bg-card); border-radius: var(--radius-md); text-align: center;">
+            <strong>Дома</strong><br>
+            <span style="font-size: var(--text-sm);">Золото дешёвое, товары дорогие</span>
+          </div>
+          <div style="padding: var(--space-2); background: var(--color-bg-card); border-radius: var(--radius-md); text-align: center;">
+            <strong>За границей</strong><br>
+            <span style="font-size: var(--text-sm);">Золото дороже, товары дешевле</span>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); margin-top: var(--space-3); color: var(--color-text-light);">
+          Результат: другие страны могут продавать в Испанию и Португалию товары дешевле, 
+          чем местные производители. Промышленность задыхается!
+        </p>
+        
+        <div class="key-insight" style="margin-top: var(--space-3);">
+          <p style="margin-bottom: 0; font-size: var(--text-sm);">
+            <strong>Премия на хлеб делает то же самое:</strong> 
+            понижает стоимость серебра в Англии, 
+            удорожает английские товары на всех рынках.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 4: Grain vs Manufactures -->
+    <section class="chapter-section">
+      <h2>Хлеб vs мануфактура</h2>
+      
+      <div class="comparison-section">
+        <div class="comparison-grid">
+          <div class="comparison-box grain">
+            <div class="comparison-header">
+              <span class="comparison-icon">🌾</span>
+              <span class="comparison-title">Хлеб</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Премия повышает <strong>номинальную</strong> цену</li>
+              <li>Действительная стоимость не меняется</li>
+              <li>Нельзя увеличить производство премией</li>
+              <li>Хлеб — регулирующий товар для всех цен</li>
+            </ul>
+          </div>
+          
+          <div class="comparison-box manufactures">
+            <div class="comparison-header">
+              <span class="comparison-icon">🏭</span>
+              <span class="comparison-title">Мануфактура</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Монополия повышает <strong>действительную</strong> цену</li>
+              <li>Владельцы богатеют реально</li>
+              <li>Могут нанимать больше рабочих</li>
+              <li>Направляет капитал в отрасль</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Землевладельцы требовали премию, подражая мануфактуристам. 
+          Но не поняли главного различия: 
+          хлеб имеет неизменную действительную стоимость, 
+          которую нельзя изменить монополией или премией.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 5: Winners -->
+    <section class="chapter-section">
+      <h2>Кто выигрывает?</h2>
+      
+      <div class="winners-section">
+        <div class="winners-title">
+          <span style="font-size: var(--text-xl);">🏆</span>
+          <h3 style="margin: 0;">Единственные выгодополучатели</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Во всём государстве есть только один класс, которому премия действительно полезна:
+        </p>
+        
+        <div style="padding: var(--space-3); background: var(--color-bg-card); border-radius: var(--radius-md); margin-top: var(--space-3); text-align: center; font-weight: 600;">
+          📦 Торговцы хлебом — экспортёры и импортёры
+        </div>
+        
+        <ul style="font-size: var(--text-sm); margin-top: var(--space-3); padding-left: var(--space-5);">
+          <li>В урожайные годы — больший вывоз</li>
+          <li>В неурожайные — больший ввоз</li>
+          <li>В обоих случаях — больше оборот и прибыль</li>
+        </ul>
+        
+        <p style="font-size: var(--text-sm); margin-top: var(--space-3); text-align: center; font-style: italic; color: var(--color-text-light);">
+          Именно среди этого класса Смит наблюдал наибольшее стремление сохранить премию!
+        </p>
+      </div>
+      
+      <div style="margin-top: var(--space-6); padding: var(--space-4); background: #f0fff4; border: 2px solid #38a169; border-radius: var(--radius-lg);">
+        <h4 style="margin-bottom: var(--space-2);">✅ Итог:</h4>
+        <ul style="margin: 0; padding-left: var(--space-5); font-size: var(--text-sm);">
+          <li>Премия обременяет общественный доход расходами</li>
+          <li>Взваливает тяжёлый налог на народ</li>
+          <li>Не увеличивает действительную стоимость товара</li>
+          <li>Затрудняет развитие всей промышленности</li>
+          <li>Замедляет улучшение земель</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Премии — платить иностранцам за покупку наших товаров (бессмыслица)</li>
+          <li>Премия на хлеб — двойной налог на народ</li>
+          <li>Повышает номинальную, но не действительную цену хлеба</li>
+          <li>Аналогия с Испанией и Португалией: золото дешевеет, товары дорожают</li>
+          <li>Хлеб — регулирующий товар, его действительная стоимость неизменна</li>
+          <li>Мануфактуристы от монополии богатеют реально, землевладельцы — нет</li>
+          <li>Выигрывают только торговцы хлебом</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book4-chapter04.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава IV: О возвратных пошлинах</span>
+          </div>
+        </a>
+        <a href="book4-chapter06.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава VI: О торговых договорах</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

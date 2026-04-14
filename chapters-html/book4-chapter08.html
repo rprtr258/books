@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 4, Глава VIII: Заключение о меркантилистической системе — Адам Смит, Богатство народов">
+  
+  <title>Книга 4, Глава VIII: Заключение о меркантилизме — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Double Approach */
+    .approach-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .approach-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .approach-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .approach-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .approach-box {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .approach-box.export {
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+    }
+    
+    .approach-box.import {
+      background: #f0fff4;
+      border: 2px solid #38a169;
+    }
+    
+    .approach-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .approach-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .approach-title-text {
+      font-weight: 700;
+    }
+    
+    .approach-box.export .approach-title-text { color: #c53030; }
+    .approach-box.import .approach-title-text { color: #276749; }
+    
+    /* Wool Laws */
+    .wool-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .wool-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .wool-laws {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .wool-laws li {
+      padding: var(--space-2) 0;
+      padding-left: var(--space-6);
+      position: relative;
+      font-size: var(--text-sm);
+    }
+    
+    .wool-laws li::before {
+      content: "⚖️";
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Consumer vs Producer */
+    .conflict-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .conflict-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .conflict-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .conflict-box {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .conflict-box.producer {
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #9f7aea;
+    }
+    
+    .conflict-box.consumer {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .conflict-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .conflict-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .conflict-title {
+      font-weight: 700;
+    }
+    
+    .conflict-box.producer .conflict-title { color: #6b46c1; }
+    .conflict-box.consumer .conflict-title { color: #2c5282; }
+    
+    /* Verdict */
+    .verdict-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+      border-radius: var(--radius-lg);
+    }
+    
+    .verdict-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 4</span>
+        <span class="chapter-number">Глава VIII</span>
+      </div>
+      <h1 class="chapter-title">Заключение о меркантилистической системе</h1>
+      <div class="chapter-summary">
+        <p>Два главных средства: поощрение вывоза и затруднение ввоза. Но для сырья — наоборот! Система работает на богатых против бедных.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Double Approach -->
+    <section class="chapter-section">
+      <h2>Два подхода к сырью</h2>
+      
+      <div class="approach-section">
+        <div class="approach-title">
+          <span style="font-size: var(--text-xl);">🔄</span>
+          <h3 style="margin: 0;">Меркантилизм и сырьё</h3>
+        </div>
+        
+        <div class="approach-grid">
+          <div class="approach-box export">
+            <div class="approach-header">
+              <span class="approach-icon">🚫</span>
+              <span class="approach-title-text">Запрет вывоза сырья</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Шерсть — запрет</li>
+              <li>Овцы — запрет</li>
+              <li>Инструменты производства — запрет</li>
+              <li>Цель: дать преимущество своим рабочим</li>
+            </ul>
+          </div>
+          
+          <div class="approach-box import">
+            <div class="approach-header">
+              <span class="approach-icon">✅</span>
+              <span class="approach-title-text">Поощрение ввоза сырья</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Шерсть — без пошлин</li>
+              <li>Хлопок — без пошлин</li>
+              <li>Лён, кожи — без пошлин</li>
+              <li>Цель: дешевле перерабатывать</li>
+            </ul>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4); color: var(--color-text-light);">
+          Конечная цель одна: <strong>благоприятный торговый баланс</strong>
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Wool Laws -->
+    <section class="chapter-section">
+      <h2>Законы о шерсти</h2>
+      
+      <div class="wool-section">
+        <div class="wool-title">
+          <span style="font-size: var(--text-xl);">⚖️</span>
+          <h3 style="margin: 0;">«Написаны кровью»</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-3);">
+          Владельцы шерстяных мануфактур добились невероятно жестоких законов:
+        </p>
+        
+        <ul class="wool-laws">
+          <li>
+            <strong>Елизавета, 8-й год:</strong> Вывоз овец — конфискация имущества, год тюрьмы, 
+            отсечение левой руки. Второй раз — смертная казнь.
+          </li>
+          <li>
+            <strong>Карл II, 13-14-й год:</strong> Вывоз шерсти — государственная измена, смертная казнь.
+          </li>
+          <li>
+            <strong>Вильгельм III:</strong> Штраф 3 шилл. за фунт шерсти (в 4-5 раз выше стоимости!).
+          </li>
+          <li>
+            Внутренняя торговля шерстью — огромное количество ограничений.
+          </li>
+        </ul>
+        
+        <div class="key-insight" style="margin-top: var(--space-4);">
+          <p style="margin-bottom: 0; font-size: var(--text-sm);">
+            <strong>Смит:</strong> «Эти законы, как и законы Дракона, можно сказать, написаны все кровью». 
+            Даже самые суровые налоговые законы мягки в сравнении!
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Producer vs Consumer -->
+    <section class="chapter-section">
+      <h2>Производитель vs Потребитель</h2>
+      
+      <div class="conflict-section">
+        <div class="conflict-grid">
+          <div class="conflict-box producer">
+            <div class="conflict-header">
+              <span class="conflict-icon">🏭</span>
+              <span class="conflict-title">Мануфактуристы</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Хотят покупать сырьё дешевле</li>
+              <li>Хотят продавать готовое дороже</li>
+              <li>Имеют влияние на законодательство</li>
+              <li>Получают монополии</li>
+            </ul>
+          </div>
+          
+          <div class="conflict-box consumer">
+            <div class="conflict-header">
+              <span class="conflict-icon">👥</span>
+              <span class="conflict-title">Бедные производители сырья</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Прядильщики — бедные женщины</li>
+              <li>Разбросаны по стране</li>
+              <li>Не имеют защиты</li>
+              <li>Их интересы в пренебрежении</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Меркантилистическая система поощряет главным образом промышленность, 
+          которая ведётся в пользу богатых и сильных. 
+          Та промышленность, которая ведётся в интересах бедных и нуждающихся, 
+          слишком часто оказывается в пренебрении или стесняется.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 4: Verdict -->
+    <section class="chapter-section">
+      <h2>Приговор Смита</h2>
+      
+      <div class="verdict-section">
+        <div class="verdict-title">
+          <span style="font-size: var(--text-xl);">⚖️</span>
+          <h3 style="margin: 0;">Несправедливость системы</h3>
+        </div>
+        
+        <ul style="margin: 0; padding-left: var(--space-5); font-size: var(--text-sm);">
+          <li>
+            <strong>Причинять ущерб одному классу ради выгоды другого</strong> — 
+            противоречит справедливости государя ко всем подданным.
+          </li>
+          <li>
+            <strong>Запрет вывоза шерсти</strong> — выгоден мануфактуристам, 
+            но вредит овцеводам.
+          </li>
+          <li>
+            <strong>Миф об английской шерсти:</strong> Утверждали, что без неё нельзя 
+            делать тонкое сукно. На самом деле — испанская шерсть лучше!
+          </li>
+          <li>
+            <strong>Результат запретов:</strong> Цена шерсти упала ниже естественного уровня.
+          </li>
+        </ul>
+        
+        <div style="margin-top: var(--space-4); padding: var(--space-3); background: var(--color-bg-card); border-radius: var(--radius-md);">
+          <h4 style="margin-bottom: var(--space-2);">💡 Справедливая альтернатива:</h4>
+          <p style="margin: 0; font-size: var(--text-sm);">
+            Вместо полного запрета — умеренная пошлина на вывоз. 
+            Это защитило бы интересы мануфактуристов, но не разоряло бы овцеводов.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Меркантилизм запрещает вывоз сырья, поощряет ввоз</li>
+          <li>Законы о шерсти — одни из самых жестоких в истории</li>
+          <li>Система работает на богатых против бедных</li>
+          <li>Миф об уникальности английской шерсти — ложь</li>
+          <li>Запреты снизили цену шерсти ниже естественного уровня</li>
+          <li>Справедливая альтернатива — умеренные пошлины, не запреты</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book4-chapter07.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава VII: О колониях</span>
+          </div>
+        </a>
+        <a href="book4-chapter09.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава IX: О земледельческих системах</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

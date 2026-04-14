@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Введение и план сочинения — Адам Смит, Исследование о природе и причинах богатства народов">
+  
+  <title>Введение — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    .book-overview {
+      display: grid;
+      gap: var(--space-4);
+      margin: var(--space-8) 0;
+    }
+    
+    .book-card {
+      position: relative;
+      padding: var(--space-6);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      border-left: 4px solid var(--color-primary);
+      transition: all var(--transition-fast);
+    }
+    
+    .book-card:hover {
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .book-card-number {
+      position: absolute;
+      top: var(--space-4);
+      right: var(--space-4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: var(--text-lg);
+    }
+    
+    .book-card h3 {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-2);
+      padding-right: var(--space-10);
+    }
+    
+    .book-card-subtitle {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-3);
+    }
+    
+    .book-card p {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-bottom: 0;
+    }
+    
+    .factors-diagram {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-4);
+      align-items: center;
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    @media (max-width: 768px) {
+      .factors-diagram {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+    
+    .factor-box {
+      padding: var(--space-6);
+      background: var(--color-bg-card);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .factor-box.highlight {
+      border-color: var(--color-accent);
+      background: linear-gradient(135deg, var(--color-bg-card) 0%, #fef3e2 100%);
+    }
+    
+    .factor-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-3);
+    }
+    
+    .factor-title {
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: var(--space-2);
+    }
+    
+    .factor-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    .factor-plus {
+      font-size: var(--text-3xl);
+      color: var(--color-accent);
+      font-weight: 700;
+    }
+    
+    .result-box {
+      padding: var(--space-4) var(--space-6);
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      margin-top: var(--space-4);
+    }
+    
+    .key-insight {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #fef3e2 0%, #f0fdf4 100%);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .key-insight h3 {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-3);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Введение</span>
+      </div>
+      <h1 class="chapter-title">Введение и план сочинения</h1>
+      <div class="chapter-summary">
+        <p>Обзор структуры и основных тем исследования о богатстве народов. Смит формулирует ключевую проблему и намечает план всех пяти книг.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Key Idea -->
+    <section class="chapter-section">
+      <h2>Главный тезис</h2>
+      
+      <blockquote class="important-quote">
+        <p>Годичный труд каждого народа представляет собою первоначальный фонд, который доставляет ему все необходимые для существования и удобства жизни продукты.</p>
+        <cite>— Адам Смит, начало Введения</cite>
+      </blockquote>
+      
+      <p>
+        Благосостояние народа определяется отношением между количеством продуктов труда 
+        и числом потребителей. Это отношение зависит от <strong>двух условий</strong>:
+      </p>
+      
+      <!-- Two Factors Diagram -->
+      <div class="factors-diagram">
+        <div class="factor-box highlight">
+          <div class="factor-icon">⚙️</div>
+          <div class="factor-title">Производительность труда</div>
+          <div class="factor-desc">
+            Искусство, умение и сообразительность, с какими применяется труд
+          </div>
+        </div>
+        
+        <div class="factor-plus">+</div>
+        
+        <div class="factor-box">
+          <div class="factor-icon">👥</div>
+          <div class="factor-title">Соотношение работников</div>
+          <div class="factor-desc">
+            Отношение числа занятых полезным трудом к числу незанятых
+          </div>
+        </div>
+      </div>
+      
+      <div class="result-box">
+        <strong>= Благосостояние народа</strong>
+      </div>
+      
+      <div class="key-insight">
+        <h3>💡 Ключевое наблюдение</h3>
+        <p>
+          Смит отмечает, что <strong>цивилизованные народы богаче диких</strong>, 
+          хотя у них больше неработающих людей. Причина — значительно более высокая 
+          производительность труда. Даже беднейший работник в цивилизованной стране 
+          живёт лучше, чем «африканский царь».
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Comparison -->
+    <section class="chapter-section">
+      <h2>Цивилизованные vs дикие народы</h2>
+      
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Характеристика</th>
+              <th>Дикие народы</th>
+              <th>Цивилизованные</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Занятость</td>
+              <td>Все способные к труду работают</td>
+              <td>Многие не работают</td>
+            </tr>
+            <tr>
+              <td>Производительность</td>
+              <td><span class="badge badge-low">Низкая</span></td>
+              <td><span class="badge badge-high">Высокая</span></td>
+            </tr>
+            <tr>
+              <td>Уровень жизни</td>
+              <td>Ужасная бедность</td>
+              <td>Изобилие</td>
+            </tr>
+            <tr>
+              <td>Беднейший работник</td>
+              <td>Голод, нищета</td>
+              <td>Больше удобств, чем дикарь</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p class="text-muted text-sm">
+        Парадокс: у цивилизованных народов многие потребляют в 10-100 раз больше труда, 
+        чем производят, но общий продукт настолько велик, что хватает всем.
+      </p>
+    </section>
+    
+    <!-- Section 3: Book Structure -->
+    <section class="chapter-section">
+      <h2>Структура сочинения</h2>
+      
+      <p class="section-intro">
+        Смит намечает план всего исследования, которое разделено на пять книг.
+      </p>
+      
+      <div class="book-overview">
+        
+        <div class="book-card">
+          <span class="book-card-number">1</span>
+          <h3>Книга 1</h3>
+          <p class="book-card-subtitle">Причины увеличения производительности труда</p>
+          <p>
+            Разделение труда, его причины и ограничения. Происхождение денег. 
+            Цена товаров: действительная и номинальная. Заработная плата, прибыль, рента.
+          </p>
+        </div>
+        
+        <div class="book-card">
+          <span class="book-card-number">2</span>
+          <h3>Книга 2</h3>
+          <p class="book-card-subtitle">О природе капитала</p>
+          <p>
+            Природа и накопление капитала. Деньги как часть запасов общества. 
+            Производительный и непроизводительный труд. Ссудный процент и помещения капиталов.
+          </p>
+        </div>
+        
+        <div class="book-card">
+          <span class="book-card-number">3</span>
+          <h3>Книга 3</h3>
+          <p class="book-card-subtitle">Развитие благосостояния у разных народов</p>
+          <p>
+            Естественное развитие благосостояния. Препятствия развитию земледелия в Европе. 
+            Роль городов и их влияние на сельские местности.
+          </p>
+        </div>
+        
+        <div class="book-card">
+          <span class="book-card-number">4</span>
+          <h3>Книга 4</h3>
+          <p class="book-card-subtitle">Системы политической экономии</p>
+          <p>
+            Меркантилистическая система и её критика. Ограничения торговли, премии, 
+            колонии. Земледельческие системы (физиократия).
+          </p>
+        </div>
+        
+        <div class="book-card">
+          <span class="book-card-number">5</span>
+          <h3>Книга 5</h3>
+          <p class="book-card-subtitle">О доходах государя или государства</p>
+          <p>
+            Расходы государства. Источники государственного дохода. Налоги. 
+            Государственные долги и их влияние на богатство общества.
+          </p>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Section 4: Key Terms -->
+    <section class="chapter-section">
+      <h2>Ключевые понятия</h2>
+      
+      <div class="idea-cards grid gap-4 md:grid-cols-2">
+        
+        <div class="idea-card">
+          <div class="idea-icon">💰</div>
+          <h3>Годичный труд</h3>
+          <p>Первоначальный фонд, обеспечивающий народ всем необходимым. Основа богатства.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">📈</div>
+          <h3>Производительность</h3>
+          <p>Искусство, умение и сообразительность в применении труда. Главный фактор роста.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🏭</div>
+          <h3>Капитал</h3>
+          <p>Определяет число полезных работников и способ применения труда.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🏛️</div>
+          <h3>Политическая экономия</h3>
+          <p>Наука о богатстве народов, которую Смит закладывает как систематическую дисциплину.</p>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Section 5: Navigation -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Труд — источник богатства народов</li>
+          <li>Два фактора благосостояния: производительность труда и доля работников</li>
+          <li>Цивилизация = рост производительности, а не просто трудолюбие</li>
+          <li>Книга систематически охватывает все аспекты экономической жизни</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="../index.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Назад</span>
+            <span class="nav-title">Оглавление</span>
+          </div>
+        </a>
+        <a href="book1-chapter01.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава I: О разделении труда</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

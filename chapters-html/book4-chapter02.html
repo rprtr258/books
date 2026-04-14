@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 4, Глава II: Об ограничении ввоза — Адам Смит, Богатство народов">
+  
+  <title>Книга 4, Глава II: Ограничение ввоза — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Monopoly Section */
+    .monopoly-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .monopoly-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    /* Invisible Hand */
+    .invisible-hand-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+      border-radius: var(--radius-lg);
+    }
+    
+    .invisible-hand-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .invisible-hand-quote {
+      font-style: italic;
+      font-size: var(--text-lg);
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      border-left: 4px solid #38a169;
+    }
+    
+    /* Household Analogy */
+    .household-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .household-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .household-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .household-card {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .household-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .household-role {
+      font-weight: 700;
+      margin-bottom: var(--space-1);
+    }
+    
+    .household-action {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Comparison */
+    .comparison-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .comparison-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .comparison-table th,
+    .comparison-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .comparison-table th {
+      background: var(--color-bg-section);
+      font-weight: 600;
+    }
+    
+    .comparison-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    /* Exceptions */
+    .exceptions-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .exceptions-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .exceptions-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .exception-card {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .exception-card.defense {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .exception-card.retaliation {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .exception-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
+    }
+    
+    .exception-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .exception-title {
+      font-weight: 700;
+    }
+    
+    .exception-card.defense .exception-title { color: #2c5282; }
+    .exception-card.retaliation .exception-title { color: #975a16; }
+    
+    .exception-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Navigation Acts */
+    .navigation-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .navigation-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .navigation-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .navigation-list li {
+      padding: var(--space-2) 0;
+      padding-left: var(--space-6);
+      position: relative;
+      font-size: var(--text-sm);
+    }
+    
+    .navigation-list li::before {
+      content: "⚓";
+      position: absolute;
+      left: 0;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 4</span>
+        <span class="chapter-number">Глава II</span>
+      </div>
+      <h1 class="chapter-title">Об ограничении ввоза из-за границы</h1>
+      <div class="chapter-summary">
+        <p>Ограничения создают монополию, но не увеличивают общее богатство. Знаменитая «невидимая рука» — каждый,追求уя свою выгоду, служит обществу.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Monopoly -->
+    <section class="chapter-section">
+      <h2>Монополия внутреннего рынка</h2>
+      
+      <div class="monopoly-section">
+        <div class="monopoly-title">
+          <span style="font-size: var(--text-xl);">🔒</span>
+          <h3 style="margin: 0;">Как работают ограничения</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-3);">
+          Высокие пошлины или запрет на ввоз создают монополию для отечественных производителей:
+        </p>
+        
+        <div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-3);">
+          <div style="text-align: center; padding: var(--space-2); background: var(--color-bg-card); border-radius: var(--radius-md);">
+            <strong>🐄 Скот</strong><br>
+            <span style="font-size: var(--text-xs);">Запрет ввоза</span>
+          </div>
+          <div style="text-align: center; padding: var(--space-2); background: var(--color-bg-card); border-radius: var(--radius-md);">
+            <strong>🌾 Хлеб</strong><br>
+            <span style="font-size: var(--text-xs);">Высокие пошлины</span>
+          </div>
+          <div style="text-align: center; padding: var(--space-2); background: var(--color-bg-card); border-radius: var(--radius-md);">
+            <strong>🧵 Шерсть</strong><br>
+            <span style="font-size: var(--text-xs);">Запрет ввоза тканей</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          ⚠️ Ограничения не увеличивают общую промышленность
+        </h3>
+        <p style="margin-bottom: 0;">
+          Вся промышленность общества ограничена размером капитала. 
+          Ограничения лишь перенаправляют капитал, но не увеличивают его. 
+          Искусственное направление не всегда выгоднее естественного.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Invisible Hand -->
+    <section class="chapter-section">
+      <h2>Невидимая рука</h2>
+      
+      <div class="invisible-hand-section">
+        <div class="invisible-hand-title">
+          <span style="font-size: var(--text-2xl);">✋</span>
+          <h3 style="margin: 0;">Самая известная идея Смита</h3>
+        </div>
+        
+        <div class="invisible-hand-quote">
+          «Обычно он не имеет в виду содействовать общественной пользе и не сознает, 
+          насколько он содействует ей. Преследуя свои собственные интересы, 
+          он часто более действительным образом служит интересам общества, 
+          чем тогда, когда сознательно стремится делать это. 
+          <strong>Невидимой рукой</strong> направляется он к цели, 
+          которая совсем и не входила в его намерения.»
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4); color: var(--color-text-light);">
+          Каждый стремится приложить капитал ближе к дому и так, 
+          чтобы продукт имел максимальную стоимость. 
+          Это автоматически максимизирует годовой доход общества!
+        </p>
+      </div>
+      
+      <div style="margin-top: var(--space-6); padding: var(--space-4); background: var(--color-bg-section); border-radius: var(--radius-lg);">
+        <h4 style="margin-bottom: var(--space-2);">📊 Порядок выгодности капитала:</h4>
+        <ol style="margin: 0; padding-left: var(--space-6); font-size: var(--text-sm);">
+          <li><strong>Внутренняя торговля</strong> — капитал под контролем, больше рабочих</li>
+          <li><strong>Внешняя торговля</strong> — часть капитала за границей</li>
+          <li><strong>Транзитная торговля</strong> — весь капитал за границей</li>
+        </ol>
+      </div>
+    </section>
+    
+    <!-- Section 3: Household Analogy -->
+    <section class="chapter-section">
+      <h2>Правило благоразумной семьи</h2>
+      
+      <div class="household-section">
+        <div class="household-grid">
+          <div class="household-card">
+            <div class="household-icon">👔</div>
+            <div class="household-role">Портной</div>
+            <div class="household-action">Не шьёт себе сапоги — покупает у сапожника</div>
+          </div>
+          
+          <div class="household-card">
+            <div class="household-icon">👢</div>
+            <div class="household-role">Сапожник</div>
+            <div class="household-action">Не шьёт себе одежду — покупает у портного</div>
+          </div>
+          
+          <div class="household-card">
+            <div class="household-icon">🌾</div>
+            <div class="household-role">Фермер</div>
+            <div class="household-action">Не шьёт ни того, ни другого — покупает у обоих</div>
+          </div>
+        </div>
+        
+        <div class="key-insight" style="margin-top: var(--space-6);">
+          <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+            💡 Аналогия для королевства
+          </h3>
+          <p style="margin-bottom: 0;">
+            То, что разумно для семьи, разумно и для страны. 
+            Если другая страна может снабдить нас товаром дешевле — 
+            лучше купить у неё, чем производить самим.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 4: Natural Advantages -->
+    <section class="chapter-section">
+      <h2>Естественные и приобретённые преимущества</h2>
+      
+      <div class="comparison-section">
+        <table class="comparison-table">
+          <thead>
+            <tr>
+              <th>Тип преимущества</th>
+              <th>Пример</th>
+              <th>Вывод</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>🌿 Естественное</strong></td>
+              <td>Франция — вино, Шотландия — нет</td>
+              <td>Покупать у Франции</td>
+            </tr>
+            <tr>
+              <td><strong>🏭 Приобретённое</strong></td>
+              <td>Ремесленник перед соседями</td>
+              <td>Покупать друг у друга</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Будет ли разумным закон, запрещающий ввоз заграничных вин 
+          исключительно для поощрения производства вина в Шотландии? 
+          Можно выращивать виноград в теплицах — но вино будет стоить в 30 раз дороже!
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+      
+      <div style="margin-top: var(--space-6); padding: var(--space-4); background: #f0fff4; border: 2px solid #38a169; border-radius: var(--radius-lg);">
+        <h4 style="margin-bottom: var(--space-2);">🌾 Фермеры vs Купцы</h4>
+        <p style="font-size: var(--text-sm); margin-bottom: 0;">
+          <strong>Фермеры и землевладельцы</strong> — благородный класс. 
+          Не имеют секретов, содействуют улучшениям соседей. 
+          <strong>Купцы и мануфактуристы</strong> — корпоративный дух монополии. 
+          Боятся конкуренции даже в соседнем городе.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: Two Exceptions -->
+    <section class="chapter-section">
+      <h2>Два исключения</h2>
+      
+      <div class="exceptions-section">
+        <div class="exceptions-grid">
+          <div class="exception-card defense">
+            <div class="exception-header">
+              <span class="exception-icon">⚔️</span>
+              <span class="exception-title">1. Оборона страны</span>
+            </div>
+            <div class="exception-desc">
+              Если отрасль необходима для обороны — 
+              ограничения оправданы. 
+              <strong>Навигационный акт</strong> — монополия для британских моряков и судов.
+            </div>
+          </div>
+          
+          <div class="exception-card retaliation">
+            <div class="exception-header">
+              <span class="exception-icon">🔄</span>
+              <span class="exception-title">2. Ответные меры</span>
+            </div>
+            <div class="exception-desc">
+              Если иностранная страна облагает наши товары пошлинами — 
+              можно ответить тем же. 
+              Цель — добиться отмены чужих ограничений.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="navigation-section" style="margin-top: var(--space-6);">
+        <div class="navigation-title">
+          <span style="font-size: var(--text-xl);">⚓</span>
+          <h3 style="margin: 0;">Навигационный акт (Кромвель)</h3>
+        </div>
+        
+        <ul class="navigation-list">
+          <li>
+            <strong>Только британские суда</strong> — владельцы, капитан и ¾ команды — британские подданные
+          </li>
+          <li>
+            <strong>Громоздкие товары</strong> — только на британских судах или судах страны-производителя
+          </li>
+          <li>
+            <strong>Запрет на голландцев</strong> — они были главными перевозчиками Европы
+          </li>
+          <li>
+            <strong>Двойные пошлины</strong> — на рыбу, китовый ус, ворвань не с британских судов
+          </li>
+        </ul>
+        
+        <p style="font-size: var(--text-sm); margin-top: var(--space-3); color: var(--color-text-light);">
+          Смит: Навигационный акт <strong>невыгоден экономически</strong>, 
+          но <strong>необходим для обороны</strong>. 
+          «Оборона важнее обогащения».
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Ограничения ввоза создают монополию, но не увеличивают общее богатство</li>
+          <li>«Невидимая рука» — каждый, преследуя свою выгоду, служит обществу</li>
+          <li>Правило семьи: не делать то, что дешевле купить</li>
+          <li>Естественные и приобретённые преимущества — оба оправдывают торговлю</li>
+          <li>Купцы и мануфактуристы больше всех хотят монополий</li>
+          <li>Два исключения: оборона и ответные меры</li>
+          <li>Навигационный акт — защита британского судоходства</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book4-chapter01.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава I: О принципах меркантилизма</span>
+          </div>
+        </a>
+        <a href="book4-chapter03.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава III: Об исключительных ограничениях</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

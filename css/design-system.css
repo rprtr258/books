@@ -1,0 +1,496 @@
+/* ===========================================
+   ДИЗАЙН-СИСТЕМА
+   «Исследование о природе и причинах богатства народов»
+   Адам Смит
+   =========================================== */
+
+/* -------------------------------------------
+   1. CSS CUSTOM PROPERTIES (Переменные)
+   ------------------------------------------- */
+
+:root {
+  /* === Цвета === */
+
+  /* Основные */
+  --color-primary: #1a365d;          /* Глубокий синий — заголовки */
+  --color-primary-light: #2c5282;    /* Светлый синий */
+  --color-primary-dark: #0f2942;     /* Тёмный синий */
+
+  /* Акцентные */
+  --color-accent: #b7410e;           /* Медный — кнопки, интерактив */
+  --color-accent-light: #dd6b20;     /* Светлый медный */
+  --color-accent-dark: #9c3410;      /* Тёмный медный */
+
+  /* Фоновые */
+  --color-bg-main: #f8f4e9;          /* Тёплый бежевый — основной фон */
+  --color-bg-card: #ffffff;          /* Белый — карточки */
+  --color-bg-section: #fffaf3;       /* Кремовый — секции */
+  --color-bg-code: #f7f5f0;          /* Для кода и цитат */
+
+  /* Текстовые */
+  --color-text-main: #2d3748;        /* Основной текст */
+  --color-text-light: #4a5568;       /* Вторичный текст */
+  --color-text-muted: #718096;       /* Приглушённый текст */
+  --color-text-inverse: #ffffff;     /* Текст на тёмном фоне */
+
+  /* Смысловые */
+  --color-success: #276749;          /* Успех */
+  --color-warning: #c05621;          /* Предупреждение */
+  --color-error: #c53030;            /* Ошибка */
+  --color-info: #2b6cb0;             /* Информация */
+
+  /* Границы и тени */
+  --color-border: #e2d9c8;           /* Границы */
+  --color-border-light: #f0e9db;     /* Светлые границы */
+  --shadow-sm: 0 1px 3px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --shadow-lg: 0 10px 25px rgba(0, 0, 0, 0.12);
+  --shadow-card: 0 2px 8px rgba(0, 0, 0, 0.06);
+
+  /* === Типографика === */
+
+  /* Шрифты */
+  --font-heading: 'IBM Plex Serif', 'Georgia', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* Размеры */
+  --text-xs: 0.75rem;      /* 12px */
+  --text-sm: 0.875rem;     /* 14px */
+  --text-base: 1rem;       /* 16px */
+  --text-lg: 1.125rem;     /* 18px */
+  --text-xl: 1.25rem;      /* 20px */
+  --text-2xl: 1.5rem;      /* 24px */
+  --text-3xl: 1.875rem;    /* 30px */
+  --text-4xl: 2.25rem;     /* 36px */
+  --text-5xl: 3rem;        /* 48px */
+
+  /* Межстрочный интервал */
+  --leading-tight: 1.25;
+  --leading-normal: 1.5;
+  --leading-relaxed: 1.75;
+  --leading-loose: 2;
+
+  /* === Отступы === */
+  --space-1: 0.25rem;      /* 4px */
+  --space-2: 0.5rem;       /* 8px */
+  --space-3: 0.75rem;      /* 12px */
+  --space-4: 1rem;         /* 16px */
+  --space-5: 1.25rem;      /* 20px */
+  --space-6: 1.5rem;       /* 24px */
+  --space-8: 2rem;         /* 32px */
+  --space-10: 2.5rem;      /* 40px */
+  --space-12: 3rem;        /* 48px */
+  --space-16: 4rem;        /* 64px */
+  --space-20: 5rem;        /* 80px */
+
+  /* === Размеры === */
+
+  /* Контейнер */
+  --container-sm: 640px;
+  --container-md: 768px;
+  --container-lg: 1024px;
+  --container-xl: 1280px;
+  /* --container-reading: 720px;  Оптимальная ширина для чтения */
+  --container-reading: 70%;
+
+  /* Border radius */
+  --radius-sm: 0.25rem;
+  --radius-md: 0.5rem;
+  --radius-lg: 0.75rem;
+  --radius-xl: 1rem;
+  --radius-full: 9999px;
+
+  /* === Анимации === */
+  --transition-fast: 150ms ease;
+  --transition-normal: 250ms ease;
+  --transition-slow: 400ms ease;
+
+  /* === Z-index === */
+  --z-dropdown: 100;
+  --z-sticky: 200;
+  --z-fixed: 300;
+  --z-modal-backdrop: 400;
+  --z-modal: 500;
+  --z-tooltip: 600;
+}
+
+/* -------------------------------------------
+   2. RESET И БАЗОВЫЕ СТИЛИ
+   ------------------------------------------- */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: var(--font-body);
+  font-size: var(--text-base);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-main);
+  background-color: var(--color-bg-main);
+  min-height: 100vh;
+}
+
+img, picture, video, canvas, svg {
+  display: block;
+  max-width: 100%;
+}
+
+input, button, textarea, select {
+  font: inherit;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+  overflow-wrap: break-word;
+}
+
+/* -------------------------------------------
+   3. ТИПОГРАФИКА
+   ------------------------------------------- */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: var(--leading-tight);
+  color: var(--color-primary);
+}
+
+h1 {
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-6);
+}
+
+h2 {
+  font-size: var(--text-3xl);
+  margin-bottom: var(--space-5);
+}
+
+h3 {
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-4);
+}
+
+h4 {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-3);
+}
+
+h5 {
+  font-size: var(--text-lg);
+  margin-bottom: var(--space-2);
+}
+
+h6 {
+  font-size: var(--text-base);
+  margin-bottom: var(--space-2);
+}
+
+p {
+  margin-bottom: var(--space-4);
+  /* max-width: 70ch; Оптимальная длина строки для чтения */
+}
+
+p:last-child {
+  margin-bottom: 0;
+}
+
+/* Ссылки */
+a {
+  color: var(--color-accent);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: var(--color-accent-dark);
+  text-decoration: underline;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--color-accent);
+  outline-offset: 2px;
+  border-radius: var(--radius-sm);
+}
+
+/* Выделение */
+::selection {
+  background-color: var(--color-accent);
+  color: var(--color-text-inverse);
+}
+
+/* Списки */
+ul, ol {
+  margin-bottom: var(--space-4);
+  padding-left: var(--space-6);
+}
+
+li {
+  margin-bottom: var(--space-2);
+}
+
+/* Цитаты */
+blockquote {
+  margin: var(--space-6) 0;
+  padding: var(--space-4) var(--space-6);
+  border-left: 4px solid var(--color-accent);
+  background-color: var(--color-bg-section);
+  font-style: italic;
+  color: var(--color-text-light);
+}
+
+blockquote p {
+  margin-bottom: 0;
+}
+
+blockquote cite {
+  display: block;
+  margin-top: var(--space-2);
+  font-style: normal;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* Код */
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+code {
+  padding: var(--space-1) var(--space-2);
+  background-color: var(--color-bg-code);
+  border-radius: var(--radius-sm);
+}
+
+pre {
+  margin: var(--space-4) 0;
+  padding: var(--space-4);
+  background-color: var(--color-bg-code);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+}
+
+pre code {
+  padding: 0;
+  background: none;
+}
+
+/* Горизонтальная линия */
+hr {
+  margin: var(--space-8) 0;
+  border: none;
+  border-top: 1px solid var(--color-border);
+}
+
+/* -------------------------------------------
+   4. УТИЛИТЫ
+   ------------------------------------------- */
+
+/* Контейнер */
+.container {
+  width: 100%;
+  max-width: var(--container-xl);
+  margin: 0 auto;
+  padding: 0 var(--space-4);
+}
+
+.container-reading {
+  max-width: var(--container-reading);
+}
+
+/* Текст */
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+.text-sm { font-size: var(--text-sm); }
+.text-lg { font-size: var(--text-lg); }
+.text-xl { font-size: var(--text-xl); }
+
+.text-muted { color: var(--color-text-muted); }
+.text-light { color: var(--color-text-light); }
+.text-primary { color: var(--color-primary); }
+.text-accent { color: var(--color-accent); }
+
+.font-heading { font-family: var(--font-heading); }
+.font-body { font-family: var(--font-body); }
+.font-mono { font-family: var(--font-mono); }
+
+.font-normal { font-weight: 400; }
+.font-medium { font-weight: 500; }
+.font-semibold { font-weight: 600; }
+.font-bold { font-weight: 700; }
+
+/* Отступы */
+.mt-4 { margin-top: var(--space-4); }
+.mt-6 { margin-top: var(--space-6); }
+.mt-8 { margin-top: var(--space-8); }
+.mb-4 { margin-bottom: var(--space-4); }
+.mb-6 { margin-bottom: var(--space-6); }
+.mb-8 { margin-bottom: var(--space-8); }
+
+.py-4 { padding-top: var(--space-4); padding-bottom: var(--space-4); }
+.py-8 { padding-top: var(--space-8); padding-bottom: var(--space-8); }
+.py-12 { padding-top: var(--space-12); padding-bottom: var(--space-12); }
+
+/* Flexbox */
+.flex { display: flex; }
+.flex-col { flex-direction: column; }
+.flex-wrap { flex-wrap: wrap; }
+.items-center { align-items: center; }
+.items-start { align-items: flex-start; }
+.items-end { align-items: flex-end; }
+.justify-center { justify-content: center; }
+.justify-between { justify-content: space-between; }
+.justify-end { justify-content: flex-end; }
+.gap-2 { gap: var(--space-2); }
+.gap-4 { gap: var(--space-4); }
+.gap-6 { gap: var(--space-6); }
+
+/* Grid */
+.grid { display: grid; }
+.grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+.grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+
+/* Скрытие */
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+.hidden { display: none !important; }
+
+/* -------------------------------------------
+   5. АДАПТИВНОСТЬ
+   ------------------------------------------- */
+
+/* Mobile-first подход */
+
+/* Tablet (768px+) */
+@media (min-width: 768px) {
+  :root {
+    --text-4xl: 2.5rem;
+    --text-5xl: 3.5rem;
+  }
+
+  .md\:grid-cols-2 { grid-template-columns: repeat(2, 1fr); }
+  .md\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .md\:flex-row { flex-direction: row; }
+  .md\:text-left { text-align: left; }
+}
+
+/* Desktop (1024px+) */
+@media (min-width: 1024px) {
+  :root {
+    --text-4xl: 3rem;
+    --text-5xl: 4rem;
+  }
+
+  .lg\:grid-cols-3 { grid-template-columns: repeat(3, 1fr); }
+  .lg\:grid-cols-4 { grid-template-columns: repeat(4, 1fr); }
+}
+
+/* Large Desktop (1280px+) */
+@media (min-width: 1280px) {
+  .container {
+    padding: 0 var(--space-8);
+  }
+}
+
+/* Print */
+@media print {
+  body {
+    background: white;
+    color: black;
+  }
+
+  .no-print {
+    display: none !important;
+  }
+}
+
+/* -------------------------------------------
+   6. АНИМАЦИИ
+   ------------------------------------------- */
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.animate-fade-in {
+  animation: fadeIn var(--transition-normal);
+}
+
+.animate-slide-up {
+  animation: slideUp var(--transition-slow);
+}
+
+.animate-slide-down {
+  animation: slideDown var(--transition-slow);
+}
+
+/* Плавное появление при скролле (требует JS) */
+.fade-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.fade-on-scroll.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

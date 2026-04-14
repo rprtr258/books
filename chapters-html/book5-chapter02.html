@@ -1,0 +1,474 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 5, Глава II: О государственных доходах — Адам Смит, Богатство народов">
+  
+  <title>Книга 5, Глава II: Государственные доходы — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Revenue Sources */
+    .sources-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .sources-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .sources-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .source-card {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .source-card.state {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .source-card.people {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .source-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .source-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .source-title {
+      font-weight: 700;
+    }
+    
+    .source-card.state .source-title { color: #2c5282; }
+    .source-card.people .source-title { color: #276749; }
+    
+    /* Four Maxims */
+    .maxims-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .maxims-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .maxims-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    
+    .maxim-item {
+      display: flex;
+      gap: var(--space-3);
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--color-primary);
+    }
+    
+    .maxim-num {
+      min-width: 32px;
+      height: 32px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    
+    .maxim-content {
+      flex: 1;
+    }
+    
+    .maxim-title {
+      font-weight: 700;
+      margin-bottom: var(--space-1);
+    }
+    
+    .maxim-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Tax Types */
+    .tax-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .tax-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .tax-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .tax-card {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .tax-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
+    }
+    
+    .tax-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .tax-title {
+      font-weight: 700;
+    }
+    
+    .tax-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 5</span>
+        <span class="chapter-number">Глава II</span>
+      </div>
+      <h1 class="chapter-title">О государственных доходах</h1>
+      <div class="chapter-summary">
+        <p>Два источника: доходы государства и налоги. Четыре принпа налогообложения. Виды налогов.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Revenue Sources -->
+    <section class="chapter-section">
+      <h2>Источники государственных доходов</h2>
+      
+      <div class="sources-section">
+        <div class="sources-grid">
+          <div class="source-card state">
+            <div class="source-header">
+              <span class="source-icon">🏛️</span>
+              <span class="source-title">Доходы государства</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li><strong>Капитал:</strong> прибыль или проценты</li>
+              <li><strong>Земля:</strong> рента с государственных земель</li>
+              <li><strong>Торговля:</strong> почта, банки, монополии</li>
+              <li><strong>Проблема:</strong> государство плохой коммерсант</li>
+            </ul>
+          </div>
+          
+          <div class="source-card people">
+            <div class="source-header">
+              <span class="source-icon">👥</span>
+              <span class="source-title">Налоги с народа</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li><strong>С ренты:</strong> земельный налог</li>
+              <li><strong>С прибыли:</strong> налог на капитал</li>
+              <li><strong>С зарплаты:</strong> подоходный налог</li>
+              <li><strong>С потребления:</strong> акцизы, пошлины</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Государство — плохой коммерсант
+        </h3>
+        <p style="margin-bottom: 0;">
+          Агенты государя считают его казну неисчерпаемой. 
+          Покупают дорого, продают дёшево, живут широко. 
+          Ост-Индская компания стала плохим торговцем, когда получила права государя.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Four Maxims -->
+    <section class="chapter-section">
+      <h2>Четыре принципа налогообложения</h2>
+      
+      <div class="maxims-section">
+        <div class="maxims-title">
+          <span style="font-size: var(--text-xl);">📜</span>
+          <h3 style="margin: 0;">Знаменитые «максимы» Смита</h3>
+        </div>
+        
+        <div class="maxims-list">
+          <div class="maxim-item">
+            <div class="maxim-num">I</div>
+            <div class="maxim-content">
+              <div class="maxim-title">Равенство</div>
+              <div class="maxim-desc">
+                Подданные должны участвовать в содержании правительства 
+                соответственно своей способности и доходу.
+              </div>
+            </div>
+          </div>
+          
+          <div class="maxim-item">
+            <div class="maxim-num">II</div>
+            <div class="maxim-content">
+              <div class="maxim-title">Определённость</div>
+              <div class="maxim-desc">
+                Налог должен быть точно определён, а не произволен. 
+                Срок, способ, сумма — всё ясно для плательщика.
+              </div>
+            </div>
+          </div>
+          
+          <div class="maxim-item">
+            <div class="maxim-num">III</div>
+            <div class="maxim-content">
+              <div class="maxim-title">Удобство</div>
+              <div class="maxim-desc">
+                Налог должен взиматься в то время и тем способом, 
+                когда плательщику удобнее всего платить.
+              </div>
+            </div>
+          </div>
+          
+          <div class="maxim-item">
+            <div class="maxim-num">IV</div>
+            <div class="maxim-content">
+              <div class="maxim-title">Экономия</div>
+              <div class="maxim-desc">
+                Налог должен брать из карманов народа как можно меньше 
+                сверх того, что приносит казне.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Tax Types -->
+    <section class="chapter-section">
+      <h2>Виды налогов</h2>
+      
+      <div class="tax-section">
+        <div class="tax-grid">
+          <div class="tax-card">
+            <div class="tax-header">
+              <span class="tax-icon">🌾</span>
+              <span class="tax-title">Налог на ренту</span>
+            </div>
+            <div class="tax-desc">
+              Земельный налог. Можно фиксировать оценку или менять с рентой. 
+              Лучше первый вариант — определённость.
+            </div>
+          </div>
+          
+          <div class="tax-card">
+            <div class="tax-header">
+              <span class="tax-icon">💰</span>
+              <span class="tax-title">Налог на прибыль</span>
+            </div>
+            <div class="tax-desc">
+              Трудно определить размер капитала и прибыли. 
+              Лучше налог на проценты (доход с капитала).
+            </div>
+          </div>
+          
+          <div class="tax-card">
+            <div class="tax-header">
+              <span class="tax-icon">👷</span>
+              <span class="tax-title">Налог на зарплату</span>
+            </div>
+            <div class="tax-desc">
+              Перекладывается на работодателя или потребителя. 
+              Высокие налоги на зарплату вредят промышленности.
+            </div>
+          </div>
+          
+          <div class="tax-card">
+            <div class="tax-header">
+              <span class="tax-icon">🛒</span>
+              <span class="tax-title">Налог на потребление</span>
+            </div>
+            <div class="tax-desc">
+              Акцизы и пошлины. Платит потребитель при покупке. 
+              Удобен: платишь понемногу, по желанию.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Налоги на предметы необходимости повышают зарплату. 
+          Налоги на предметы роскоши падают на богатых. 
+          Лучше облагать роскошь, чем необходимость.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 4: Customs vs Excise -->
+    <section class="chapter-section">
+      <h2>Пошлины vs Акцизы</h2>
+      
+      <table class="comparison-table" style="margin-top: var(--space-4);">
+        <thead>
+          <tr>
+            <th>Характеристика</th>
+            <th>Пошлины</th>
+            <th>Акцизы</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Объект</strong></td>
+            <td>Импортные товары</td>
+            <td>Внутреннее производство</td>
+          </tr>
+          <tr>
+            <td><strong>Определённость</strong></td>
+            <td>Меньше (зависит от товара)</td>
+            <td>Больше (фиксированная ставка)</td>
+          </tr>
+          <tr>
+            <td><strong>Сбор</strong></td>
+            <td>Сложнее (контрабанда)</td>
+            <td>Проще (внутри страны)</td>
+          </tr>
+          <tr>
+            <td><strong>Влияние</strong></td>
+            <td>Монополия внутреннего рынка</td>
+            <td>Налог на потребление</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Итог главы
+        </h3>
+        <p style="margin-bottom: 0;">
+          Налоги необходимы, но должны следовать четырём принципам. 
+          Лучше облагать роскошь, чем необходимость. 
+          Акцизы определённее пошлин. 
+          Государство должно брать минимум сверх того, что идёт в казну.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Два источника доходов: государственная собственность и налоги</li>
+          <li>Государство — плохой коммерсант (агенты расточительны)</li>
+          <li>Четыре принципа: равенство, определённость, удобство, экономия</li>
+          <li>Виды налогов: на ренту, прибыль, зарплату, потребление</li>
+          <li>Лучше облагать роскошь, чем необходимость</li>
+          <li>Акцизы определённее и проще пошлин</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book5-chapter01.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава I: О расходах государя</span>
+          </div>
+        </a>
+        <a href="book5-chapter03.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава III: О государственных долгах</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

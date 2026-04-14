@@ -1,0 +1,528 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 3, Глава III: О возникновении и развитии городов — Адам Смит, Богатство народов">
+  
+  <title>Книга 3, Глава III: О развитии городов — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* City Freedom */
+    .freedom-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+      border-radius: var(--radius-lg);
+    }
+    
+    .freedom-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .freedom-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .freedom-list {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .freedom-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+    }
+    
+    .freedom-icon {
+      font-size: var(--text-lg);
+    }
+    
+    /* Alliance */
+    .alliance-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .alliance-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .alliance-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    .alliance-party {
+      text-align: center;
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      min-width: 120px;
+    }
+    
+    .alliance-party.king {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .alliance-party.city {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .alliance-party.nobles {
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+    }
+    
+    .alliance-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .alliance-name {
+      font-weight: 700;
+    }
+    
+    .alliance-relation {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    
+    /* Manufacturing Origins */
+    .origins-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .origins-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .origins-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .origin-card {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+    }
+    
+    .origin-card.trade {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .origin-card.agriculture {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .origin-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    .origin-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .origin-title {
+      font-weight: 700;
+    }
+    
+    .origin-card.trade .origin-title { color: #2c5282; }
+    .origin-card.agriculture .origin-title { color: #276749; }
+    
+    .origin-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    .origin-examples {
+      margin-top: var(--space-3);
+      padding: var(--space-2);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      font-size: var(--text-xs);
+    }
+    
+    /* City Types */
+    .city-types {
+      margin: var(--space-8) 0;
+    }
+    
+    .types-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .types-table th,
+    .types-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .types-table th {
+      background: var(--color-bg-section);
+      font-weight: 600;
+    }
+    
+    .types-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    /* Italy Example */
+    .italy-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #9f7aea;
+      border-radius: var(--radius-lg);
+    }
+    
+    .italy-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 3</span>
+        <span class="chapter-number">Глава III</span>
+      </div>
+      <h1 class="chapter-title">О возникновении и развитии городов</h1>
+      <div class="chapter-summary">
+        <p>Города получили свободу раньше деревень. Короли дали им права в борьбе против феодалов. Мануфактуры возникли двумя путями: из торговли и из земледелия.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: City Freedom -->
+    <section class="chapter-section">
+      <h2>Свобода городов</h2>
+      
+      <p class="section-intro">
+        После падения Рима горожане были почти крепостными. Но получили свободу раньше деревни:
+      </p>
+      
+      <div class="freedom-section">
+        <div class="freedom-title">
+          <span style="font-size: var(--text-2xl);">🗽</span>
+          <h3 style="margin: 0;">Права вольного города</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Короли давали города в вечный откуп за фиксированную ренту. Город становился «вольным»:
+        </p>
+        
+        <div class="freedom-list">
+          <div class="freedom-item">
+            <span class="freedom-icon">💍</span>
+            <span>Выдавать дочерей замуж без согласия господина</span>
+          </div>
+          <div class="freedom-item">
+            <span class="freedom-icon">📜</span>
+            <span>Оставлять имущество детям, не господину</span>
+          </div>
+          <div class="freedom-item">
+            <span class="freedom-icon">✍️</span>
+            <span>Распоряжаться имуществом по завещанию</span>
+          </div>
+          <div class="freedom-item">
+            <span class="freedom-icon">⚖️</span>
+            <span>Свои судьи и городской совет</span>
+          </div>
+          <div class="freedom-item">
+            <span class="freedom-icon">🏰</span>
+            <span>Строить стены для защиты</span>
+          </div>
+          <div class="freedom-item">
+            <span class="freedom-icon">⚔️</span>
+            <span>Собственная милиция</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 2: Alliance -->
+    <section class="chapter-section">
+      <h2>Союз короля и городов</h2>
+      
+      <div class="alliance-section">
+        <h3 class="alliance-title">🤝 Враги моего врага — мои друзья</h3>
+        
+        <div class="alliance-diagram">
+          <div class="alliance-party king">
+            <div class="alliance-icon">👑</div>
+            <div class="alliance-name">Король</div>
+            <div class="alliance-relation">ненавидит баронов</div>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="font-size: var(--text-xl);">🤝</div>
+            <div style="font-size: var(--text-xs); color: #38a169; font-weight: 600;">СОЮЗ</div>
+          </div>
+          
+          <div class="alliance-party city">
+            <div class="alliance-icon">🏙️</div>
+            <div class="alliance-name">Города</div>
+            <div class="alliance-relation">ненавидят баронов</div>
+          </div>
+          
+          <div style="text-align: center;">
+            <div style="font-size: var(--text-xl);">⚔️</div>
+            <div style="font-size: var(--text-xs); color: #e53e3e;">ПРОТИВ</div>
+          </div>
+          
+          <div class="alliance-party nobles">
+            <div class="alliance-icon">🏰</div>
+            <div class="alliance-name">Феодалы</div>
+            <div class="alliance-relation">притесняют всех</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Почему короли давали свободу?
+        </h3>
+        <p style="margin-bottom: 0;">
+          Король не мог защитить слабых подданных от феодалов. 
+          Горожане объединялись и могли сопротивляться. 
+          Общий враг сблизил короля и города.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 3: Italy -->
+    <section class="chapter-section">
+      <h2>Пример Италии</h2>
+      
+      <div class="italy-section">
+        <div class="italy-title">
+          <span style="font-size: var(--text-xl);">🇮🇹</span>
+          <h3 style="margin: 0;">Первые богатые города Европы</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Италия — центр развитого мира того времени. Крестовые походы дали толчок 
+          судоходству Венеции, Генуи, Пизы. Города стали интендантами армий.
+        </p>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-top: var(--space-3);">
+          В Италии и Швейцарии города стали независимыми республиками, 
+          подчинив окрестных феодалов.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 4: Two Origins of Manufacturing -->
+    <section class="chapter-section">
+      <h2>Два пути возникновения мануфактур</h2>
+      
+      <div class="origins-section">
+        <div class="origins-grid">
+          <div class="origin-card trade">
+            <div class="origin-header">
+              <span class="origin-icon">🚢</span>
+              <span class="origin-title">Из внешней торговли</span>
+            </div>
+            <div class="origin-desc">
+              Купцы ввозили иностранные товары, потом решили производить сами.
+              Работали на иностранном сырье.
+            </div>
+            <div class="origin-examples">
+              <strong>Примеры:</strong> Шёлк в Лукке → Венеции, 
+              Сукно во Фландрии → Англии, 
+              Шёлк в Лионе
+            </div>
+          </div>
+          
+          <div class="origin-card agriculture">
+            <div class="origin-header">
+              <span class="origin-icon">🌾</span>
+              <span class="origin-title">Из земледелия</span>
+            </div>
+            <div class="origin-desc">
+              Избыток еды → дешёвое содержание рабочих → 
+              обработка местного сырья. Естественный путь.
+            </div>
+            <div class="origin-examples">
+              <strong>Примеры:</strong> Лидс, Галифакс, Шеффилд, 
+              Бирмингем, Уольвергамптон
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Преимущество естественного пути
+        </h3>
+        <p style="margin-bottom: 0;">
+          Мануфактуры из земледелия растут естественно. 
+          Сначала кормят окрестности, потом — отдалённые рынки. 
+          Это последний этап естественного развития.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: Comparison -->
+    <section class="chapter-section">
+      <h2>Сравнение типов городов</h2>
+      
+      <div class="city-types">
+        <table class="types-table">
+          <thead>
+            <tr>
+              <th>Тип города</th>
+              <th>Источник богатства</th>
+              <th>Зависимость от деревни</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>🌊 Портовый город</strong></td>
+              <td>Заморская торговля</td>
+              <td>Минимальная</td>
+            </tr>
+            <tr>
+              <td><strong>🛤️ Город на реке</strong></td>
+              <td>Транзитная торговля</td>
+              <td>Средняя</td>
+            </tr>
+            <tr>
+              <td><strong>🏘️ Внутренний город</strong></td>
+              <td>Обмен с окрестностями</td>
+              <td>Полная</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Порядок и нормальное управление, свобода и безопасность установились в городах, 
+          когда жители деревень подвергались ещё всяческим насилиям.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Города получили свободу раньше деревень</li>
+          <li>Короли давали права городам в борьбе против феодалов</li>
+          <li>«Воздух города делает свободным» — беглый крепостной становился свободным через год</li>
+          <li>Италия — первые богатые города Европы</li>
+          <li>Мануфактуры возникли двумя путями: из торговли и из земледелия</li>
+          <li>Естественный путь — земледелие → мануфактура</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book3-chapter02.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава II: О препятствиях земледелию</span>
+          </div>
+        </a>
+        <a href="book3-chapter04.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава IV: Как торговля городов помогла селу</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

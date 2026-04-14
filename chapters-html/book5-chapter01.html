@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 5, Глава I: О расходах государя или государства — Адам Смит, Богатство народов">
+  
+  <title>Книга 5, Глава I: Расходы государя — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Defense Evolution */
+    .defense-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .defense-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    
+    .defense-stage {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .defense-icon {
+      font-size: var(--text-2xl);
+      min-width: 40px;
+      text-align: center;
+    }
+    
+    .defense-content {
+      flex: 1;
+    }
+    
+    .defense-title {
+      font-weight: 700;
+      margin-bottom: var(--space-1);
+    }
+    
+    .defense-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Militia vs Army */
+    .comparison-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .comparison-box {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .comparison-box.militia {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .comparison-box.army {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .comparison-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .comparison-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .comparison-title {
+      font-weight: 700;
+    }
+    
+    .comparison-box.militia .comparison-title { color: #975a16; }
+    .comparison-box.army .comparison-title { color: #2c5282; }
+    
+    /* Justice */
+    .justice-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .justice-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    /* Public Works */
+    .works-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .works-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .works-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .works-card {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .works-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
+    }
+    
+    .works-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .works-title {
+      font-weight: 700;
+    }
+    
+    .works-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Education */
+    .education-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+      border-radius: var(--radius-lg);
+    }
+    
+    .education-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 5</span>
+        <span class="chapter-number">Глава I</span>
+      </div>
+      <h1 class="chapter-title">О расходах государя или государства</h1>
+      <div class="chapter-summary">
+        <p>Первая обязанность государя — защита общества. Эволюция армии от охотников до регулярных войск. Правосудие, общественные работы, образование.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Defense Evolution -->
+    <section class="chapter-section">
+      <h2>Эволюция расходов на оборону</h2>
+      
+      <div class="defense-section">
+        <div class="defense-timeline">
+          <div class="defense-stage">
+            <div class="defense-icon">🏹</div>
+            <div class="defense-content">
+              <div class="defense-title">Охотники (низшая ступень)</div>
+              <div class="defense-desc">
+                Каждый мужчина — воин и охотник. Государство не несёт расходов.
+                Пример: североамериканские индейцы.
+              </div>
+            </div>
+          </div>
+          
+          <div class="defense-stage">
+            <div class="defense-icon">🐎</div>
+            <div class="defense-content">
+              <div class="defense-title">Пастухи (кочевники)</div>
+              <div class="defense-desc">
+                Каждый мужчина — воин. Стада двигаются с армией.
+                Пример: татары, арабы. Опасны для цивилизованных народов!
+              </div>
+            </div>
+          </div>
+          
+          <div class="defense-stage">
+            <div class="defense-icon">🌾</div>
+            <div class="defense-content">
+              <div class="defense-title">Земледельцы (оседлые)</div>
+              <div class="defense-desc">
+                Каждый мужчина — воин, но не все идут на войну.
+                Сражаются между посевом и жатвой. Государство не платит.
+              </div>
+            </div>
+          </div>
+          
+          <div class="defense-stage">
+            <div class="defense-icon">🏭</div>
+            <div class="defense-content">
+              <div class="defense-title">Цивилизованное общество</div>
+              <div class="defense-desc">
+                Ремесленники не могут оставить работу — государство должно их содержать.
+                Военное искусство стало сложной наукой — нужна регулярная армия.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 2: Militia vs Army -->
+    <section class="chapter-section">
+      <h2>Ополчение vs Регулярная армия</h2>
+      
+      <div class="comparison-section">
+        <div class="comparison-grid">
+          <div class="comparison-box militia">
+            <div class="comparison-header">
+              <span class="comparison-icon">🛡️</span>
+              <span class="comparison-title">Ополчение</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Солдат — временное занятие</li>
+              <li>Главный доход — другое ремесло</li>
+              <li>Упражнения раз в неделю/месяц</li>
+              <li>Меньше дисциплины</li>
+              <li>Всегда проигрывает регулярной армии</li>
+            </ul>
+          </div>
+          
+          <div class="comparison-box army">
+            <div class="comparison-header">
+              <span class="comparison-icon">⚔️</span>
+              <span class="comparison-title">Регулярная армия</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Солдат — единственное занятие</li>
+              <li>Содержит государство</li>
+              <li>Упражнения ежедневно</li>
+              <li>Высокая дисциплина</li>
+              <li>Всегда побеждает ополчение</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Исторические примеры
+        </h3>
+        <p style="margin-bottom: 0;">
+          Филипп Македонский (регулярная армия) победил греческие республики (ополчение). 
+          Ганнибал (регулярная армия) побеждал римлян, пока их ополчение не стало регулярной армией.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 3: Justice -->
+    <section class="chapter-section">
+      <h2>Расходы на правосудие</h2>
+      
+      <div class="justice-section">
+        <div class="justice-title">
+          <span style="font-size: var(--text-xl);">⚖️</span>
+          <h3 style="margin: 0;">Вторая обязанность государя</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-3);">
+          Защита граждан от несправедливости и угнетения со стороны других граждан.
+        </p>
+        
+        <ul style="margin: 0; padding-left: var(--space-5); font-size: var(--text-sm);">
+          <li>
+            <strong>У охотников и пастухов:</strong> Естественное равенство, 
+            минимум споров, нет постоянных судей.
+          </li>
+          <li>
+            <strong>С развитием общества:</strong> Появляется богатство и бедность, 
+            увеличиваются споры, нужны постоянные судьи.
+          </li>
+          <li>
+            <strong>Источник дохода судей:</strong> Пошлины с процессов 
+            (раньше) или жалование от государства (лучше).
+          </li>
+        </ul>
+        
+        <blockquote class="important-quote" style="margin-top: var(--space-4);">
+          <p>
+            Судебная власть не должна зависеть от народа — иначе она станет 
+            послушной орудием партии. Но и от государя — иначе станет орудием тирании.
+          </p>
+          <cite>— Адам Смит</cite>
+        </blockquote>
+      </div>
+    </section>
+    
+    <!-- Section 4: Public Works -->
+    <section class="chapter-section">
+      <h2>Общественные работы</h2>
+      
+      <div class="works-section">
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Работы, которые выгодны обществу, но невыгодны частным лицам:
+        </p>
+        
+        <div class="works-grid">
+          <div class="works-card">
+            <div class="works-header">
+              <span class="works-icon">🛤️</span>
+              <span class="works-title">Дороги и мосты</span>
+            </div>
+            <div class="works-desc">
+              Выгодны торговле, но частные лица не могут построить.
+              Должны содержаться за счёт пошлин с пользователей.
+            </div>
+          </div>
+          
+          <div class="works-card">
+            <div class="works-header">
+              <span class="works-icon">⚓</span>
+              <span class="works-title">Порты и гавани</span>
+            </div>
+            <div class="works-desc">
+              Необходимы для торговли. 
+              Пошлины на суда — лучший способ финансирования.
+            </div>
+          </div>
+          
+          <div class="works-card">
+            <div class="works-header">
+              <span class="works-icon">🏰</span>
+              <span class="works-title">Общественные здания</span>
+            </div>
+            <div class="works-desc">
+              Для защиты (крепости), правосудия (суды), торговли (биржи).
+              Строятся за счёт государства.
+            </div>
+          </div>
+          
+          <div class="works-card">
+            <div class="works-header">
+              <span class="works-icon">🕯️</span>
+              <span class="works-title">Освещение и мощение</span>
+            </div>
+            <div class="works-desc">
+              Городские удобства. 
+              Оплачиваются местными налогами или пошлинами.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 5: Education -->
+    <section class="chapter-section">
+      <h2>Образование</h2>
+      
+      <div class="education-section">
+        <div class="education-title">
+          <span style="font-size: var(--text-xl);">📚</span>
+          <h3 style="margin: 0;">Государство и образование</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Разделение труда превращает человека в «самое тупое и невежественное» существо.
+          Государство должно противодействовать этому через образование.
+        </p>
+        
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3); margin-top: var(--space-3);">
+          <div style="padding: var(--space-3); background: var(--color-bg-card); border-radius: var(--radius-md);">
+            <strong>Начальное образование</strong><br>
+            <span style="font-size: var(--text-sm);">
+              Чтение, письмо, счёт — недорого и доступно всем.
+              Государство может поощрять небольшие школы.
+            </span>
+          </div>
+          
+          <div style="padding: var(--space-3); background: var(--color-bg-card); border-radius: var(--radius-md);">
+            <strong>Высшее образование</strong><br>
+            <span style="font-size: var(--text-sm);">
+              Университеты могут финансироваться из разных источников.
+              Лучше — когда профессора зависят от репутации.
+            </span>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); margin-top: var(--space-3); text-align: center; font-style: italic; color: var(--color-text-light);">
+          «Образованный народ всегда более способен защищать свои права»
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Эволюция армии: охотники → пастухи → земледельцы → регулярная армия</li>
+          <li>Регулярная армия всегда побеждает ополчение</li>
+          <li>Правосудие: от естественного равенства к постоянным судьям</li>
+          <li>Общественные работы: дороги, порты, здания</li>
+          <li>Образование противостоит оглупляющему действию разделения труда</li>
+          <li>Государство должно заботиться о всех этих областях</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book4-chapter09.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Книга 4, Глава IX: Земледельческие системы</span>
+          </div>
+        </a>
+        <a href="book5-chapter02.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава II: О государственных доходах</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

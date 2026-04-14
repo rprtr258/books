@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 2, Глава IV: О капитале, ссужаемом под проценты — Адам Смит, Богатство народов">
+  
+  <title>Книга 2, Глава IV: О капитале под проценты — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Two Uses */
+    .two-uses {
+      margin: var(--space-8) 0;
+    }
+    
+    .uses-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .uses-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .use-box {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+    }
+    
+    .use-box.capital {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .use-box.consumption {
+      background: linear-gradient(135deg, #fff5f5 0%, #fef3e2 100%);
+      border: 2px solid #e53e3e;
+    }
+    
+    .use-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    .use-icon {
+      font-size: var(--text-2xl);
+    }
+    
+    .use-title {
+      font-weight: 700;
+    }
+    
+    .use-box.capital .use-title { color: #276749; }
+    .use-box.consumption .use-title { color: #c53030; }
+    
+    .use-result {
+      margin-top: var(--space-3);
+      padding: var(--space-2);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      text-align: center;
+    }
+    
+    .use-box.capital .use-result { background: #c6f6d5; }
+    .use-box.consumption .use-result { background: #fed7d7; }
+    
+    /* Chain of Loans */
+    .chain-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .chain-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .chain-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      flex-wrap: wrap;
+    }
+    
+    .chain-person {
+      text-align: center;
+      padding: var(--space-2);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      min-width: 50px;
+    }
+    
+    .chain-arrow {
+      color: var(--color-accent);
+      font-size: var(--text-lg);
+    }
+    
+    .chain-note {
+      text-align: center;
+      margin-top: var(--space-4);
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    /* Interest Rate History */
+    .interest-history {
+      margin: var(--space-8) 0;
+    }
+    
+    .history-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .history-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .history-period {
+      min-width: 120px;
+      font-weight: 600;
+    }
+    
+    .history-rate {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+    
+    .history-note {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Profit Decline */
+    .profit-decline {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+      border-radius: var(--radius-lg);
+    }
+    
+    .decline-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .decline-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    
+    .decline-item {
+      text-align: center;
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .decline-arrow {
+      font-size: var(--text-xl);
+      color: #e53e3e;
+    }
+    
+    /* Land Price */
+    .land-price {
+      margin: var(--space-8) 0;
+    }
+    
+    .price-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .price-table th,
+    .price-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .price-table th {
+      background: var(--color-bg-section);
+      font-weight: 600;
+    }
+    
+    .price-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .price-trend {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .trend-bar {
+      flex: 1;
+      height: 20px;
+      background: var(--color-border-light);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    
+    .trend-fill {
+      height: 100%;
+      background: #38a169;
+      border-radius: var(--radius-full);
+    }
+    
+    /* Legal Rate */
+    .legal-rate {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: #fffaf0;
+      border: 2px solid #ed8936;
+      border-radius: var(--radius-lg);
+    }
+    
+    .legal-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 2</span>
+        <span class="chapter-number">Глава IV</span>
+      </div>
+      <h1 class="chapter-title">О капитале, ссужаемом под проценты</h1>
+      <div class="chapter-summary">
+        <p>Процентная ставка зависит от нормы прибыли, а не от количества золота. Больше капитала = ниже прибыль = ниже процент.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Two Uses of Borrowed Capital -->
+    <section class="chapter-section">
+      <h2>Два способа использования займа</h2>
+      
+      <p class="section-intro">
+        Заимодавец всегда смотрит на ссужаемые запасы как на капитал. 
+        Но заемщик может употребить их двояко:
+      </p>
+      
+      <div class="two-uses">
+        <div class="uses-grid">
+          <div class="use-box capital">
+            <div class="use-header">
+              <span class="use-icon">🏭</span>
+              <span class="use-title">Как капитал</span>
+            </div>
+            <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+              Употребить на содержание производительных рабочих. 
+              Они воспроизводят стоимость с прибылью.
+            </p>
+            <div class="use-result">
+              ✅ Может вернуть капитал + процент
+            </div>
+          </div>
+          
+          <div class="use-box consumption">
+            <div class="use-header">
+              <span class="use-icon">🎉</span>
+              <span class="use-title">На потребление</span>
+            </div>
+            <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+              Растрачивает на праздность то, что предназначено для трудящихся.
+              Играет роль расточителя.
+            </p>
+            <div class="use-result">
+              ❌ Не может вернуть без другого дохода
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Кто получает займы?
+        </h3>
+        <p style="margin-bottom: 0;">
+          Человек, занимающий для трат, скоро разорится. 
+          Большинство заёмщиков — расчётливые и трудолюбивые, не расточители.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Money vs Capital -->
+    <section class="chapter-section">
+      <h2>Деньги — не капитал</h2>
+      
+      <div class="chain-section">
+        <h3 class="chain-title">🔄 Одни деньги — много займов</h3>
+        
+        <div class="chain-flow">
+          <div class="chain-person">A</div>
+          <span class="chain-arrow">→ £1000 →</span>
+          <div class="chain-person">W</div>
+          <span style="font-size: var(--text-xs); color: var(--color-text-muted);">покупает у</span>
+          <div class="chain-person">B</div>
+        </div>
+        
+        <div class="chain-flow" style="margin-top: var(--space-2);">
+          <div class="chain-person">B</div>
+          <span class="chain-arrow">→ £1000 →</span>
+          <div class="chain-person">X</div>
+          <span style="font-size: var(--text-xs); color: var(--color-text-muted);">покупает у</span>
+          <div class="chain-person">C</div>
+        </div>
+        
+        <div class="chain-flow" style="margin-top: var(--space-2);">
+          <div class="chain-person">C</div>
+          <span class="chain-arrow">→ £1000 →</span>
+          <div class="chain-person">Y</div>
+          <span style="font-size: var(--text-xs); color: var(--color-text-muted);">покупает у</span>
+          <div class="chain-person">D</div>
+        </div>
+        
+        <div class="chain-note">
+          <strong>£1000</strong> деньгами совершили <strong>3 займа</strong> по £1000 каждый = <strong>£3000</strong> капитала
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          В деньгах нуждается не заёмщик — ему нужна стоимость денег, товары, 
+          которые можно на них купить. Деньги — только ассигновка на часть продукта.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 3: Interest Rate History -->
+    <section class="chapter-section">
+      <h2>История процентных ставок</h2>
+      
+      <p class="section-intro">
+        Смит опровергает теорию, что падение процента вызвано притоком золота из Америки:
+      </p>
+      
+      <div class="interest-history">
+        <div class="history-timeline">
+          <div class="history-item">
+            <div class="history-period">До открытия Америки</div>
+            <div class="history-rate">10%</div>
+            <div class="history-note">Обычная норма в Европе</div>
+          </div>
+          
+          <div class="history-item">
+            <div class="history-period">После открытия</div>
+            <div class="history-rate">6%</div>
+            <div class="history-note">Постепенное снижение</div>
+          </div>
+          
+          <div class="history-item">
+            <div class="history-period">Дальнейшее развитие</div>
+            <div class="history-rate">5%</div>
+            <div class="history-note">Во многих странах</div>
+          </div>
+          
+          <div class="history-item">
+            <div class="history-period">Развитые страны</div>
+            <div class="history-rate">4%</div>
+            <div class="history-note">Некоторые регионы</div>
+          </div>
+          
+          <div class="history-item">
+            <div class="history-period">Наиболее развитые</div>
+            <div class="history-rate">3%</div>
+            <div class="history-note">Голландия, Англия</div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 4: Why Rates Fall -->
+    <section class="chapter-section">
+      <h2>Почему падает процент?</h2>
+      
+      <div class="profit-decline">
+        <div class="decline-title">
+          <span style="font-size: var(--text-2xl);">📉</span>
+          <h3 style="margin: 0;">Истинная причина снижения</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-4);">
+          НЕ приток золота из Америки, а рост капитала:
+        </p>
+        
+        <div class="decline-diagram">
+          <div class="decline-item">
+            <strong>Больше капитала</strong><br>
+            <span style="font-size: var(--text-xs);">в стране</span>
+          </div>
+          
+          <span class="decline-arrow">→</span>
+          
+          <div class="decline-item">
+            <strong>Конкуренция</strong><br>
+            <span style="font-size: var(--text-xs);">между капиталами</span>
+          </div>
+          
+          <span class="decline-arrow">→</span>
+          
+          <div class="decline-item">
+            <strong>Нижняя прибыль</strong><br>
+            <span style="font-size: var(--text-xs);">от капитала</span>
+          </div>
+          
+          <span class="decline-arrow">→</span>
+          
+          <div class="decline-item">
+            <strong>Нижний процент</strong><br>
+            <span style="font-size: var(--text-xs);">за заём</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Критика теории золота
+        </h3>
+        <p style="margin-bottom: 0;">
+          Если золото обесценилось вдвое, то и процент в деньгах должен был бы 
+          удвоиться, чтобы сохранить реальную стоимость. Но процент упал! 
+          Значит, дело не в золоте, а в капитале.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: Legal Rate -->
+    <section class="chapter-section">
+      <h2>Законная норма процента</h2>
+      
+      <div class="legal-rate">
+        <div class="legal-title">
+          <span style="font-size: var(--text-xl);">⚖️</span>
+          <h3 style="margin: 0;">Правило Смита</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Законная норма должна <strong>немного превышать</strong> низшую рыночную цену, 
+          но не слишком:
+        </p>
+        
+        <ul style="margin-top: var(--space-3); font-size: var(--text-sm);">
+          <li><strong>Слишком низкая</strong> → кредиторы не ссужают, ростовщичество</li>
+          <li><strong>Слишком высокая</strong> → деньги идут расточителям</li>
+          <li><strong>Оптимальная</strong> → деньги идут осторожным заёмщикам</li>
+        </ul>
+        
+        <p style="margin-top: var(--space-3); font-size: var(--text-sm);">
+          <strong>Пример Англии:</strong> правительство берёт под 3%, частные лица под 4-4.5%. 
+          Законная норма 5% — оптимальна.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 6: Land Price -->
+    <section class="chapter-section">
+      <h2>Цена земли и процент</h2>
+      
+      <p class="section-intro">
+        Цена земли обратно связана с процентной ставкой:
+      </p>
+      
+      <div class="land-price">
+        <table class="price-table">
+          <thead>
+            <tr>
+              <th>Норма процента</th>
+              <th>Цена земли</th>
+              <th>Тренд цен</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>10%</strong></td>
+              <td>10-12 лет ренты</td>
+              <td class="price-trend">
+                <div class="trend-bar"><div class="trend-fill" style="width: 33%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>6%</strong></td>
+              <td>~17 лет ренты</td>
+              <td class="price-trend">
+                <div class="trend-bar"><div class="trend-fill" style="width: 55%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>5%</strong></td>
+              <td>20 лет ренты</td>
+              <td class="price-trend">
+                <div class="trend-bar"><div class="trend-fill" style="width: 67%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>4%</strong></td>
+              <td>25 лет ренты</td>
+              <td class="price-trend">
+                <div class="trend-bar"><div class="trend-fill" style="width: 83%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td><strong>3%</strong></td>
+              <td>30 лет ренты</td>
+              <td class="price-trend">
+                <div class="trend-bar"><div class="trend-fill" style="width: 100%;"></div></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Главный вывод главы
+        </h3>
+        <p style="margin-bottom: 0;">
+          Процентная ставка определяется нормой прибыли на капитал, 
+          которая падает по мере накопления капитала. 
+          Золото и серебро тут ни при чём.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Заём можно использовать как капитал (производительно) или на потребление</li>
+          <li>Одни и те же деньги могут обслуживать много займов</li>
+          <li>Процент зависит от прибыли, не от количества золота</li>
+          <li>Больше капитала = больше конкуренция = ниже прибыль = ниже процент</li>
+          <li>Законная норма должна немного превышать рыночную</li>
+          <li>Цена земли обратно пропорциональна процентной ставке</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book2-chapter03.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава III: О накоплении капитала</span>
+          </div>
+        </a>
+        <a href="book2-chapter05.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава V: О различных помещениях капиталов</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

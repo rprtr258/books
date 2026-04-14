@@ -1,0 +1,763 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Глава VIII: О заработной плате — Адам Смит, Богатство народов">
+  
+  <title>Глава VIII: О заработной плате — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Wage Evolution */
+    .wage-evolution {
+      margin: var(--space-8) 0;
+    }
+    
+    .evolution-timeline {
+      position: relative;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .timeline-stages {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    
+    .stage-item {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      border-left: 4px solid var(--color-border);
+    }
+    
+    .stage-item.primitive {
+      border-left-color: #38a169;
+    }
+    
+    .stage-item.land {
+      border-left-color: #d69e2e;
+    }
+    
+    .stage-item.capital {
+      border-left-color: #3182ce;
+    }
+    
+    .stage-icon {
+      font-size: var(--text-2xl);
+      flex-shrink: 0;
+    }
+    
+    .stage-content {
+      flex: 1;
+    }
+    
+    .stage-title {
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+    
+    .stage-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    .stage-result {
+      margin-top: var(--space-2);
+      padding: var(--space-2);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-sm);
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+    
+    /* Minimum Wage */
+    .minimum-wage {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #fff5f5 0%, #fef3e2 100%);
+      border: 2px solid #e53e3e;
+      border-radius: var(--radius-lg);
+    }
+    
+    .minimum-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .minimum-calculation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .calc-item {
+      text-align: center;
+    }
+    
+    .calc-value {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    
+    .calc-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    
+    .calc-operator {
+      font-size: var(--text-xl);
+      color: var(--color-text-muted);
+    }
+    
+    /* Balance of Power */
+    .power-balance {
+      margin: var(--space-8) 0;
+    }
+    
+    .balance-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .balance-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .balance-side {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .balance-side.workers {
+      background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .balance-side.masters {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .balance-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .balance-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .balance-title {
+      font-weight: 600;
+    }
+    
+    .balance-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .balance-list li {
+      padding: var(--space-2) 0;
+      font-size: var(--text-sm);
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .balance-list li:last-child {
+      border-bottom: none;
+    }
+    
+    /* Country Comparison */
+    .country-comparison {
+      margin: var(--space-8) 0;
+    }
+    
+    .comparison-cards {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 900px) {
+      .comparison-cards {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .country-card {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .country-card.growth {
+      background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .country-card.stagnant {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .country-card.decline {
+      background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+      border: 2px solid #e53e3e;
+    }
+    
+    .country-flag {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .country-name {
+      font-weight: 700;
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-1);
+    }
+    
+    .country-status {
+      display: inline-block;
+      padding: var(--space-1) var(--space-3);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+      margin-bottom: var(--space-3);
+    }
+    
+    .country-card.growth .country-status {
+      background: #38a169;
+      color: white;
+    }
+    
+    .country-card.stagnant .country-status {
+      background: #d69e2e;
+      color: white;
+    }
+    
+    .country-card.decline .country-status {
+      background: #e53e3e;
+      color: white;
+    }
+    
+    .country-wage {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-bottom: var(--space-2);
+    }
+    
+    .country-population {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    
+    /* Wage Fund */
+    .wage-fund {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .fund-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .fund-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    .fund-item {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      text-align: center;
+      min-width: 140px;
+    }
+    
+    .fund-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .fund-label {
+      font-weight: 600;
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-1);
+    }
+    
+    .fund-desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    
+    .fund-arrow {
+      font-size: var(--text-xl);
+      color: var(--color-accent);
+    }
+    
+    /* Key Insight */
+    .fundamental-insight {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, var(--color-primary) 0%, #2c5282 100%);
+      border-radius: var(--radius-lg);
+      color: white;
+      text-align: center;
+    }
+    
+    .insight-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-3);
+    }
+    
+    .insight-text {
+      font-size: var(--text-lg);
+      font-family: var(--font-heading);
+      line-height: var(--leading-relaxed);
+      max-width: 50ch;
+      margin: 0 auto;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 1</span>
+        <span class="chapter-number">Глава VIII</span>
+      </div>
+      <h1 class="chapter-title">О заработной плате</h1>
+      <div class="chapter-summary">
+        <p>Что определяет уровень заработной платы? Почему рабочие получают больше в одних странах и меньше в других? Смит раскрывает фундаментальные законы.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Evolution -->
+    <section class="chapter-section">
+      <h2>Эволюция заработной платы</h2>
+      
+      <p class="section-intro">
+        В первобытном обществе рабочий получал весь продукт своего труда. 
+        Но с развитием собственности появились вычеты.
+      </p>
+      
+      <div class="wage-evolution">
+        <div class="evolution-timeline">
+          <div class="timeline-stages">
+            <div class="stage-item primitive">
+              <div class="stage-icon">🏕️</div>
+              <div class="stage-content">
+                <div class="stage-title">Первобытное общество</div>
+                <div class="stage-desc">
+                  Нет частной земли, нет капитала. Весь продукт принадлежит работнику.
+                </div>
+                <div class="stage-result" style="color: #276749;">
+                  💰 Рабочий получает 100% продукта труда
+                </div>
+              </div>
+            </div>
+            
+            <div class="stage-item land">
+              <div class="stage-icon">🌾</div>
+              <div class="stage-content">
+                <div class="stage-title">Появление частной земли</div>
+                <div class="stage-desc">
+                  Землевладелец требует долю с продукта. Рента — первый вычет.
+                </div>
+                <div class="stage-result" style="color: #b7791f;">
+                  💰 Рабочий получает: Продукт − Рента
+                </div>
+              </div>
+            </div>
+            
+            <div class="stage-item capital">
+              <div class="stage-icon">🏭</div>
+              <div class="stage-content">
+                <div class="stage-title">Накопление капитала</div>
+                <div class="stage-desc">
+                  Хозяин авансирует материалы и зарплату. Прибыль — второй вычет.
+                </div>
+                <div class="stage-result" style="color: #2c5282;">
+                  💰 Рабочий получает: Продукт − Рента − Прибыль = Заработная плата
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 2: Balance of Power -->
+    <section class="chapter-section">
+      <h2>Борьба за заработную плату</h2>
+      
+      <p class="section-intro">
+        Заработная плата зависит от договора между рабочими и хозяевами. 
+        Но силы не равны.
+      </p>
+      
+      <div class="power-balance">
+        <div class="balance-grid">
+          <div class="balance-side workers">
+            <div class="balance-header">
+              <span class="balance-icon">👷</span>
+              <span class="balance-title">Рабочие</span>
+            </div>
+            <ul class="balance-list">
+              <li>Хотят получать больше</li>
+              <li>Многочисленны — трудно сговориться</li>
+              <li>Законы запрещают объединения</li>
+              <li>Не могут ждать — нужна еда</li>
+              <li>«Помирать с голода или нагнать страх»</li>
+            </ul>
+          </div>
+          
+          <div class="balance-side masters">
+            <div class="balance-header">
+              <span class="balance-icon">🏭</span>
+              <span class="balance-title">Хозяева</span>
+            </div>
+            <ul class="balance-list">
+              <li>Хотят платить меньше</li>
+              <li>Малочисленны — легко сговориться</li>
+              <li>Законы не запрещают объединения</li>
+              <li>Могут ждать годами</li>
+              <li>«Молчаливая стачка» — норма</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Хозяева всегда и повсеместно находятся в своего рода молчаливой, 
+          но постоянной стачке с целью не повышать заработной платы.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+      
+      <div class="key-insight" style="margin-top: var(--space-4);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Но есть минимум
+        </h3>
+        <p style="margin-bottom: 0;">
+          Существует граница, ниже которой нельзя опустить зарплату: 
+          работник должен иметь возможность содержать семью. Иначе — раса вымрет.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 3: Minimum -->
+    <section class="chapter-section">
+      <h2>Минимальный уровень</h2>
+      
+      <div class="minimum-wage">
+        <div class="minimum-title">
+          <span style="font-size: var(--text-2xl);">⚠️</span>
+          <h3 style="margin: 0;">Сколько нужно рабочему?</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-4);">
+          Кантильон: рабочий должен зарабатывать вдвое больше своего содержания, 
+          чтобы вырастить детей до совершеннолетия.
+        </p>
+        
+        <div class="minimum-calculation">
+          <div class="calc-item">
+            <div class="calc-value">1×</div>
+            <div class="calc-label">Содержание рабочего</div>
+          </div>
+          
+          <span class="calc-operator">+</span>
+          
+          <div class="calc-item">
+            <div class="calc-value">1×</div>
+            <div class="calc-label">Содержание жены</div>
+          </div>
+          
+          <span class="calc-operator">=</span>
+          
+          <div class="calc-item">
+            <div class="calc-value">2×</div>
+            <div class="calc-label">Минимальная зарплата</div>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-4); text-align: center;">
+          Расчёт: половина детей умирает до совершеннолетия → нужно 4 ребёнка, 
+          чтобы 2 выжили. Расход на 4 детей ≈ содержание 1 взрослого.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 4: Wage Fund -->
+    <section class="chapter-section">
+      <h2>Откуда берётся спрос на труд?</h2>
+      
+      <p class="section-intro">
+        Спрос на труд растёт, когда растут фонды на заработную плату:
+      </p>
+      
+      <div class="wage-fund">
+        <h3 class="fund-title">📊 Источники спроса на труд</h3>
+        
+        <div class="fund-diagram">
+          <div class="fund-item">
+            <div class="fund-icon">💰</div>
+            <div class="fund-label">Доход</div>
+            <div class="fund-desc">Излишек сверх<br>потребностей хозяина</div>
+          </div>
+          
+          <span class="fund-arrow">→</span>
+          
+          <div class="fund-item">
+            <div class="fund-icon">🏭</div>
+            <div class="fund-label">Капитал</div>
+            <div class="fund-desc">Излишек сверх<br>нужд хозяина</div>
+          </div>
+          
+          <span class="fund-arrow">→</span>
+          
+          <div class="fund-item">
+            <div class="fund-icon">👷</div>
+            <div class="fund-label">Спрос на труд</div>
+            <div class="fund-desc">Наем слуг<br>и рабочих</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="fundamental-insight">
+        <div class="insight-icon">📈</div>
+        <p class="insight-text">
+          Не размеры богатства, а его постоянное возрастание 
+          вызывает увеличение заработной платы.
+        </p>
+      </div>
+      
+      <p style="text-align: center; margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-text-muted);">
+        Заработная плата выше всего не в самых богатых странах, 
+        а в странах, которые <strong>быстрее богатеют</strong>.
+      </p>
+    </section>
+    
+    <!-- Section 5: Country Comparison -->
+    <section class="chapter-section">
+      <h2>Три состояния общества</h2>
+      
+      <p class="section-intro">
+        Смит сравнивает заработную плату в разных странах:
+      </p>
+      
+      <div class="country-comparison">
+        <div class="comparison-cards">
+          <div class="country-card growth">
+            <div class="country-flag">🇺🇸</div>
+            <div class="country-name">Северная Америка</div>
+            <span class="country-status">Прогресс</span>
+            <div class="country-wage">
+              <strong>Высокая зарплата</strong><br>
+              Чернорабочий: 2 шилл./день<br>
+              Плотник: 4 шилл. 6 пенсов/день
+            </div>
+            <div class="country-population">
+              📈 Население удваивается за 20-25 лет<br>
+              Дети — источник богатства
+            </div>
+          </div>
+          
+          <div class="country-card stagnant">
+            <div class="country-flag">🇨🇳</div>
+            <div class="country-name">Китай</div>
+            <span class="country-status">Застой</span>
+            <div class="country-wage">
+              <strong>Низкая зарплата</strong><br>
+              Тяжёлый труд → маленькая порция риса<br>
+              Ремесленники бродят в поисках работы
+            </div>
+            <div class="country-population">
+              ➡️ Богатство, но без роста<br>
+              Умерщвление детей разрешено
+            </div>
+          </div>
+          
+          <div class="country-card decline">
+            <div class="country-flag">🇮🇳</div>
+            <div class="country-name">Бенгалия</div>
+            <span class="country-status">Упадок</span>
+            <div class="country-wage">
+              <strong>Голод</strong><br>
+              300-400 тысяч умирают ежегодно<br>
+              Рабочие не могут найти работу
+            </div>
+            <div class="country-population">
+              📉 Фонд на содержание труда сокращается<br>
+              Нищета, голод, преступность
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Симптомы состояния экономики
+        </h3>
+        <ul style="margin-bottom: 0;">
+          <li><strong>Щедрая оплата</strong> → страна растёт</li>
+          <li><strong>Скудное существование</strong> → застой</li>
+          <li><strong>Голод</strong> → упадок</li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Section 6: England -->
+    <section class="chapter-section">
+      <h2>Признаки роста в Англии</h2>
+      
+      <p class="section-intro">
+        Смит приводит доказательства, что в Англии зарплата выше минимума:
+      </p>
+      
+      <div class="idea-cards grid gap-4 md:grid-cols-2" style="margin-top: var(--space-4);">
+        <div class="idea-card">
+          <div class="idea-icon">☀️</div>
+          <h3>Сезонные колебания</h3>
+          <p>Летняя зарплата выше зимней — хотя зимой расходы больше. Значит, определяется не нуждой.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🍞</div>
+          <h3>Независимость от цен</h3>
+          <p>Зарплата не следует за ценами на продукты. Дороговизна не ведёт к повышению зарплаты.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">📍</div>
+          <h3>Географические различия</h3>
+          <p>Зарплата в Лондоне на 25% выше, чем в 10 милях от него. А цены одинаковы.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">📊</div>
+          <h3>Противоположные колебания</h3>
+          <p>В некоторые годы продукты дешевеют, а зарплата растёт — и наоборот.</p>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Щедрая оплата труда является как неизбежным следствием, 
+          так и естественным симптомом роста национального богатства.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>В первобытном обществе рабочий получал весь продукт труда</li>
+          <li>Рента и прибыль — вычеты из продукта труда</li>
+          <li>Хозяева имеют преимущество в переговорах</li>
+          <li>Но есть минимум: зарплата должна позволять содержать семью</li>
+          <li>Спрос на труд = излишек дохода и капитала</li>
+          <li>Высокая зарплата = признак растущей экономики</li>
+          <li>Низкая зарплата = застой, голод = упадок</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book1-chapter07.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава VII: Естественная и рыночная цена</span>
+          </div>
+        </a>
+        <a href="book1-chapter09.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава IX: О прибыли на капитал</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

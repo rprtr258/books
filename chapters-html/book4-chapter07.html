@@ -1,0 +1,532 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 4, Глава VII: О колониях — Адам Смит, Богатство народов">
+  
+  <title>Книга 4, Глава VII: О колониях — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Colony Types */
+    .colony-types {
+      margin: var(--space-8) 0;
+    }
+    
+    .types-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .types-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .type-card {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .type-card.greek {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .type-card.roman {
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #9f7aea;
+    }
+    
+    .type-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .type-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .type-title {
+      font-weight: 700;
+    }
+    
+    .type-card.greek .type-title { color: #2c5282; }
+    .type-card.roman .type-title { color: #6b46c1; }
+    
+    .type-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: var(--text-sm);
+    }
+    
+    .type-list li {
+      padding: var(--space-1) 0;
+    }
+    
+    /* Discovery Timeline */
+    .discovery-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .discovery-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .discovery-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+    }
+    
+    .discovery-item {
+      display: flex;
+      gap: var(--space-3);
+      padding: var(--space-2);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .discovery-year {
+      min-width: 60px;
+      font-weight: 700;
+      color: var(--color-primary);
+    }
+    
+    .discovery-event {
+      font-size: var(--text-sm);
+    }
+    
+    /* Prosperity Reasons */
+    .prosperity-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+      border-radius: var(--radius-lg);
+    }
+    
+    .prosperity-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .prosperity-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .prosperity-list li {
+      padding: var(--space-2) 0;
+      padding-left: var(--space-6);
+      position: relative;
+    }
+    
+    .prosperity-list li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #38a169;
+      font-weight: 700;
+    }
+    
+    /* Spain vs England */
+    .comparison-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .comparison-box {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .comparison-box.spain {
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+    }
+    
+    .comparison-box.england {
+      background: #f0fff4;
+      border: 2px solid #38a169;
+    }
+    
+    .comparison-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .comparison-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .comparison-title {
+      font-weight: 700;
+    }
+    
+    .comparison-box.spain .comparison-title { color: #c53030; }
+    .comparison-box.england .comparison-title { color: #276749; }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 4</span>
+        <span class="chapter-number">Глава VII</span>
+      </div>
+      <h1 class="chapter-title">О колониях</h1>
+      <div class="chapter-summary">
+        <p>Самая длинная глава: причины колоний, их процветание, монополия метрополии, сравнение Испании и Англии. Американские колонии выросли быстрее любых других обществ.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Greek vs Roman -->
+    <section class="chapter-section">
+      <h2>Греческие vs Римские колонии</h2>
+      
+      <div class="colony-types">
+        <div class="types-grid">
+          <div class="type-card greek">
+            <div class="type-header">
+              <span class="type-icon">🏛️</span>
+              <span class="type-title">Греческие колонии</span>
+            </div>
+            <ul class="type-list">
+              <li>• Причина: перенаселение, мало земли</li>
+              <li>• Независимые от метрополии</li>
+              <li>• Своё правительство и законы</li>
+              <li>• Слово <em>apoikia</em> = «уход из дома»</li>
+              <li>• Часто богаче метрополии!</li>
+            </ul>
+          </div>
+          
+          <div class="type-card roman">
+            <div class="type-header">
+              <span class="type-icon">🦅</span>
+              <span class="type-title">Римские колонии</span>
+            </div>
+            <ul class="type-list">
+              <li>• Причина: безземельные граждане</li>
+              <li>• Подчинены метрополии</li>
+              <li>• Гарнизоны в завоёванных провинциях</li>
+              <li>• Слово <em>colonia</em> = «поселение»</li>
+              <li>• Рост медленнее греческих</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Европейские колонии
+        </h3>
+        <p style="margin-bottom: 0;">
+          Не диктовались необходимостью. Польза не была очевидна. 
+          Начались с поиска пути в Индию и «священной жажды золота».
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Discovery -->
+    <section class="chapter-section">
+      <h2>Открытие Америки</h2>
+      
+      <div class="discovery-section">
+        <div class="discovery-title">
+          <span style="font-size: var(--text-xl);">🚢</span>
+          <h3 style="margin: 0;">Путь в Индию</h3>
+        </div>
+        
+        <div class="discovery-timeline">
+          <div class="discovery-item">
+            <div class="discovery-year">XV в.</div>
+            <div class="discovery-event">
+              <strong>Португальцы</strong> ищут морской путь в Индию вокруг Африки
+            </div>
+          </div>
+          
+          <div class="discovery-item">
+            <div class="discovery-year">1492</div>
+            <div class="discovery-event">
+              <strong>Колумб</strong> плывёт на запад — открывает Америку (думал, что Индия!)
+            </div>
+          </div>
+          
+          <div class="discovery-item">
+            <div class="discovery-year">1497</div>
+            <div class="discovery-event">
+              <strong>Васко да Гама</strong> достигает Индии вокруг Африки
+            </div>
+          </div>
+          
+          <div class="discovery-item">
+            <div class="discovery-year">1519-1521</div>
+            <div class="discovery-event">
+              <strong>Кортес</strong> завоёвывает Мексику
+            </div>
+          </div>
+          
+          <div class="discovery-item">
+            <div class="discovery-year">1531-1533</div>
+            <div class="discovery-event">
+              <strong>Писарро</strong> завоёвывает Перу
+            </div>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); margin-top: var(--space-4); color: var(--color-text-light);">
+          <strong>Смит о золоте:</strong> Поиск рудников — самая разорительная лотерея. 
+          Выигрышей мало, пустых билетов много. Но жадность толкает людей.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 3: Prosperity -->
+    <section class="chapter-section">
+      <h2>Почему колонии процветают?</h2>
+      
+      <div class="prosperity-section">
+        <div class="prosperity-title">
+          <span style="font-size: var(--text-xl);">📈</span>
+          <h3 style="margin: 0;">Быстрый рост богатства и населения</h3>
+        </div>
+        
+        <ul class="prosperity-list">
+          <li>
+            <strong>Обилие хорошей земли</strong> — почти даром, не надо платить ренту
+          </li>
+          <li>
+            <strong>Знание земледелия</strong> — колонисты приносят навыки цивилизации
+          </li>
+          <li>
+            <strong>Высокая зарплата</strong> — хозяева щедры, рабочие уходят на свою землю
+          </li>
+          <li>
+            <strong>Рост населения</strong> — дети хорошо питаются, рано становятся самостоятельными
+          </li>
+          <li>
+            <strong>Отсутствие угнетения</strong> — нет землевладельцев, налоги ничтожны
+          </li>
+          <li>
+            <strong>Удалённость от метрополии</strong> — слабый контроль, больше свободы
+          </li>
+        </ul>
+        
+        <blockquote class="important-quote" style="margin-top: var(--space-4);">
+          <p>
+            В других странах рента и прибыль съедают зарплату. 
+            В колониях интерес высших классов заставляет их заботиться о низшем.
+          </p>
+          <cite>— Адам Смит</cite>
+        </blockquote>
+      </div>
+    </section>
+    
+    <!-- Section 4: Spain vs England -->
+    <section class="chapter-section">
+      <h2>Испания vs Англия</h2>
+      
+      <div class="comparison-section">
+        <div class="comparison-grid">
+          <div class="comparison-box spain">
+            <div class="comparison-header">
+              <span class="comparison-icon">🇪🇸</span>
+              <span class="comparison-title">Испанские колонии</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Завоёвывали густонаселённые земли</li>
+              <li>Нашли золото и серебро</li>
+              <li>Жестокое правительство</li>
+              <li>Монополия торговли</li>
+              <li>Медленнее рост населения</li>
+              <li>Богаче ресурсами, беднее людьми</li>
+            </ul>
+          </div>
+          
+          <div class="comparison-box england">
+            <div class="comparison-header">
+              <span class="comparison-icon">🇬🇧</span>
+              <span class="comparison-title">Английские колонии</span>
+            </div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Заселяли пустые земли</li>
+              <li>Не нашли золота</li>
+              <li>Более мягкое правительство</li>
+              <li>Больше свободы торговли</li>
+              <li>Быстрее рост населения</li>
+              <li>Богаче людьми и производством</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div style="margin-top: var(--space-6); padding: var(--space-4); background: var(--color-bg-section); border-radius: var(--radius-lg);">
+        <h4 style="margin-bottom: var(--space-2);">📊 Население (по Смиту):</h4>
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-3);">
+          <div style="text-align: center; padding: var(--space-2); background: var(--color-bg-card); border-radius: var(--radius-md);">
+            <div style="font-size: var(--text-xl); font-weight: 700; color: #c53030;">~3 млн</div>
+            <div style="font-size: var(--text-xs);">Испанские колонии</div>
+          </div>
+          <div style="text-align: center; padding: var(--space-2); background: var(--color-bg-card); border-radius: var(--radius-md);">
+            <div style="font-size: var(--text-xl); font-weight: 700; color: #38a169;">~3 млн</div>
+            <div style="font-size: var(--text-xs);">Английские колонии</div>
+          </div>
+        </div>
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-2); color: var(--color-text-light);">
+          Разные пути, но схожий результат по населению
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: Monopoly Problem -->
+    <section class="chapter-section">
+      <h2>Монополия метрополии</h2>
+      
+      <div style="padding: var(--space-5); background: #fff5f5; border: 2px solid #fc8181; border-radius: var(--radius-lg);">
+        <h3 style="display: flex; align-items: center; gap: var(--space-2); margin-bottom: var(--space-3);">
+          <span style="font-size: var(--text-xl);">⚠️</span>
+          <span style="margin: 0;">Вред монополии для колоний</span>
+        </h3>
+        
+        <ul style="margin: 0; padding-left: var(--space-5); font-size: var(--text-sm);">
+          <li>Колонии обязаны торговать только с метрополией</li>
+          <li>Не могут покупать дешевле у других</li>
+          <li>Не могут продавать дороже другим</li>
+          <li>Метрополия получает монопольную прибыль</li>
+          <li>Колонии теряют — платят дороже, продают дешевле</li>
+        </ul>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Смит: что было бы без монополии?
+        </h3>
+        <p style="margin-bottom: 0;">
+          Колонии развивались бы ещё быстрее. 
+          Англия теряет от монополии тоже — платит дороже за колониальные товары. 
+          Выигрывают только купцы, имеющие монополию.
+        </p>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Колонии — источник богатства, но монополия метрополии тормозит их развитие. 
+          Свободная торговля была бы выгоднее всем.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Греческие колонии были независимы, римские — подчинены</li>
+          <li>Европейские колонии начались с поиска пути в Индию и золота</li>
+          <li>Колонии процветают: дешёвая земля, высокая зарплата, рост населения</li>
+          <li>Испанские колонии нашли золото, английские — нет, но растут быстрее</li>
+          <li>Монополия метрополии вредит колониям</li>
+          <li>Удалённость от метрополии даёт больше свободы</li>
+          <li>Американские колонии — пример самого быстрого роста богатства</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book4-chapter06.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава VI: О торговых договорах</span>
+          </div>
+        </a>
+        <a href="book4-chapter08.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава VIII: Заключение о меркантилизме</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

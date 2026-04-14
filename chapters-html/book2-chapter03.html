@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 2, Глава III: О накоплении капитала — Адам Смит, Богатство народов">
+  
+  <title>Книга 2, Глава III: О накоплении капитала — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Labor Comparison */
+    .labor-comparison {
+      margin: var(--space-8) 0;
+    }
+    
+    .labor-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .labor-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .labor-type {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+    }
+    
+    .labor-type.productive {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .labor-type.unproductive {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .labor-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .labor-icon {
+      font-size: var(--text-2xl);
+    }
+    
+    .labor-title {
+      font-weight: 700;
+      font-size: var(--text-lg);
+    }
+    
+    .labor-type.productive .labor-title { color: #276749; }
+    .labor-type.unproductive .labor-title { color: #b7791f; }
+    
+    .labor-example {
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      margin-bottom: var(--space-3);
+    }
+    
+    .labor-result {
+      font-size: var(--text-sm);
+      padding: var(--space-2);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    
+    .labor-type.productive .labor-result {
+      background: #c6f6d5;
+      color: #276749;
+    }
+    
+    .labor-type.unproductive .labor-result {
+      background: #fefcbf;
+      color: #b7791f;
+    }
+    
+    /* Unproductive List */
+    .unproductive-list {
+      margin: var(--space-8) 0;
+    }
+    
+    .professions-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    
+    .profession-item {
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      text-align: center;
+      border: 1px solid var(--color-border);
+    }
+    
+    .profession-icon {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-1);
+    }
+    
+    .profession-name {
+      font-size: var(--text-sm);
+      font-weight: 500;
+    }
+    
+    /* Product Division */
+    .product-division {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .division-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .division-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    
+    .division-item {
+      padding: var(--space-4);
+      border-radius: var(--radius-md);
+    }
+    
+    .division-item.capital {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .division-item.income {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .division-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-2);
+    }
+    
+    .division-name {
+      font-weight: 700;
+    }
+    
+    .division-percent {
+      font-weight: 600;
+      font-size: var(--text-sm);
+    }
+    
+    .division-dest {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Cities Comparison */
+    .cities-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .cities-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .cities-table th,
+    .cities-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .cities-table th {
+      background: var(--color-bg-section);
+      font-weight: 600;
+    }
+    
+    .cities-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .city-industry {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .industry-bar {
+      flex: 1;
+      height: 8px;
+      background: var(--color-border-light);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    
+    .industry-fill {
+      height: 100%;
+      background: #38a169;
+      border-radius: var(--radius-full);
+    }
+    
+    /* Saving Section */
+    .saving-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #9f7aea;
+      border-radius: var(--radius-lg);
+    }
+    
+    .saving-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .saving-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin: var(--space-4) 0;
+    }
+    
+    .saving-item {
+      text-align: center;
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      min-width: 100px;
+    }
+    
+    .saving-arrow {
+      font-size: var(--text-xl);
+      color: var(--color-accent);
+    }
+    
+    /* Prodigality Warning */
+    .prodigality-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .prodigality-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 2</span>
+        <span class="chapter-number">Глава III</span>
+      </div>
+      <h1 class="chapter-title">О накоплении капитала, или о труде производительном и непроизводительном</h1>
+      <div class="chapter-summary">
+        <p>Производительный труд создаёт товары, непроизводительный — услуги. Накопление капитала требует бережливости, а не только трудолюбия.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Two Types of Labor -->
+    <section class="chapter-section">
+      <h2>Два вида труда</h2>
+      
+      <div class="labor-comparison">
+        <div class="labor-grid">
+          <div class="labor-type productive">
+            <div class="labor-header">
+              <span class="labor-icon">🏭</span>
+              <span class="labor-title">Производительный труд</span>
+            </div>
+            
+            <div class="labor-example">
+              <strong>Пример:</strong> Рабочий мануфактуры
+            </div>
+            
+            <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-3);">
+              Увеличивает стоимость материалов на стоимость своего содержания + прибыль хозяина.
+            </p>
+            
+            <div class="labor-result">
+              ✅ Закрепляется в товаре, который можно продать
+            </div>
+          </div>
+          
+          <div class="labor-type unproductive">
+            <div class="labor-header">
+              <span class="labor-icon">🧹</span>
+              <span class="labor-title">Непроизводительный труд</span>
+            </div>
+            
+            <div class="labor-example">
+              <strong>Пример:</strong> Домашний слуга
+            </div>
+            
+            <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-3);">
+              Труд исчезает в момент оказания услуги. Не создаёт товара для продажи.
+            </p>
+            
+            <div class="labor-result">
+              ❌ Ничего не производит для обмена
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Парадокс
+        </h3>
+        <p style="margin-bottom: 0;">
+          Человек богатеет, давая работу мануфактурным рабочим, и беднеет, 
+          содержа много слуг. Но труд слуги тоже имеет ценность и заслуживает награды!
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Unproductive Professions -->
+    <section class="chapter-section">
+      <h2>Непроизводительные профессии</h2>
+      
+      <p class="section-intro">
+        Труд самых уважаемых сословий общества не производит стоимости:
+      </p>
+      
+      <div class="unproductive-list">
+        <div class="professions-grid">
+          <div class="profession-item">
+            <div class="profession-icon">👑</div>
+            <div class="profession-name">Государь</div>
+          </div>
+          <div class="profession-item">
+            <div class="profession-icon">⚖️</div>
+            <div class="profession-name">Судьи</div>
+          </div>
+          <div class="profession-item">
+            <div class="profession-icon">⚔️</div>
+            <div class="profession-name">Армия</div>
+          </div>
+          <div class="profession-item">
+            <div class="profession-icon">⚓</div>
+            <div class="profession-name">Флот</div>
+          </div>
+          <div class="profession-item">
+            <div class="profession-icon">⛪</div>
+            <div class="profession-name">Священники</div>
+          </div>
+          <div class="profession-item">
+            <div class="profession-icon">📜</div>
+            <div class="profession-name">Юристы</div>
+          </div>
+          <div class="profession-item">
+            <div class="profession-icon">💊</div>
+            <div class="profession-name">Врачи</div>
+          </div>
+          <div class="profession-item">
+            <div class="profession-icon">✍️</div>
+            <div class="profession-name">Писатели</div>
+          </div>
+          <div class="profession-item">
+            <div class="profession-icon">🎭</div>
+            <div class="profession-name">Актёры</div>
+          </div>
+          <div class="profession-item">
+            <div class="profession-icon">🎵</div>
+            <div class="profession-name">Музыканты</div>
+          </div>
+          <div class="profession-item">
+            <div class="profession-icon">🎪</div>
+            <div class="profession-name">Паяцы</div>
+          </div>
+          <div class="profession-item">
+            <div class="profession-icon">💃</div>
+            <div class="profession-name">Танцоры</div>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Труд даже самой благородной и полезной профессии не производит ничего такого, 
+          на что можно было бы потом купить одинаковое количество труда.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 3: Product Division -->
+    <section class="chapter-section">
+      <h2>Разделение годового продукта</h2>
+      
+      <div class="product-division">
+        <h3 class="division-title">📊 Куда идёт продукт труда</h3>
+        
+        <div class="division-diagram">
+          <div class="division-item capital">
+            <div class="division-header">
+              <span class="division-name">💰 Возмещение капитала</span>
+              <span class="division-percent">Часто большая часть</span>
+            </div>
+            <div class="division-dest">
+              → Только производительным рабочим (зарплата)
+            </div>
+          </div>
+          
+          <div class="division-item income">
+            <div class="division-header">
+              <span class="division-name">💎 Доход (прибыль + рента)</span>
+              <span class="division-percent">Меньшая часть</span>
+            </div>
+            <div class="division-dest">
+              → Производительным ИЛИ непроизводительным
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Ключевое различие
+        </h3>
+        <p style="margin-bottom: 0;">
+          Часть, возмещающая капитал, НЕ может идти непроизводительным — 
+          она должна сначала создать продукт. А доход можно тратить как угодно.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 4: Cities -->
+    <section class="chapter-section">
+      <h2>Трудолюбие и праздность городов</h2>
+      
+      <p class="section-intro">
+        Сравнение городов, где преобладает капитал vs доход:
+      </p>
+      
+      <div class="cities-section">
+        <table class="cities-table">
+          <thead>
+            <tr>
+              <th>Город</th>
+              <th>Источник существования</th>
+              <th>Трудолюбие</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>🏙️ Лондон</td>
+              <td>Торговля + капитал</td>
+              <td class="city-industry">
+                <div class="industry-bar"><div class="industry-fill" style="width: 85%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td>🏭 Глазго</td>
+              <td>Капитал + промышленность</td>
+              <td class="city-industry">
+                <div class="industry-bar"><div class="industry-fill" style="width: 90%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td>🏛️ Рим</td>
+              <td>Двор + доходы</td>
+              <td class="city-industry">
+                <div class="industry-bar"><div class="industry-fill" style="width: 20%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td>🏰 Версаль</td>
+              <td>Двор + расходы</td>
+              <td class="city-industry">
+                <div class="industry-bar"><div class="industry-fill" style="width: 15%;"></div></div>
+              </td>
+            </tr>
+            <tr>
+              <td>⚖️ Эдинбург (до объединения)</td>
+              <td>Парламент + двор</td>
+              <td class="city-industry">
+                <div class="industry-bar"><div class="industry-fill" style="width: 30%;"></div></div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Закон Смита
+        </h3>
+        <p style="margin-bottom: 0;">
+          Где преобладает капитал — там трудолюбие. 
+          Где преобладает доход — там праздность.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: Saving -->
+    <section class="chapter-section">
+      <h2>Бережливость — источник накопления</h2>
+      
+      <div class="saving-section">
+        <div class="saving-title">
+          <span style="font-size: var(--text-2xl);">🐷</span>
+          <h3 style="margin: 0;">Как растёт капитал</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-4);">
+          Бережливость, а не трудолюбие — непосредственная причина возрастания капитала.
+        </p>
+        
+        <div class="saving-flow">
+          <div class="saving-item">
+            <strong>Доход</strong><br>
+            <span style="font-size: var(--text-xs);">прибыль, рента</span>
+          </div>
+          
+          <span class="saving-arrow">→</span>
+          
+          <div class="saving-item">
+            <strong>Сбережение</strong><br>
+            <span style="font-size: var(--text-xs);">бережливость</span>
+          </div>
+          
+          <span class="saving-arrow">→</span>
+          
+          <div class="saving-item">
+            <strong>Капитал</strong><br>
+            <span style="font-size: var(--text-xs);">производительный труд</span>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4);">
+          Трудолюбие создаёт то, что накапливает бережливость.
+        </p>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Капиталы возрастают в результате бережливости. 
+          Всё, что лицо сберегает из дохода, оно добавляет к капиталу.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 6: Prodigality -->
+    <section class="chapter-section">
+      <h2>Расточительность</h2>
+      
+      <div class="prodigality-section">
+        <div class="prodigality-title">
+          <span style="font-size: var(--text-xl);">⚠️</span>
+          <h3 style="margin: 0;">Опасность расточительства</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Расточитель не ограничивает расходы доходом — он тратит капитал. 
+          Он кормит тунеядцев хлебом трудолюбивых работников.
+        </p>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Главный вывод главы
+        </h3>
+        <p style="margin-bottom: 0;">
+          Если расточительность одних не уравновешивалась бы бережливостью других, 
+          страна беднела бы. Накопление капитала требует сбережений, 
+          а не только производительного труда.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Производительный труд создаёт товар, непроизводительный — услугу</li>
+          <li>Мануфактурный рабочий = производительный, слуга = непроизводительный</li>
+          <li>Государь, армия, юристы, актёры — непроизводительные работники</li>
+          <li>Продукт делится на возмещение капитала (→ производительным) и доход (→ всем)</li>
+          <li>Где капитал — там трудолюбие, где доход — там праздность</li>
+          <li>Бережливость — непосредственная причина роста капитала</li>
+          <li>Расточительство уменьшает капитал общества</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book2-chapter02.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава II: О деньгах</span>
+          </div>
+        </a>
+        <a href="book2-chapter04.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава IV: О капитале, ссужаемом под проценты</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

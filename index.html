@@ -1,0 +1,553 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Адам Смит — Исследование о природе и причинах богатства народов. Полное интерактивное издание с визуализациями и комментариями.">
+  <meta name="keywords" content="Адам Смит, экономика, политическая экономия, разделение труда, классическая экономика, богатство народов">
+  
+  <title>Адам Смит — Исследование о природе и причинах богатства народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="css/design-system.css">
+  <link rel="stylesheet" href="css/components.css">
+  
+  <style>
+    .hero {
+      text-align: center;
+      padding: var(--space-16) 0;
+      background: linear-gradient(135deg, var(--color-bg-main) 0%, var(--color-bg-section) 100%);
+    }
+    
+    .hero-title {
+      font-size: var(--text-5xl);
+      margin-bottom: var(--space-4);
+    }
+    
+    .hero-subtitle {
+      font-size: var(--text-xl);
+      color: var(--color-text-light);
+      max-width: 60ch;
+      margin: 0 auto var(--space-8);
+    }
+    
+    .hero-author {
+      font-size: var(--text-lg);
+      color: var(--color-accent);
+      margin-bottom: var(--space-2);
+    }
+    
+    .hero-year {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    
+
+    
+    .book-section {
+      margin: var(--space-12) 0;
+    }
+    
+    .book-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: var(--space-6);
+      padding-bottom: var(--space-4);
+      border-bottom: 2px solid var(--color-primary);
+    }
+    
+    .book-title {
+      font-size: var(--text-2xl);
+      margin-bottom: 0;
+    }
+    
+    .book-subtitle {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+    }
+    
+    .chapters-list {
+      display: grid;
+      gap: var(--space-3);
+    }
+    
+    .chapter-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      text-decoration: none;
+      color: var(--color-text-main);
+      transition: all var(--transition-fast);
+    }
+    
+    .chapter-item:hover {
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-sm);
+      transform: translateX(4px);
+    }
+    
+
+    
+    .chapter-number {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      background: var(--color-bg-section);
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-right: var(--space-4);
+    }
+    
+    .chapter-info {
+      flex: 1;
+    }
+    
+    .chapter-name {
+      font-weight: 500;
+    }
+    
+    .chapter-status {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    
+    .chapter-arrow {
+      color: var(--color-accent);
+      opacity: 0;
+      transition: opacity var(--transition-fast);
+    }
+    
+    .chapter-item:hover .chapter-arrow {
+      opacity: 1;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Hero -->
+  <header class="hero">
+    <div class="container">
+      <p class="hero-author">Адам Смит</p>
+      <h1 class="hero-title">Исследование о природе и причинах богатства народов</h1>
+      <p class="hero-subtitle">
+        Интерактивное издание классического труда по экономической теории 
+        с визуализациями, схемами и пояснениями
+      </p>
+      <p class="hero-year">1776</p>
+      
+
+    </div>
+  </header>
+  
+  <!-- Main Content -->
+  <main class="container py-8">
+    
+    <!-- Introduction -->
+    <section class="book-section">
+      <div class="book-header">
+        <div>
+          <h2 class="book-title">Введение</h2>
+          <p class="book-subtitle">План сочинения</p>
+        </div>
+      </div>
+      <div class="chapters-list">
+        <a href="chapters-html/00-introduction.html" class="chapter-item">
+          <span class="chapter-number">📝</span>
+          <div class="chapter-info">
+            <div class="chapter-name">Введение и план сочинения</div>
+            <div class="chapter-status">Обзор структуры и целей исследования</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+      </div>
+    </section>
+    
+    <!-- Book 1 -->
+    <section class="book-section">
+      <div class="book-header">
+        <div>
+          <h2 class="book-title">Книга 1</h2>
+          <p class="book-subtitle">Причины увеличения производительности труда и порядок распределения его продукта</p>
+        </div>
+      </div>
+      <div class="chapters-list">
+        
+        <a href="chapters-html/book1-chapter01.html" class="chapter-item">
+          <span class="chapter-number">1</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О разделении труда</div>
+            <div class="chapter-status">Фундаментальный принцип экономики</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book1-chapter02.html" class="chapter-item">
+          <span class="chapter-number">2</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О причине, вызывающей разделение труда</div>
+            <div class="chapter-status">Склонность к обмену</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book1-chapter03.html" class="chapter-item">
+          <span class="chapter-number">3</span>
+          <div class="chapter-info">
+            <div class="chapter-name">Разделение труда ограничивается размерами рынка</div>
+            <div class="chapter-status">Транспорт и торговля</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book1-chapter04.html" class="chapter-item">
+          <span class="chapter-number">4</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О происхождении и употреблении денег</div>
+            <div class="chapter-status">Эволюция денег</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book1-chapter05.html" class="chapter-item">
+          <span class="chapter-number">5</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О действительной и номинальной цене товаров</div>
+            <div class="chapter-status">Трудовая теория стоимости</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book1-chapter06.html" class="chapter-item">
+          <span class="chapter-number">6</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О составных частях цены товаров</div>
+            <div class="chapter-status">Заработная плата, прибыль, рента</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book1-chapter07.html" class="chapter-item">
+          <span class="chapter-number">7</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О естественной и рыночной цене товаров</div>
+            <div class="chapter-status">Равновесие рынка</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book1-chapter08.html" class="chapter-item">
+          <span class="chapter-number">8</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О заработной плате</div>
+            <div class="chapter-status">Факторы и динамика</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book1-chapter09.html" class="chapter-item">
+          <span class="chapter-number">9</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О прибыли на капитал</div>
+            <div class="chapter-status">Норма прибыли и конкуренция</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book1-chapter10.html" class="chapter-item">
+          <span class="chapter-number">10</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О заработной плате и прибыли при различных применениях труда и капитала</div>
+            <div class="chapter-status">Дифференциация по профессиям</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book1-chapter11.html" class="chapter-item">
+          <span class="chapter-number">11</span>
+          <div class="chapter-info">
+            <div class="chapter-name">Земельная рента</div>
+            <div class="chapter-status">Рента и цена продукта</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+      </div>
+    </section>
+    
+    <!-- Book 2 -->
+    <section class="book-section">
+      <div class="book-header">
+        <div>
+          <h2 class="book-title">Книга 2</h2>
+          <p class="book-subtitle">О природе капитала, его накоплении и применении</p>
+        </div>
+      </div>
+      <div class="chapters-list">
+        
+        <a href="chapters-html/book2-chapter01.html" class="chapter-item">
+          <span class="chapter-number">1</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О подразделении накопленных запасов</div>
+            <div class="chapter-status">Структура капитала</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book2-chapter02.html" class="chapter-item">
+          <span class="chapter-number">2</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О деньгах как особой части общих запасов общества</div>
+            <div class="chapter-status">Деньги и капитал</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book2-chapter03.html" class="chapter-item">
+          <span class="chapter-number">3</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О накоплении капитала, или о труде производительном и непроизводительном</div>
+            <div class="chapter-status">Классификация труда</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book2-chapter04.html" class="chapter-item">
+          <span class="chapter-number">4</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О капитале, ссужаемом под проценты</div>
+            <div class="chapter-status">Ссудный капитал</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book2-chapter05.html" class="chapter-item">
+          <span class="chapter-number">5</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О различных помещениях капиталов</div>
+            <div class="chapter-status">Направления инвестиций</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+      </div>
+    </section>
+    
+    <!-- Book 3 -->
+    <section class="book-section">
+      <div class="book-header">
+        <div>
+          <h2 class="book-title">Книга 3</h2>
+          <p class="book-subtitle">О развитии благосостояния у разных народов</p>
+        </div>
+      </div>
+      <div class="chapters-list">
+        
+        <a href="chapters-html/book3-chapter01.html" class="chapter-item">
+          <span class="chapter-number">1</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О естественном развитии благосостояния</div>
+            <div class="chapter-status">Логика развития</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book3-chapter02.html" class="chapter-item">
+          <span class="chapter-number">2</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О препятствиях развитию земледелия в древней Европе</div>
+            <div class="chapter-status">Исторический анализ</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book3-chapter03.html" class="chapter-item">
+          <span class="chapter-number">3</span>
+          <div class="chapter-info">
+            <div class="chapter-name">Возникновение и развитие городов после падения Римской империи</div>
+            <div class="chapter-status">Города и торговля</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book3-chapter04.html" class="chapter-item">
+          <span class="chapter-number">4</span>
+          <div class="chapter-info">
+            <div class="chapter-name">Как торговля городов содействовала росту благосостояния сельских местностей</div>
+            <div class="chapter-status">Взаимосвязь город-село</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+      </div>
+    </section>
+    
+    <!-- Book 4 -->
+    <section class="book-section">
+      <div class="book-header">
+        <div>
+          <h2 class="book-title">Книга 4</h2>
+          <p class="book-subtitle">О системах политической экономии</p>
+        </div>
+      </div>
+      <div class="chapters-list">
+        
+        <a href="chapters-html/book4-chapter01.html" class="chapter-item">
+          <span class="chapter-number">1</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О принципах коммерческой, или меркантилистической, системы</div>
+            <div class="chapter-status">Меркантилизм</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book4-chapter02.html" class="chapter-item">
+          <span class="chapter-number">2</span>
+          <div class="chapter-info">
+            <div class="chapter-name">Об ограничении ввоза из-за границы</div>
+            <div class="chapter-status">Протекционизм</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book4-chapter03.html" class="chapter-item">
+          <span class="chapter-number">3</span>
+          <div class="chapter-info">
+            <div class="chapter-name">Об исключительных ограничениях ввоза</div>
+            <div class="chapter-status">Торговые барьеры</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book4-chapter04.html" class="chapter-item">
+          <span class="chapter-number">4</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О возвратных пошлинах</div>
+            <div class="chapter-status">Таможенная политика</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book4-chapter05.html" class="chapter-item">
+          <span class="chapter-number">5</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О премиях</div>
+            <div class="chapter-status">Субсидии и экспорт</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book4-chapter06.html" class="chapter-item">
+          <span class="chapter-number">6</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О торговых договорах</div>
+            <div class="chapter-status">Международные соглашения</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book4-chapter07.html" class="chapter-item">
+          <span class="chapter-number">7</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О колониях</div>
+            <div class="chapter-status">Колониальная система</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book4-chapter08.html" class="chapter-item">
+          <span class="chapter-number">8</span>
+          <div class="chapter-info">
+            <div class="chapter-name">Заключение о меркантилистической системе</div>
+            <div class="chapter-status">Критика меркантилизма</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book4-chapter09.html" class="chapter-item">
+          <span class="chapter-number">9</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О земледельческих системах</div>
+            <div class="chapter-status">Физиократия</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+      </div>
+    </section>
+    
+    <!-- Book 5 -->
+    <section class="book-section">
+      <div class="book-header">
+        <div>
+          <h2 class="book-title">Книга 5</h2>
+          <p class="book-subtitle">О доходах государя или государства</p>
+        </div>
+      </div>
+      <div class="chapters-list">
+        
+        <a href="chapters-html/book5-chapter01.html" class="chapter-item">
+          <span class="chapter-number">1</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О расходах государя или государства</div>
+            <div class="chapter-status">Функции государства</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book5-chapter02.html" class="chapter-item">
+          <span class="chapter-number">2</span>
+          <div class="chapter-info">
+            <div class="chapter-name">Об источниках общего, или государственного, дохода общества</div>
+            <div class="chapter-status">Налоги и доходы</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+        <a href="chapters-html/book5-chapter03.html" class="chapter-item">
+          <span class="chapter-number">3</span>
+          <div class="chapter-info">
+            <div class="chapter-name">О государственных долгах</div>
+            <div class="chapter-status">Государственный долг</div>
+          </div>
+          <span class="chapter-arrow">→</span>
+        </a>
+        
+      </div>
+    </section>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center">
+      <p class="text-muted text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-muted text-sm mt-2">
+        Интерактивное веб-издание с визуализациями и пояснениями, 2026
+      </p>
+      <p class="text-muted text-xs mt-4">
+        Источник текста: <a href="http://royallib.ru" target="_blank">Royallib.ru</a>
+      </p>
+    </div>
+  </footer>
+  
+
+  
+</body>
+</html>

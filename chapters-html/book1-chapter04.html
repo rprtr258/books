@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Глава IV: О происхождении и употреблении денег — Адам Смит, Богатство народов">
+  
+  <title>Глава IV: Происхождение денег — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Evolution Timeline */
+    .evolution-timeline {
+      position: relative;
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .timeline-track {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      position: relative;
+      padding-top: var(--space-8);
+    }
+    
+    .timeline-track::before {
+      content: '';
+      position: absolute;
+      top: calc(var(--space-8) + 24px);
+      left: 10%;
+      right: 10%;
+      height: 4px;
+      background: linear-gradient(to right, #dd6b20, #d69e2e, #38a169, var(--color-primary));
+      border-radius: var(--radius-full);
+    }
+    
+    .timeline-stage {
+      flex: 1;
+      text-align: center;
+      position: relative;
+      padding: 0 var(--space-2);
+    }
+    
+    .stage-icon {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--color-bg-card);
+      border: 3px solid var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xl);
+      position: relative;
+      z-index: 1;
+      transition: all var(--transition-fast);
+    }
+    
+    .timeline-stage:hover .stage-icon {
+      transform: scale(1.15);
+      border-color: var(--color-accent);
+    }
+    
+    .stage-label {
+      margin-top: var(--space-3);
+      font-weight: 600;
+      font-size: var(--text-sm);
+    }
+    
+    .stage-desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+    }
+    
+    /* Barter Problem */
+    .barter-problem {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .barter-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .barter-icon {
+      font-size: var(--text-2xl);
+    }
+    
+    .barter-title {
+      font-weight: 600;
+      color: #c53030;
+    }
+    
+    .barter-scenario {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      justify-content: center;
+      align-items: center;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .barter-actor {
+      text-align: center;
+      padding: var(--space-3);
+    }
+    
+    .actor-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .actor-name {
+      font-weight: 600;
+      font-size: var(--text-sm);
+    }
+    
+    .actor-has {
+      font-size: var(--text-xs);
+      color: #38a169;
+      margin-top: var(--space-1);
+    }
+    
+    .actor-wants {
+      font-size: var(--text-xs);
+      color: #e53e3e;
+    }
+    
+    .barter-arrow {
+      font-size: var(--text-2xl);
+      color: #fc8181;
+    }
+    
+    .barter-result {
+      margin-top: var(--space-4);
+      padding: var(--space-3);
+      background: #fed7d7;
+      border-radius: var(--radius-md);
+      text-align: center;
+      font-size: var(--text-sm);
+      color: #c53030;
+    }
+    
+    /* Commodity Money */
+    .commodity-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: var(--space-3);
+      margin: var(--space-6) 0;
+    }
+    
+    .commodity-item {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+      transition: all var(--transition-fast);
+    }
+    
+    .commodity-item:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+    }
+    
+    .commodity-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .commodity-name {
+      font-weight: 600;
+      font-size: var(--text-sm);
+    }
+    
+    .commodity-region {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+    }
+    
+    /* Metal Advantages */
+    .metal-advantages {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+    }
+    
+    .advantage-card {
+      padding: var(--space-4);
+      background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%);
+      border: 1px solid #9ae6b4;
+      border-radius: var(--radius-lg);
+    }
+    
+    .advantage-icon {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .advantage-title {
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+    
+    .advantage-desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-light);
+    }
+    
+    /* Coin Evolution */
+    .coin-evolution {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .coin-stages {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      justify-content: center;
+      margin-top: var(--space-4);
+    }
+    
+    .coin-stage {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+    }
+    
+    .coin-stage-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .coin-stage-label {
+      font-size: var(--text-sm);
+    }
+    
+    .coin-arrow {
+      font-size: var(--text-xl);
+      color: var(--color-text-muted);
+    }
+    
+    /* Value Paradox */
+    .value-paradox {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #d69e2e;
+      border-radius: var(--radius-lg);
+    }
+    
+    .paradox-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .paradox-title h3 {
+      font-size: var(--text-lg);
+    }
+    
+    .paradox-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    
+    @media (max-width: 640px) {
+      .paradox-comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .paradox-item {
+      padding: var(--space-5);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .paradox-icon {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-3);
+    }
+    
+    .paradox-name {
+      font-weight: 600;
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-3);
+    }
+    
+    .paradox-values {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-2);
+    }
+    
+    .value-box {
+      padding: var(--space-2);
+      border-radius: var(--radius-md);
+    }
+    
+    .value-box.use {
+      background: #e6fffa;
+    }
+    
+    .value-box.exchange {
+      background: #ebf8ff;
+    }
+    
+    .value-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    
+    .value-level {
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+    
+    .value-box.use .value-level {
+      color: #38a169;
+    }
+    
+    .value-box.exchange .value-level {
+      color: #3182ce;
+    }
+    
+    /* Coin Debasement */
+    .debasement-section {
+      margin: var(--space-6) 0;
+      padding: var(--space-5);
+      background: #fff5f5;
+      border: 1px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .debasement-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    
+    .debasement-item {
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    
+    .debasement-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    
+    .debasement-value {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      color: #e53e3e;
+    }
+    
+    .debasement-desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-light);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 1</span>
+        <span class="chapter-number">Глава IV</span>
+      </div>
+      <h1 class="chapter-title">О происхождении и употреблении денег</h1>
+      <div class="chapter-summary">
+        <p>Как люди пришли от бартера к деньгам? Почему именно металлы стали деньгами? И в чём разница между потребительной и меновой стоимостью?</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Problem of Barter -->
+    <section class="chapter-section">
+      <h2>Проблема бартера</h2>
+      
+      <p class="section-intro">
+        Когда разделение труда только начиналось, обмен часто встречал затруднения. 
+        Нужно было «двойное совпадение желаний».
+      </p>
+      
+      <div class="barter-problem">
+        <div class="barter-header">
+          <span class="barter-icon">⚠️</span>
+          <span class="barter-title">Классическая проблема</span>
+        </div>
+        
+        <div class="barter-scenario">
+          <div class="barter-actor">
+            <div class="actor-icon">🥩</div>
+            <div class="actor-name">Мясник</div>
+            <div class="actor-has">Есть: лишнее мясо</div>
+            <div class="actor-wants">Хочет: хлеб, пиво</div>
+          </div>
+          
+          <div class="barter-actor">
+            <div class="actor-icon">🍺</div>
+            <div class="actor-name">Пивовар</div>
+            <div class="actor-has">Есть: пиво</div>
+            <div class="actor-wants">Хочет: мясо</div>
+          </div>
+          
+          <div class="barter-actor">
+            <div class="actor-icon">🍞</div>
+            <div class="actor-name">Булочник</div>
+            <div class="actor-has">Есть: хлеб</div>
+            <div class="actor-wants">Хочет: мясо</div>
+          </div>
+        </div>
+        
+        <div class="barter-result">
+          ❌ Обмен невозможен: мясник уже запасся хлебом и пивом!
+        </div>
+      </div>
+      
+      <div class="key-insight">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Решение
+        </h3>
+        <p style="margin-bottom: 0;">
+          Каждый разумный человек должен иметь при себе <strong>товар, который 
+          никто не откажется взять в обмен</strong>. Так рождаются деньги.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Commodity Money -->
+    <section class="chapter-section">
+      <h2>Товары-деньги в разных странах</h2>
+      
+      <p class="section-intro">
+        Прежде чем metals, люди использовали самые разные товары как средство обмена:
+      </p>
+      
+      <div class="commodity-grid">
+        <div class="commodity-item">
+          <div class="commodity-icon">🐄</div>
+          <div class="commodity-name">Скот</div>
+          <div class="commodity-region">Древний мир</div>
+        </div>
+        
+        <div class="commodity-item">
+          <div class="commodity-icon">🧂</div>
+          <div class="commodity-name">Соль</div>
+          <div class="commodity-region">Абиссиния</div>
+        </div>
+        
+        <div class="commodity-item">
+          <div class="commodity-icon">🐚</div>
+          <div class="commodity-name">Раковины</div>
+          <div class="commodity-region">Индия</div>
+        </div>
+        
+        <div class="commodity-item">
+          <div class="commodity-icon">🐟</div>
+          <div class="commodity-name">Сушёная треска</div>
+          <div class="commodity-region">Ньюфаундленд</div>
+        </div>
+        
+        <div class="commodity-item">
+          <div class="commodity-icon">🚬</div>
+          <div class="commodity-name">Табак</div>
+          <div class="commodity-region">Виргиния</div>
+        </div>
+        
+        <div class="commodity-item">
+          <div class="commodity-icon">🍬</div>
+          <div class="commodity-name">Сахар</div>
+          <div class="commodity-region">Вест-Индия</div>
+        </div>
+        
+        <div class="commodity-item">
+          <div class="commodity-icon">🦌</div>
+          <div class="commodity-name">Шкуры</div>
+          <div class="commodity-region">Многие страны</div>
+        </div>
+        
+        <div class="commodity-item">
+          <div class="commodity-icon">🔩</div>
+          <div class="commodity-name">Гвозди</div>
+          <div class="commodity-region">Шотландия (деревни)</div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Вооружение Диомеда стоило только 9 быков, а вооружение Клавка — 100 быков.
+        </p>
+        <cite>— Гомер, цитирует Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 3: Why Metals -->
+    <section class="chapter-section">
+      <h2>Почему именно металлы?</h2>
+      
+      <p class="section-intro">
+        В конечном счёте все народы пришли к металлам. Почему?
+      </p>
+      
+      <div class="metal-advantages">
+        <div class="advantage-card">
+          <div class="advantage-icon">🛡️</div>
+          <div class="advantage-title">Прочность</div>
+          <div class="advantage-desc">Не портятся при хранении, в отличие от скота или продуктов</div>
+        </div>
+        
+        <div class="advantage-card">
+          <div class="advantage-icon">✂️</div>
+          <div class="advantage-title">Делимость</div>
+          <div class="advantage-desc">Можно разделить на любое количество частей без потери</div>
+        </div>
+        
+        <div class="advantage-card">
+          <div class="advantage-icon">🔥</div>
+          <div class="advantage-title">Объединяемость</div>
+          <div class="advantage-desc">Части можно снова сплавить в один кусок</div>
+        </div>
+        
+        <div class="advantage-card">
+          <div class="advantage-icon">⚖️</div>
+          <div class="advantage-title">Точность</div>
+          <div class="advantage-desc">Легко отмерить нужное количество для любой покупки</div>
+        </div>
+      </div>
+      
+      <div class="idea-cards grid gap-4 md:grid-cols-3" style="margin-top: var(--space-6);">
+        <div class="idea-card">
+          <div class="idea-icon">🔩</div>
+          <h3>Железо</h3>
+          <p>Спарта</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🥉</div>
+          <h3>Медь</h3>
+          <p>Древний Рим</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🥇</div>
+          <h3>Золото и серебро</h3>
+          <p>Богатые торговые народы</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 4: Evolution to Coins -->
+    <section class="chapter-section">
+      <h2>От слитков к монетам</h2>
+      
+      <p class="section-intro">
+        Сначала металлы использовали в слитках. Но это создавало проблемы.
+      </p>
+      
+      <div class="coin-evolution">
+        <h3 style="text-align: center; margin-bottom: var(--space-2);">Эволюция денег</h3>
+        
+        <div class="coin-stages">
+          <div class="coin-stage">
+            <span class="coin-stage-icon">🧱</span>
+            <span class="coin-stage-label">Слитки металла</span>
+          </div>
+          
+          <span class="coin-arrow">→</span>
+          
+          <div class="coin-stage">
+            <span class="coin-stage-icon">⚖️</span>
+            <span class="coin-stage-label">Взвешивание</span>
+          </div>
+          
+          <span class="coin-arrow">→</span>
+          
+          <div class="coin-stage">
+            <span class="coin-stage-icon">🔬</span>
+            <span class="coin-stage-label">Определение пробы</span>
+          </div>
+          
+          <span class="coin-arrow">→</span>
+          
+          <div class="coin-stage">
+            <span class="coin-stage-icon">🏛️</span>
+            <span class="coin-stage-label">Публичное клеймо</span>
+          </div>
+          
+          <span class="coin-arrow">→</span>
+          
+          <div class="coin-stage">
+            <span class="coin-stage-icon">🪙</span>
+            <span class="coin-stage-label">Чеканная монета</span>
+          </div>
+        </div>
+      </div>
+      
+      <h3>Два неудобства слитков</h3>
+      
+      <div class="idea-cards grid gap-4 md:grid-cols-2" style="margin-top: var(--space-4);">
+        <div class="idea-card">
+          <div class="idea-icon">⚖️</div>
+          <h3>Проблема взвешивания</h3>
+          <p>Нужны точные весы и гири. Для бедного человека — неудобно.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🔬</div>
+          <h3>Проблема пробы</h3>
+          <p>Определение чистоты металла требует плавки и кислот. Иначе — обман.</p>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Решение: чеканная монета
+        </h3>
+        <p style="margin-bottom: 0;">
+          Государство накладывает публичное клеймо, удостоверяющее и чистоту, и вес металла. 
+          Монеты принимаются по счёту, без взвешивания.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: Weight Names -->
+    <section class="chapter-section">
+      <h2>Деньги = вес</h2>
+      
+      <p class="section-intro">
+        Названия монет первоначально выражали вес металла:
+      </p>
+      
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Монета</th>
+              <th>Первоначальное содержание</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Римский асс (пондо)</td>
+              <td>Римский фунт чистой меди</td>
+            </tr>
+            <tr>
+              <td>Английский фунт стерлингов</td>
+              <td>Фунт серебра (Эдуард I)</td>
+            </tr>
+            <tr>
+              <td>Французский ливр</td>
+              <td>Тройский фунт серебра (Карл Великий)</td>
+            </tr>
+            <tr>
+              <td>Шотландский фунт</td>
+              <td>Фунт серебра = английский</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- Section 6: Debasement -->
+    <section class="chapter-section">
+      <h2>Порча монеты</h2>
+      
+      <p class="section-intro">
+        Государи постепенно уменьшали количество металла в монетах:
+      </p>
+      
+      <div class="debasement-section">
+        <h3 style="margin-bottom: var(--space-3);">📉 Уменьшение содержания металла</h3>
+        
+        <div class="debasement-grid">
+          <div class="debasement-item">
+            <div class="debasement-label">Римский асс</div>
+            <div class="debasement-value">~50%</div>
+            <div class="debasement-desc">от первоначального веса</div>
+          </div>
+          
+          <div class="debasement-item">
+            <div class="debasement-label">Английский фунт</div>
+            <div class="debasement-value">~33%</div>
+            <div class="debasement-desc">от первоначального серебра</div>
+          </div>
+          
+          <div class="debasement-item">
+            <div class="debasement-label">Шотландский фунт</div>
+            <div class="debasement-value">~30%</div>
+            <div class="debasement-desc">от первоначального</div>
+          </div>
+          
+          <div class="debasement-item">
+            <div class="debasement-label">Французский ливр</div>
+            <div class="debasement-value">~1.5%</div>
+            <div class="debasement-desc">от первоначального серебра</div>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote">
+        <p>
+          Подобные операции всегда оказывались выгодными для должников 
+          и разорительными для кредиторов.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 7: Use Value vs Exchange Value -->
+    <section class="chapter-section">
+      <h2>Потребительная и меновая стоимость</h2>
+      
+      <p class="section-intro">
+        Смит вводит фундаментальное различие и знаменитый парадокс:
+      </p>
+      
+      <div class="value-paradox">
+        <div class="paradox-title">
+          <span style="font-size: var(--text-2xl);">💎</span>
+          <h3>Парадокс воды и алмаза</h3>
+        </div>
+        
+        <div class="paradox-comparison">
+          <div class="paradox-item">
+            <div class="paradox-icon">💧</div>
+            <div class="paradox-name">Вода</div>
+            <div class="paradox-values">
+              <div class="value-box use">
+                <div class="value-label">Потребительная</div>
+                <div class="value-level">Огромная</div>
+              </div>
+              <div class="value-box exchange">
+                <div class="value-label">Меновая</div>
+                <div class="value-level">Почти нулевая</div>
+              </div>
+            </div>
+          </div>
+          
+          <div class="paradox-item">
+            <div class="paradox-icon">💎</div>
+            <div class="paradox-name">Алмаз</div>
+            <div class="paradox-values">
+              <div class="value-box use">
+                <div class="value-label">Потребительная</div>
+                <div class="value-level">Почти нулевая</div>
+              </div>
+              <div class="value-box exchange">
+                <div class="value-label">Меновая</div>
+                <div class="value-level">Огромная</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Нет ничего полезнее воды, но на неё почти ничего нельзя купить. 
+          Напротив, алмаз почти не имеет никакой потребительной стоимости, 
+          но в обмен на него можно получить очень большое количество других товаров.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+      
+      <div class="key-insight">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          📖 Что будет дальше
+        </h3>
+        <p style="margin-bottom: 0;">
+          Следующие главы объяснят: что определяет меновую стоимость? 
+          Из каких частей состоит действительная цена товаров? 
+          Почему рыночная цена отклоняется от естественной?
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Бартер требует «двойного совпадения желаний»</li>
+          <li>Разные товары служили деньгами в разных странах</li>
+          <li>Металлы идеальны: прочны, делимы, объединяемы</li>
+          <li>Чеканная монета решает проблемы взвешивания и пробы</li>
+          <li>Государи портили монету в свою пользу</li>
+          <li>Потребительная и меновая стоимость — не одно и то же</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book1-chapter03.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава III: Размеры рынка</span>
+          </div>
+        </a>
+        <a href="book1-chapter05.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава V: Действительная и номинальная цена</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

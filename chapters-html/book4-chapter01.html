@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 4, Глава I: О принципах меркантилистической системы — Адам Смит, Богатство народов">
+  
+  <title>Книга 4, Глава I: Меркантилизм — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Misconception */
+    .misconception-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .misconception-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .misconception-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      font-size: var(--text-xl);
+      font-weight: 700;
+    }
+    
+    .equation-wrong {
+      color: #e53e3e;
+    }
+    
+    .equation-correct {
+      color: #38a169;
+    }
+    
+    /* Why Misconception */
+    .reasons-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .reasons-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .reasons-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .reason-card {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .reason-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
+    }
+    
+    .reason-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .reason-title {
+      font-weight: 700;
+    }
+    
+    .reason-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Different Views */
+    .views-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .views-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .views-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .view-card {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .view-card.locke {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .view-card.others {
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #9f7aea;
+    }
+    
+    .view-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
+    }
+    
+    .view-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .view-title {
+      font-weight: 700;
+    }
+    
+    .view-card.locke .view-title { color: #2c5282; }
+    .view-card.others .view-title { color: #6b46c1; }
+    
+    .view-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Trade Balance */
+    .balance-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .balance-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-top: var(--space-4);
+    }
+    
+    .balance-box {
+      text-align: center;
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      min-width: 100px;
+    }
+    
+    .balance-box.surplus {
+      border: 2px solid #38a169;
+      background: #f0fff4;
+    }
+    
+    .balance-box.deficit {
+      border: 2px solid #e53e3e;
+      background: #fff5f5;
+    }
+    
+    .balance-icon {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-1);
+    }
+    
+    .balance-label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+    
+    /* Smith's Critique */
+    .critique-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+      border-radius: var(--radius-lg);
+    }
+    
+    .critique-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .critique-points {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .critique-points li {
+      padding: var(--space-2) 0;
+      padding-left: var(--space-6);
+      position: relative;
+    }
+    
+    .critique-points li::before {
+      content: "✓";
+      position: absolute;
+      left: 0;
+      color: #38a169;
+      font-weight: 700;
+    }
+    
+    /* Kitchenware Analogy */
+    .analogy-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+      border-radius: var(--radius-lg);
+    }
+    
+    .analogy-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    .analogy-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .analogy-comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .analogy-box {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .analogy-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .analogy-label {
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+    
+    .analogy-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 4</span>
+        <span class="chapter-number">Глава I</span>
+      </div>
+      <h1 class="chapter-title">О принципах коммерческой, или меркантилистической, системы</h1>
+      <div class="chapter-summary">
+        <p>Критика главного заблуждения: богатство ≠ золото. Правительство зря пытается накапливать деньги — они придут сами, если есть товары.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: The Misconception -->
+    <section class="chapter-section">
+      <h2>Главное заблуждение</h2>
+      
+      <div class="misconception-section">
+        <div class="misconception-title">
+          <span style="font-size: var(--text-2xl);">❌</span>
+          <h3 style="margin: 0;">Ошибка меркантилистов</h3>
+        </div>
+        
+        <div class="misconception-equation">
+          <span class="equation-wrong">Богатство = Деньги</span>
+          <span style="font-size: var(--text-lg);">→</span>
+          <span class="equation-correct">Богатство = Товары, которые можно купить</span>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4); color: var(--color-text-light);">
+          «Богатый человек стоит много тысяч» — это верно, но не потому что у него деньги, 
+          а потому что на них можно купить товары.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Why the Misconception -->
+    <section class="chapter-section">
+      <h2>Почему возникла ошибка?</h2>
+      
+      <div class="reasons-section">
+        <div class="reasons-grid">
+          <div class="reason-card">
+            <div class="reason-header">
+              <span class="reason-icon">💱</span>
+              <span class="reason-title">Деньги — орудие обмена</span>
+            </div>
+            <div class="reason-desc">
+              Имея деньги, легче достать всё нужное. «Самое главное — добыть деньги».
+            </div>
+          </div>
+          
+          <div class="reason-card">
+            <div class="reason-header">
+              <span class="reason-icon">📏</span>
+              <span class="reason-title">Деньги — мерило стоимости</span>
+            </div>
+            <div class="reason-desc">
+              Мы измеряем все товары количеством денег. «Цена ему — грош».
+            </div>
+          </div>
+          
+          <div class="reason-card">
+            <div class="reason-header">
+              <span class="reason-icon">🇪🇸</span>
+              <span class="reason-title">Испанцы в Америке</span>
+            </div>
+            <div class="reason-desc">
+              Первый вопрос: «Есть ли золото?» Есть — завоёвываем. Нет — уходим.
+            </div>
+          </div>
+          
+          <div class="reason-card">
+            <div class="reason-header">
+              <span class="reason-icon">🐎</span>
+              <span class="reason-title">Татары Чингисхана</span>
+            </div>
+            <div class="reason-desc">
+              Их вопрос: «Много ли овец и быков?» Скот — их богатство. Ближе к истине!
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Different Views -->
+    <section class="chapter-section">
+      <h2>Два взгляда на деньги</h2>
+      
+      <div class="views-section">
+        <div class="views-grid">
+          <div class="view-card locke">
+            <div class="view-header">
+              <span class="view-icon">🪙</span>
+              <span class="view-title">Локк</span>
+            </div>
+            <div class="view-desc">
+              Деньги — «неизменный друг». Другие товары потребляются, 
+              деньги остаются. Поэтому золото и серебро — самая устойчивая 
+              часть движимого богатства нации.
+            </div>
+          </div>
+          
+          <div class="view-card others">
+            <div class="view-header">
+              <span class="view-icon">⚔️</span>
+              <span class="view-title">Другие мыслители</span>
+            </div>
+            <div class="view-desc">
+              Для изолированной страны не важно, сколько денег. 
+              Но для войны за границей нужны деньги. 
+              Поэтому в мирное время надо копить золото и серебро.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Аргумент купцов против запрета вывоза
+        </h3>
+        <p style="margin-bottom: var(--space-2);">
+          1. Вывоз золота может <strong>увеличить</strong> его количество в стране — 
+          если товары перепродать за границей с прибылью.
+        </p>
+        <p style="margin-bottom: 0;">
+          2. Запрет не работает — контрабанда. Единственный способ контроля — 
+          следить за <strong>торговым балансом</strong>.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 4: Trade Balance -->
+    <section class="chapter-section">
+      <h2>Торговый баланс</h2>
+      
+      <div class="balance-section">
+        <h3 style="text-align: center; margin-bottom: var(--space-2);">Теория меркантилистов</h3>
+        
+        <div class="balance-diagram">
+          <div class="balance-box surplus">
+            <div class="balance-icon">📈</div>
+            <div class="balance-label">Вывоз > Ввоз</div>
+            <div style="font-size: var(--text-xs); color: #38a169;">Приток золота</div>
+          </div>
+          
+          <div style="font-size: var(--text-xl);">⚖️</div>
+          
+          <div class="balance-box deficit">
+            <div class="balance-icon">📉</div>
+            <div class="balance-label">Ввоз > Вывоз</div>
+            <div style="font-size: var(--text-xs); color: #e53e3e;">Отток золота</div>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4); color: var(--color-text-light);">
+          Меркантилисты считали: положительный баланс = богатство. 
+          Смит покажет, что это ошибка.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: Smith's Critique -->
+    <section class="chapter-section">
+      <h2>Критика Смита</h2>
+      
+      <div class="critique-section">
+        <div class="critique-title">
+          <span style="font-size: var(--text-2xl);">✅</span>
+          <h3 style="margin: 0;">Зачем правительству заботиться о деньгах?</h3>
+        </div>
+        
+        <ul class="critique-points">
+          <li>
+            <strong>Золото и серебро — такие же товары, как вино.</strong> 
+            Страна без рудников получит их из других стран, как получает вино.
+          </li>
+          <li>
+            <strong>Количество денег регулируется само.</strong> 
+            Если нужно больше — цена вырастет, и золото придёт из других стран.
+          </li>
+          <li>
+            <strong>Золото легко перевозить.</strong> 
+            50 тонн золота = 5 млн гиней. Столько же зерна = 1000 кораблей!
+          </li>
+          <li>
+            <strong>Запреты не работают.</strong> 
+            Испания и Португалия не удержали золото из Америки — оно утекло.
+          </li>
+          <li>
+            <strong>Недостаток денег легко восполнить.</strong> 
+            Бартер, кредит, бумажные деньги — всё заменит золото.
+          </li>
+        </ul>
+      </div>
+      
+      <div class="analogy-section" style="margin-top: var(--space-8);">
+        <div class="analogy-title">
+          <span style="font-size: var(--text-xl);">🍳</span>
+          <h3 style="margin: 0;">Аналогия с кухонной посудой</h3>
+        </div>
+        
+        <div class="analogy-comparison">
+          <div class="analogy-box">
+            <div class="analogy-icon">🍽️</div>
+            <div class="analogy-label">Кухонная посуда</div>
+            <div class="analogy-desc">
+              Глупо иметь больше кастрюль, чем нужно для готовки. 
+              Больше еды — больше посуды. Но не наоборот!
+            </div>
+          </div>
+          
+          <div class="analogy-box">
+            <div class="analogy-icon">🪙</div>
+            <div class="analogy-label">Золото и серебро</div>
+            <div class="analogy-desc">
+              Деньги — та же посуда. Больше товаров — больше денег для обращения. 
+              Накапливать деньги бессмысленно!
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Пытаться увеличить богатство страны посредством ввоза излишнего количества 
+          золота и серебра столь же нелепо, как заставлять семьи держать лишнюю кухонную посуду.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Меркантилисты ошибочно считали: богатство = золото и серебро</li>
+          <li>Ошибка возникла из двойной функции денег: орудие обмена и мерило стоимости</li>
+          <li>Локк: деньги — «неизменный друг»</li>
+          <li>Купцы добились свободы вывоза золота через аргумент о торговом балансе</li>
+          <li>Смит: правительству не нужно заботиться о количестве денег</li>
+          <li>Золото приходит само, если есть товары для покупки</li>
+          <li>Деньги — как кухонная посуда: количество регулируется потребностью</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book3-chapter04.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Книга 3, Глава IV: Торговля городов и село</span>
+          </div>
+        </a>
+        <a href="book4-chapter02.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава II: Об ограничении ввоза</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

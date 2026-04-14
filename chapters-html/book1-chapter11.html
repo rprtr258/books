@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Глава XI: О земельной ренте — Адам Смит, Богатство народов">
+  
+  <title>Глава XI: О земельной ренте — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Rent Definition */
+    .rent-definition {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+      border-radius: var(--radius-lg);
+    }
+    
+    .rent-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .rent-formula {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+    }
+    
+    .formula-item {
+      text-align: center;
+    }
+    
+    .formula-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-1);
+    }
+    
+    .formula-value {
+      font-size: var(--text-lg);
+      font-weight: 700;
+    }
+    
+    .formula-operator {
+      font-size: var(--text-xl);
+      color: var(--color-accent);
+    }
+    
+    /* Price Components */
+    .price-components {
+      margin: var(--space-8) 0;
+    }
+    
+    .components-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .components-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .component-card {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .component-card.wages {
+      background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .component-card.profit {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .component-card.rent {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .component-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .component-name {
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    
+    .component-role {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    .component-card.wages .component-name {
+      color: #276749;
+    }
+    
+    .component-card.profit .component-name {
+      color: #b7791f;
+    }
+    
+    .component-card.rent .component-name {
+      color: #2c5282;
+    }
+    
+    /* Product Types */
+    .product-types {
+      margin: var(--space-8) 0;
+    }
+    
+    .types-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .types-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .type-box {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+    }
+    
+    .type-box.always {
+      background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .type-box.sometimes {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .type-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .type-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .type-title {
+      font-weight: 700;
+    }
+    
+    .type-box.always .type-title {
+      color: #276749;
+    }
+    
+    .type-box.sometimes .type-title {
+      color: #b7791f;
+    }
+    
+    .type-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-bottom: var(--space-3);
+    }
+    
+    .type-examples {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .type-examples li {
+      padding: var(--space-2) 0;
+      border-top: 1px solid var(--color-border-light);
+      font-size: var(--text-sm);
+    }
+    
+    /* Meat vs Grain */
+    .meat-grain {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .meat-grain-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .comparison-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    
+    .comparison-stage {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      min-width: 160px;
+    }
+    
+    .stage-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2);
+    }
+    
+    .stage-product {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .stage-price {
+      font-weight: 600;
+    }
+    
+    .stage-price.high {
+      color: #38a169;
+    }
+    
+    .stage-price.low {
+      color: #e53e3e;
+    }
+    
+    .arrow-stage {
+      font-size: var(--text-2xl);
+      color: var(--color-accent);
+    }
+    
+    /* Historical Examples */
+    .history-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .history-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .history-card {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .history-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .history-flag {
+      font-size: var(--text-xl);
+    }
+    
+    .history-name {
+      font-weight: 600;
+    }
+    
+    .history-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    .history-lesson {
+      margin-top: var(--space-3);
+      padding: var(--space-2);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-md);
+      font-size: var(--text-xs);
+      font-style: italic;
+    }
+    
+    /* Location Effect */
+    .location-effect {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #9f7aea;
+      border-radius: var(--radius-lg);
+    }
+    
+    .location-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .location-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    .location-item {
+      text-align: center;
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .location-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .location-label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+    
+    .location-rent {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 1</span>
+        <span class="chapter-number">Глава XI</span>
+      </div>
+      <h1 class="chapter-title">О земельной ренте</h1>
+      <div class="chapter-summary">
+        <p>Рента — это монопольная цена за пользование землёй. Она определяется тем, что фермер может заплатить, а не затратами землевладельца.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Definition -->
+    <section class="chapter-section">
+      <h2>Что такое земельная рента?</h2>
+      
+      <div class="rent-definition">
+        <div class="rent-title">
+          <span style="font-size: var(--text-2xl);">🌾</span>
+          <h3 style="margin: 0;">Определение Смита</h3>
+        </div>
+        
+        <p style="margin-bottom: var(--space-4);">
+          Рента — наивысшая сумма, которую арендатор может платить при данном качестве земли. 
+          Землевладелец оставляет арендатору лишь минимум для покрытия издержек и прибыли.
+        </p>
+        
+        <div class="rent-formula">
+          <div class="formula-item">
+            <div class="formula-label">Продукт земли</div>
+            <div class="formula-value">100%</div>
+          </div>
+          
+          <span class="formula-operator">−</span>
+          
+          <div class="formula-item">
+            <div class="formula-label">Издержки</div>
+            <div class="formula-value">Семена + Труд</div>
+          </div>
+          
+          <span class="formula-operator">−</span>
+          
+          <div class="formula-item">
+            <div class="formula-label">Прибыль фермера</div>
+            <div class="formula-value">Обычная норма</div>
+          </div>
+          
+          <span class="formula-operator">=</span>
+          
+          <div class="formula-item">
+            <div class="formula-label">Рента</div>
+            <div class="formula-value" style="color: #3182ce;">Всё остальное</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Монопольная цена
+        </h3>
+        <p style="margin-bottom: 0;">
+          Рента не связана с затратами землевладельца на улучшения. 
+          Он требует ренту даже за скалы, где растёт морская трава, 
+          и за земли, которые никогда не улучшались.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Difference -->
+    <section class="chapter-section">
+      <h2>Чем рента отличается от зарплаты и прибыли?</h2>
+      
+      <div class="price-components">
+        <div class="components-grid">
+          <div class="component-card wages">
+            <div class="component-icon">👷</div>
+            <div class="component-name">Заработная плата</div>
+            <div class="component-role">
+              <strong>Причина</strong> цены товара<br>
+              Высокая зарплата → высокая цена
+            </div>
+          </div>
+          
+          <div class="component-card profit">
+            <div class="component-icon">💰</div>
+            <div class="component-name">Прибыль</div>
+            <div class="component-role">
+              <strong>Причина</strong> цены товара<br>
+              Высокая прибыль → высокая цена
+            </div>
+          </div>
+          
+          <div class="component-card rent">
+            <div class="component-icon">🌾</div>
+            <div class="component-name">Рента</div>
+            <div class="component-role">
+              <strong>Результат</strong> цены товара<br>
+              Высокая цена → высокая рента
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Высокая или низкая зарплата и прибыль являются причиною высокой или низкой цены. 
+          Размер ренты является результатом последней.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 3: Product Types -->
+    <section class="chapter-section">
+      <h2>Два типа сельхозпродуктов</h2>
+      
+      <div class="product-types">
+        <div class="types-grid">
+          <div class="type-box always">
+            <div class="type-header">
+              <span class="type-icon">✅</span>
+              <span class="type-title">Всегда дают ренту</span>
+            </div>
+            <div class="type-desc">
+              Спрос всегда достаточен, чтобы цена превышала издержки.
+            </div>
+            <ul class="type-examples">
+              <li>🍞 <strong>Хлеб</strong> — основная пища народа</li>
+              <li>🥩 <strong>Мясо</strong> — когда земледелие развито</li>
+              <li>🥛 <strong>Молоко</strong> — в окрестностях городов</li>
+            </ul>
+          </div>
+          
+          <div class="type-box sometimes">
+            <div class="type-header">
+              <span class="type-icon">❓</span>
+              <span class="type-title">Иногда дают ренту</span>
+            </div>
+            <div class="type-desc">
+              Спрос может быть достаточен или нет — зависит от обстоятельств.
+            </div>
+            <ul class="type-examples">
+              <li>🥔 <strong>Картофель</strong> — в некоторых странах</li>
+              <li>🧀 <strong>Шерсть, кожи</strong> — зависит от промышленности</li>
+              <li>⛏️ <strong>Полезные ископаемые</strong> — зависит от богатства месторождения</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Почему еда всегда даёт ренту?
+        </h3>
+        <p style="margin-bottom: 0;">
+          Люди всегда нуждаются в пище. Земля всегда производит больше еды, 
+          чем нужно для содержания труда, затраченного на её производство. 
+          Излишек — источник ренты.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 4: Meat vs Grain -->
+    <section class="chapter-section">
+      <h2>Хлеб vs Мясо: исторический сдвиг</h2>
+      
+      <div class="meat-grain">
+        <h3 class="meat-grain-title">📊 Как менялись цены с развитием земледелия</h3>
+        
+        <div class="comparison-visual">
+          <div class="comparison-stage">
+            <div class="stage-label">Начальная стадия</div>
+            <div class="stage-product">🥩🐄</div>
+            <div class="stage-desc">Много пустошей</div>
+            <div class="stage-price low">Мясо дешево</div>
+            <div class="stage-price high">Хлеб дорог</div>
+          </div>
+          
+          <span class="arrow-stage">→</span>
+          
+          <div class="comparison-stage">
+            <div class="stage-label">Развитое земледелие</div>
+            <div class="stage-product">🌾🍞</div>
+            <div class="stage-desc">Много пашен</div>
+            <div class="stage-price high">Мясо дорого</div>
+            <div class="stage-price low">Хлеб дешев</div>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4); color: var(--color-text-muted);">
+          Пример: Буэнос-Айрес — бык стоил 21 пенс, хлеб был дорог. 
+          В развитых странах — фунт мяса = 2-4 фунта хлеба.
+        </p>
+      </div>
+      
+      <div class="key-insight">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Почему мясо стало дороже?
+        </h3>
+        <p style="margin-bottom: 0;">
+          Когда пустошей мало, скот приходится выращивать на возделанной земле. 
+          Цена мяса должна компенсировать ренту и прибыль, которые 
+          можно было бы получить от хлеба на этой земле.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: Location -->
+    <section class="chapter-section">
+      <h2>Значение расположения</h2>
+      
+      <div class="location-effect">
+        <div class="location-title">
+          <span style="font-size: var(--text-xl);">📍</span>
+          <h3 style="margin: 0;">Близость к рынку увеличивает ренту</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-4);">
+          Земля того же плодородия, но ближе к городу, даёт больше ренты:
+        </p>
+        
+        <div class="location-diagram">
+          <div class="location-item">
+            <div class="location-icon">🏙️</div>
+            <div class="location-label">Рядом с городом</div>
+            <div class="location-rent">Низкие издержки доставки<br>Высокая рента</div>
+          </div>
+          
+          <div class="location-item">
+            <div class="location-icon">🛤️</div>
+            <div class="location-label">Хорошие дороги</div>
+            <div class="location-rent">Дешевле доставка<br>Рента растёт</div>
+          </div>
+          
+          <div class="location-item">
+            <div class="location-icon">🏔️</div>
+            <div class="location-label">Отдалённая местность</div>
+            <div class="location-rent">Дорогая доставка<br>Низкая рента</div>
+          </div>
+        </div>
+      </div>
+      
+      <h3 style="margin-top: var(--space-6);">Величайшие улучшения</h3>
+      
+      <p>
+        Хорошие дороги, каналы и судоходные реки — величайшие улучшения, 
+        потому что ставят отдалённые земли в положение близких к рынку.
+      </p>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-4);">
+        <p>
+          Они приносят выгоды городу, уничтожая монополию его ближайших окрестностей.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 6: Historical Examples -->
+    <section class="chapter-section">
+      <h2>Исторические примеры</h2>
+      
+      <div class="history-section">
+        <div class="history-cards">
+          <div class="history-card">
+            <div class="history-header">
+              <span class="history-flag">🇮🇹</span>
+              <span class="history-name">Древний Рим</span>
+            </div>
+            <div class="history-desc">
+              Провинции поставляли хлеб по низкой цене. Римская земля 
+              выгоднее использовалась под пастбища и огороды.
+            </div>
+            <div class="history-lesson">
+              Катон: «Вспашка — наименьшая прибыль, откармливание скота — наибольшая»
+            </div>
+          </div>
+          
+          <div class="history-card">
+            <div class="history-header">
+              <span class="history-flag">🇳🇱</span>
+              <span class="history-name">Голландия</span>
+            </div>
+            <div class="history-desc">
+              Малоземельная страна ввозила хлеб, а землю использовала 
+              под пастбища и более ценные культуры.
+            </div>
+            <div class="history-lesson">
+              Трава — громоздкий товар, невыгодно возить далеко
+            </div>
+          </div>
+          
+          <div class="history-card">
+            <div class="history-header">
+              <span class="history-flag">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+              <span class="history-name">Горная Шотландия</span>
+            </div>
+            <div class="history-desc">
+              После объединения с Англией открыт рынок для скота. 
+              Рента выросла в 3-4 раза за столетие.
+            </div>
+            <div class="history-lesson">
+              Новый рынок = рост цен = рост ренты
+            </div>
+          </div>
+          
+          <div class="history-card">
+            <div class="history-header">
+              <span class="history-flag">🇫🇷</span>
+              <span class="history-name">Виноградники Франции</span>
+            </div>
+            <div class="history-desc">
+              Владельцы виноградников добились запрета на новые посадки — 
+              чтобы сохранить высокую прибыль.
+            </div>
+            <div class="history-lesson">
+              Ограничения создают искусственную ценность
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Главный вывод главы
+        </h3>
+        <p style="margin-bottom: 0;">
+          Рента с лучших земель определяет ренту со всех остальных. 
+          Хлеб и мясо — главные продукты, их цены задают уровень 
+          ренты для всех других культур.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Рента — монопольная цена за землю, максимум, что может заплатить фермер</li>
+          <li>Рента — результат цены, а не причина (в отличие от зарплаты и прибыли)</li>
+          <li>Продукты питания всегда дают ренту — спрос постоянен</li>
+          <li>С развитием земледелия мясо дорожает относительно хлеба</li>
+          <li>Расположение земли важнее плодородия</li>
+          <li>Хорошие дороги и каналы повышают ренту отдалённых земель</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book1-chapter10.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава X: Различия зарплат и прибылей</span>
+          </div>
+        </a>
+        <a href="book2-chapter01.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Книга 2, Глава I: О запасах</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

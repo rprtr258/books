@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Глава II: О причине, вызывающей разделение труда — Адам Смит, Исследование о природе и причинах богатства народов">
+  
+  <title>Глава II: О причине разделения труда — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Famous Quote */
+    .famous-quote {
+      position: relative;
+      margin: var(--space-8) 0;
+      padding: var(--space-8);
+      background: linear-gradient(135deg, var(--color-primary) 0%, #2c5282 100%);
+      border-radius: var(--radius-lg);
+      color: var(--color-text-inverse);
+      text-align: center;
+    }
+    
+    .famous-quote::before {
+      content: '"';
+      position: absolute;
+      top: var(--space-2);
+      left: var(--space-4);
+      font-size: 6rem;
+      font-family: var(--font-heading);
+      opacity: 0.15;
+      line-height: 1;
+    }
+    
+    .famous-quote-text {
+      font-size: var(--text-xl);
+      font-family: var(--font-heading);
+      font-style: italic;
+      line-height: var(--leading-relaxed);
+      max-width: 50ch;
+      margin: 0 auto;
+    }
+    
+    .famous-quote-cite {
+      display: block;
+      margin-top: var(--space-4);
+      font-size: var(--text-sm);
+      font-style: normal;
+      opacity: 0.8;
+    }
+    
+    .famous-quote-label {
+      display: inline-block;
+      padding: var(--space-1) var(--space-3);
+      background: rgba(255,255,255,0.2);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      margin-bottom: var(--space-4);
+    }
+    
+    /* Human vs Animal Comparison */
+    .comparison-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin: var(--space-8) 0;
+    }
+    
+    @media (max-width: 768px) {
+      .comparison-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .comparison-side {
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+    }
+    
+    .comparison-side.human {
+      background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .comparison-side.animal {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #dd6b20;
+    }
+    
+    .comparison-icon {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-3);
+    }
+    
+    .comparison-title {
+      font-size: var(--text-lg);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    
+    .comparison-side.human .comparison-title {
+      color: #276749;
+    }
+    
+    .comparison-side.animal .comparison-title {
+      color: #c05621;
+    }
+    
+    .comparison-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .comparison-list li {
+      padding: var(--space-2) 0;
+      padding-left: var(--space-6);
+      position: relative;
+      font-size: var(--text-sm);
+    }
+    
+    .comparison-side.human .comparison-list li::before {
+      content: '✓';
+      position: absolute;
+      left: 0;
+      color: #38a169;
+      font-weight: bold;
+    }
+    
+    .comparison-side.animal .comparison-list li::before {
+      content: '✗';
+      position: absolute;
+      left: 0;
+      color: #dd6b20;
+      font-weight: bold;
+    }
+    
+    /* Profession Timeline */
+    .profession-timeline {
+      position: relative;
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .timeline-title {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-6);
+      text-align: center;
+      color: var(--color-primary);
+    }
+    
+    .timeline {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+    }
+    
+    .timeline-item {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-4);
+    }
+    
+    .timeline-marker {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 48px;
+      height: 48px;
+      background: var(--color-bg-card);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xl);
+      flex-shrink: 0;
+      transition: all var(--transition-fast);
+    }
+    
+    .timeline-item:hover .timeline-marker {
+      border-color: var(--color-accent);
+      transform: scale(1.1);
+    }
+    
+    .timeline-content {
+      flex: 1;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border-light);
+    }
+    
+    .timeline-content h4 {
+      font-size: var(--text-base);
+      margin-bottom: var(--space-1);
+    }
+    
+    .timeline-content p {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin: 0;
+    }
+    
+    .timeline-arrow {
+      display: flex;
+      justify-content: center;
+      color: var(--color-text-muted);
+    }
+    
+    /* Abilities Diagram */
+    .abilities-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .abilities-diagram {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-4);
+      align-items: center;
+      margin: var(--space-6) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    @media (max-width: 768px) {
+      .abilities-diagram {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+    
+    .abilities-box {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    
+    .abilities-box h4 {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2);
+    }
+    
+    .abilities-visual {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      justify-content: center;
+    }
+    
+    .ability-bubble {
+      padding: var(--space-2) var(--space-3);
+      background: var(--color-bg-section);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+    }
+    
+    .ability-bubble.highlight {
+      background: var(--color-accent);
+      color: var(--color-text-inverse);
+      border-color: var(--color-accent);
+    }
+    
+    .abilities-arrow {
+      font-size: var(--text-2xl);
+      color: var(--color-accent);
+    }
+    
+    @media (max-width: 768px) {
+      .abilities-arrow {
+        transform: rotate(90deg);
+      }
+    }
+    
+    /* Dogs comparison */
+    .dogs-comparison {
+      margin: var(--space-6) 0;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .dogs-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 640px) {
+      .dogs-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+    
+    .dog-card {
+      padding: var(--space-3);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    
+    .dog-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .dog-name {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+    
+    .dog-ability {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+    }
+    
+    .dogs-conclusion {
+      margin-top: var(--space-4);
+      padding: var(--space-3);
+      background: #fef3e2;
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 1</span>
+        <span class="chapter-number">Глава II</span>
+      </div>
+      <h1 class="chapter-title">О причине, вызывающей разделение труда</h1>
+      <div class="chapter-summary">
+        <p>Разделение труда возникает не от мудрости, а от склонности человека к обмену — уникальной черты, отличающей нас от всех животных.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Key Insight -->
+    <section class="chapter-section">
+      <h2>Неожиданный источник</h2>
+      
+      <blockquote class="important-quote">
+        <p>
+          Разделение труда, приводящее к таким выгодам, отнюдь не является результатом 
+          чьей-либо мудрости, предвидевшей то общее благосостояние, которое будет 
+          порождено им.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+      
+      <p>
+        Разделение труда возникло <strong>не</strong> от мудрого планирования. 
+        Оно — медленно развивавшееся последствие <strong>склонности к мене, 
+        торговле, к обмену одного предмета на другой</strong>.
+      </p>
+      
+      <div class="key-insight" style="margin: var(--space-6) 0; padding: var(--space-6); background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%); border-radius: var(--radius-lg); border: 1px solid var(--color-border);">
+        <h3 style="display: flex; align-items: center; gap: var(--space-2); font-size: var(--text-lg); margin-bottom: var(--space-3);">
+          💡 Ключевой тезис
+        </h3>
+        <p style="margin-bottom: 0;">
+          Склонность к обмену — <strong>уникальное свойство человеческой природы</strong>. 
+          Она обща всем людям и не наблюдается ни у какого другого вида животных.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Human vs Animal -->
+    <section class="chapter-section">
+      <h2>Человек и животные: фундаментальное различие</h2>
+      
+      <p class="section-intro">
+        Смит проводит сравнение: животные могут действовать согласованно 
+        (две гончие преследуют зайца), но никогда не обмениваются.
+      </p>
+      
+      <div class="comparison-grid">
+        <div class="comparison-side human">
+          <div class="comparison-icon">👤</div>
+          <h3 class="comparison-title">Человек</h3>
+          <ul class="comparison-list">
+            <li>Обменивается предметами</li>
+            <li>Использует язык: «это моё, то твоё»</li>
+            <li>Заключает сделки</li>
+            <li>Обращается к эгоизму другого</li>
+            <li>Создаёт сложные цепочки обмена</li>
+            <li>Нуждается в помощи многих</li>
+          </ul>
+        </div>
+        
+        <div class="comparison-side animal">
+          <div class="comparison-icon">🐕</div>
+          <h3 class="comparison-title">Животные</h3>
+          <ul class="comparison-list">
+            <li>Никогда не меняются</li>
+            <li>Нет понятия «моё / твоё»</li>
+            <li>Нет сделок и договоров</li>
+            <li>Просят милостыню (ласкаются)</li>
+            <li>Каждый сам за себя</li>
+            <li>Независимы во взрослом возрасте</li>
+          </ul>
+        </div>
+      </div>
+      
+      <p>
+        <strong>Пример Смита:</strong> «Никому никогда не приходилось видеть, 
+        чтобы собака сознательно менялась костью с другой собакой».
+      </p>
+    </section>
+    
+    <!-- Section 3: The Famous Quote -->
+    <section class="chapter-section">
+      <h2>Знаменитая цитата</h2>
+      
+      <p class="section-intro">
+        Одно из самых известных высказываний в истории экономической мысли:
+      </p>
+      
+      <div class="famous-quote">
+        <span class="famous-quote-label">💡 Цитата на все времена</span>
+        <p class="famous-quote-text">
+          Не от благожелательности мясника, пивовара или булочника ожидаем мы 
+          получить свой обед, а от соблюдения ими своих собственных интересов. 
+          Мы обращаемся не к их гуманности, а к их эгоизму.
+        </p>
+        <cite class="famous-quote-cite">— Адам Смит, Глава II</cite>
+      </div>
+      
+      <h3>Разбор цитаты</h3>
+      
+      <div class="idea-cards grid gap-4 md:grid-cols-2" style="margin-top: var(--space-4);">
+        <div class="idea-card">
+          <div class="idea-icon">🥩</div>
+          <h3>Мясник</h3>
+          <p>Не даёт мясо из любви к вам — он продаёт ради прибыли.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🍺</div>
+          <h3>Пивовар</h3>
+          <p>Не варит пиво из человеколюбия — он хочет заработать.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🍞</div>
+          <h3>Булочник</h3>
+          <p>Не печёт хлеб из доброты — это его бизнес.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🤝</div>
+          <h3>Результат</h3>
+          <p>Эгоизм каждого приводит к благу всех — через обмен.</p>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          🔑 Суть аргумента
+        </h3>
+        <p style="margin-bottom: 0; font-size: var(--text-sm);">
+          Всякий, предлагающий сделку, говорит: <em>«Дай мне то, что мне нужно, 
+          и ты получишь то, что тебе нужно»</em>. Мы получаем услуги друг от друга, 
+          обращаясь не к гуманности, а к эгоизму — и это работает!
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 4: Birth of Professions -->
+    <section class="chapter-section">
+      <h2>Как рождались профессии</h2>
+      
+      <p class="section-intro">
+        Склонность к обмену породила разделение труда. Смит описывает, 
+        как в первобытном обществе возникали первые профессии.
+      </p>
+      
+      <div class="profession-timeline">
+        <h3 class="timeline-title">🏹 Возникновение первых специальностей</h3>
+        
+        <div class="timeline">
+          <div class="timeline-item">
+            <div class="timeline-marker">🏹</div>
+            <div class="timeline-content">
+              <h4>Оружейник</h4>
+              <p>Один человек делает луки и стрелы лучше других. Выменивает их на скот и дичь. Понимает: так выгоднее, чем охотиться самому.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-arrow">↓</div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker">🏠</div>
+            <div class="timeline-content">
+              <h4>Плотник</h4>
+              <p>Другой строит хижины лучше соседей. Помогает всем, получает вознаграждение. В итоге делает это своим главным занятием.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-arrow">↓</div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker">⚒️</div>
+            <div class="timeline-content">
+              <h4>Кузнец / Медник</h4>
+              <p>Третий обрабатывает металл. Четвёртый — кожи и шкуры. Каждый находит свою нишу через обмен.</p>
+            </div>
+          </div>
+          
+          <div class="timeline-arrow">↓</div>
+          
+          <div class="timeline-item">
+            <div class="timeline-marker">✨</div>
+            <div class="timeline-content">
+              <h4>Специализация</h4>
+              <p>Уверенность в возможности обменять излишек побуждает каждого посвятить себя определённому занятию.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Уверенность в возможности обменять весь тот излишек продукта своего труда, 
+          который превышает его собственное потребление, побуждает каждого человека 
+          посвятить себя определённому специальному занятию.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 5: Abilities -->
+    <section class="chapter-section">
+      <h2>Различия способностей: причина или следствие?</h2>
+      
+      <p class="section-intro">
+        Смит переворачивает привычное представление: различия между людьми 
+        — не причина, а <strong>следствие</strong> разделения труда.
+      </p>
+      
+      <div class="abilities-section">
+        <div class="abilities-diagram">
+          <div class="abilities-box">
+            <h4>При рождении</h4>
+            <div class="abilities-visual">
+              <span class="ability-bubble">Учёный</span>
+              <span class="ability-bubble">Носильщик</span>
+            </div>
+            <p style="font-size: var(--text-xs); color: var(--color-text-muted); margin-top: var(--space-2);">
+              Почти одинаковы!
+            </p>
+          </div>
+          
+          <div class="abilities-arrow">→</div>
+          
+          <div class="abilities-box" style="border: 2px solid var(--color-accent);">
+            <h4>После специализации</h4>
+            <div class="abilities-visual">
+              <span class="ability-bubble highlight">📚 Учёный</span>
+              <span class="ability-bubble highlight">💪 Носильщик</span>
+            </div>
+            <p style="font-size: var(--text-xs); color: var(--color-accent); margin-top: var(--space-2);">
+              Огромное различие!
+            </p>
+          </div>
+        </div>
+        
+        <p style="text-align: center; font-size: var(--text-sm); color: var(--color-text-light);">
+          До 6-8 лет дети учёного и носильщика неразличимы. Различия появляются 
+          только после приучения к разным занятиям.
+        </p>
+      </div>
+      
+      <h3>Сравнение с породами собак</h3>
+      
+      <div class="dogs-comparison">
+        <p style="font-size: var(--text-sm); margin-bottom: 0;">
+          Породы собак отличаются друг от друга гораздо больше, чем люди:
+        </p>
+        
+        <div class="dogs-grid">
+          <div class="dog-card">
+            <div class="dog-icon">🐕</div>
+            <div class="dog-name">Дворняга</div>
+            <div class="dog-ability">Сила</div>
+          </div>
+          <div class="dog-card">
+            <div class="dog-icon">🐶</div>
+            <div class="dog-name">Гончая</div>
+            <div class="dog-ability">Быстрота</div>
+          </div>
+          <div class="dog-card">
+            <div class="dog-icon">🐩</div>
+            <div class="dog-name">Болонка</div>
+            <div class="dog-ability">Понятливость</div>
+          </div>
+          <div class="dog-card">
+            <div class="dog-icon">🦮</div>
+            <div class="dog-name">Овчарка</div>
+            <div class="dog-ability">Послушание</div>
+          </div>
+        </div>
+        
+        <div class="dogs-conclusion">
+          <strong>Но:</strong> эти способности бесполезны друг для друга! 
+          Собаки не обмениваются и не сотрудничают. Каждая — сама по себе.
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Вывод Смита
+        </h3>
+        <p style="margin-bottom: 0;">
+          Среди людей <strong>самые несходные дарования полезны одно другому</strong>. 
+          Благодаря обмену продукты труда всех собираются в «общую массу», 
+          из которой каждый берёт то, что ему нужно.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 6: Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Разделение труда возникает из склонности к обмену</li>
+          <li>Обмен — уникальная черта человека, отсутствующая у животных</li>
+          <li>Мы получаем услуги друг от друга через эгоизм, а не благожелательность</li>
+          <li>Специализация рождается из возможности обменять излишек</li>
+          <li>Различия между людьми — следствие, а не причина разделения труда</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book1-chapter01.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава I: О разделении труда</span>
+          </div>
+        </a>
+        <a href="book1-chapter03.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава III: Разделение труда ограничивается размерами рынка</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,621 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 2, Глава V: О различных помещениях капиталов — Адам Смит, Богатство народов">
+  
+  <title>Книга 2, Глава V: О помещениях капиталов — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Four Ways */
+    .four-ways {
+      margin: var(--space-8) 0;
+    }
+    
+    .ways-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .ways-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .way-card {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--color-border);
+    }
+    
+    .way-card.best {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border-color: #38a169;
+    }
+    
+    .way-card.good {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border-color: #3182ce;
+    }
+    
+    .way-card.medium {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border-color: #d69e2e;
+    }
+    
+    .way-card.low {
+      background: linear-gradient(135deg, #faf5ff 0%% 100%);
+      border-color: #9f7aea;
+    }
+    
+    .way-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    .way-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 32px;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+    }
+    
+    .way-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .way-title {
+      font-weight: 700;
+    }
+    
+    .way-card.best .way-title { color: #276749; }
+    .way-card.good .way-title { color: #2c5282; }
+    .way-card.medium .way-title { color: #b7791f; }
+    .way-card.low .way-title { color: #6b46c1; }
+    
+    .way-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-bottom: var(--space-3);
+    }
+    
+    .way-productivity {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      font-size: var(--text-sm);
+    }
+    
+    .productivity-bar {
+      flex: 1;
+      height: 8px;
+      background: var(--color-border-light);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    
+    .productivity-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+    }
+    
+    .way-card.best .productivity-fill { background: #38a169; width: 100%; }
+    .way-card.good .productivity-fill { background: #3182ce; width: 75%; }
+    .way-card.medium .productivity-fill { background: #d69e2e; width: 50%; }
+    .way-card.low .productivity-fill { background: #9f7aea; width: 25%; }
+    
+    /* Nature Works */
+    .nature-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #f0fff4 0%% 100%);
+      border: 2px solid #38a169;
+      border-radius: var(--radius-lg);
+    }
+    
+    .nature-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .nature-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .nature-comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .nature-box {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .nature-header {
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    
+    /* Trade Types */
+    .trade-types {
+      margin: var(--space-8) 0;
+    }
+    
+    .trade-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .trade-table th,
+    .trade-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .trade-table th {
+      background: var(--color-bg-section);
+      font-weight: 600;
+    }
+    
+    .trade-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    /* Turnover */
+    .turnover-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .turnover-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .turnover-comparison {
+      display: flex;
+      justify-content: center;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    
+    .turnover-item {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      min-width: 180px;
+    }
+    
+    .turnover-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .turnover-name {
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    
+    .turnover-rate {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      color: var(--color-accent);
+    }
+    
+    /* America Example */
+    .america-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #ebf8ff 0%% 100%);
+      border: 2px solid #3182ce;
+      border-radius: var(--radius-lg);
+    }
+    
+    .america-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    /* Warning */
+    .warning-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .warning-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 2</span>
+        <span class="chapter-number">Глава V</span>
+      </div>
+      <h1 class="chapter-title">О различных помещениях капиталов</h1>
+      <div class="chapter-summary">
+        <p>Четыре способа употребления капитала: земледелие, мануфактура, оптовая торговля, розница. Земледелие — самый производительный.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Four Ways -->
+    <section class="chapter-section">
+      <h2>Четыре способа употребления капитала</h2>
+      
+      <p class="section-intro">
+        Все капиталы предназначены для производительного труда, но количество труда 
+        и добавленная стоимость сильно различаются:
+      </p>
+      
+      <div class="four-ways">
+        <div class="ways-grid">
+          <div class="way-card best">
+            <div class="way-header">
+              <div class="way-num">1</div>
+              <span class="way-icon">🌾</span>
+              <span class="way-title">Земледелие</span>
+            </div>
+            <div class="way-desc">
+              Добывание сырого продукта: обработка земли, рудники, рыболовство.
+            </div>
+            <div class="way-productivity">
+              <span style="font-size: var(--text-xs);">Производительность:</span>
+              <div class="productivity-bar"><div class="productivity-fill"></div></div>
+              <span style="font-size: var(--text-xs); font-weight: 600; color: #276749;">MAX</span>
+            </div>
+          </div>
+          
+          <div class="way-card good">
+            <div class="way-header">
+              <div class="way-num">2</div>
+              <span class="way-icon">🏭</span>
+              <span class="way-title">Мануфактура</span>
+            </div>
+            <div class="way-desc">
+              Переработка сырья для непосредственного использования.
+            </div>
+            <div class="way-productivity">
+              <span style="font-size: var(--text-xs);">Производительность:</span>
+              <div class="productivity-bar"><div class="productivity-fill"></div></div>
+              <span style="font-size: var(--text-xs); font-weight: 600; color: #2c5282;">Высокая</span>
+            </div>
+          </div>
+          
+          <div class="way-card medium">
+            <div class="way-header">
+              <div class="way-num">3</div>
+              <span class="way-icon">🚢</span>
+              <span class="way-title">Оптовая торговля</span>
+            </div>
+            <div class="way-desc">
+              Перевозка продуктов из мест избытка в места недостатка.
+            </div>
+            <div class="way-productivity">
+              <span style="font-size: var(--text-xs);">Производительность:</span>
+              <div class="productivity-bar"><div class="productivity-fill"></div></div>
+              <span style="font-size: var(--text-xs); font-weight: 600; color: #b7791f;">Средняя</span>
+            </div>
+          </div>
+          
+          <div class="way-card low">
+            <div class="way-header">
+              <div class="way-num">4</div>
+              <span class="way-icon">🛒</span>
+              <span class="way-title">Розничная торговля</span>
+            </div>
+            <div class="way-desc">
+              Разделение товаров на мелкие партии для потребителей.
+            </div>
+            <div class="way-productivity">
+              <span style="font-size: var(--text-xs);">Производительность:</span>
+              <div class="productivity-bar"><div class="productivity-fill"></div></div>
+              <span style="font-size: var(--text-xs); font-weight: 600; color: #6b46c1;">Низкая</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 2: Nature Works -->
+    <section class="chapter-section">
+      <h2>Почему земледелие — лучшее?</h2>
+      
+      <div class="nature-section">
+        <div class="nature-title">
+          <span style="font-size: var(--text-2xl);">🌱</span>
+          <h3 style="margin: 0;">Природа работает вместе с человеком</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-4);">
+          В сельском хозяйстве природа тоже трудится — бесплатно!
+        </p>
+        
+        <div class="nature-comparison">
+          <div class="nature-box">
+            <div class="nature-header" style="color: #276749;">🌾 Земледелие</div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Работают рабочие + рабочий скот</li>
+              <li><strong>Природа тоже работает</strong></li>
+              <li>Воспроизводят: капитал + прибыль + ренту</li>
+              <li>Рента = продукт сил природы</li>
+            </ul>
+          </div>
+          
+          <div class="nature-box">
+            <div class="nature-header" style="color: #2c5282;">🏭 Мануфактура</div>
+            <ul style="font-size: var(--text-sm); margin: 0; padding-left: var(--space-4);">
+              <li>Работают только рабочие</li>
+              <li>Природа ничего не делает</li>
+              <li>Воспроизводят: капитал + прибыль</li>
+              <li>Без ренты</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          В мануфактурах природа не делает ничего, всё делается человеком. 
+          В земледелии природа работает вместе с человеком, и её продукт имеет стоимость.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 3: Three Types of Trade -->
+    <section class="chapter-section">
+      <h2>Три вида оптовой торговли</h2>
+      
+      <div class="trade-types">
+        <table class="trade-table">
+          <thead>
+            <tr>
+              <th>Вид торговли</th>
+              <th>Описание</th>
+              <th>Возмещает капиталов</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>🏠 Внутренняя</strong></td>
+              <td>Покупка и продажа внутри страны</td>
+              <td>2 отечественных</td>
+            </tr>
+            <tr>
+              <td><strong>🚢 Внешняя предметов потребления</strong></td>
+              <td>Ввоз иностранных товаров для потребления</td>
+              <td>1 отечественный + 1 иностранный</td>
+            </tr>
+            <tr>
+              <td><strong>🔄 Транзитная</strong></td>
+              <td>Торговля между третьими странами</td>
+              <td>2 иностранных</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- Section 4: Turnover -->
+    <section class="chapter-section">
+      <h2>Скорость оборота капитала</h2>
+      
+      <div class="turnover-section">
+        <h3 class="turnover-title">⏱️ Как быстро оборачивается капитал</h3>
+        
+        <div class="turnover-comparison">
+          <div class="turnover-item">
+            <div class="turnover-icon">🏠</div>
+            <div class="turnover-name">Внутренняя торговля</div>
+            <div class="turnover-rate">3-4× / год</div>
+            <div style="font-size: var(--text-xs); color: var(--color-text-muted);">
+              Иногда 12 раз в год
+            </div>
+          </div>
+          
+          <div class="turnover-item">
+            <div class="turnover-icon">🚢</div>
+            <div class="turnover-name">Внешняя торговля</div>
+            <div class="turnover-rate">1× / 2-3 года</div>
+            <div style="font-size: var(--text-xs); color: var(--color-text-muted);">
+              Реже раза в год
+            </div>
+          </div>
+        </div>
+        
+        <p style="text-align: center; font-size: var(--text-sm); color: var(--color-text-light); margin-top: var(--space-4);">
+          При равном капитале внутренняя торговля поощряет промышленность в <strong>24 раза больше</strong>!
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: America -->
+    <section class="chapter-section">
+      <h2>Пример американских колоний</h2>
+      
+      <div class="america-section">
+        <div class="america-title">
+          <span style="font-size: var(--text-xl);">🇺🇸</span>
+          <h3 style="margin: 0;">Быстрое развитие колоний</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Главный успех американских колоний — почти весь капитал был вложен в земледелие. 
+          У них почти не было мануфактур, только домашние промыслы. 
+          Торговля велась на капиталы британских купцов.
+        </p>
+      </div>
+      
+      <div class="warning-section" style="margin-top: var(--space-6);">
+        <div class="warning-title">
+          <span style="font-size: var(--text-xl);">⚠️</span>
+          <h3 style="margin: 0;">Предупреждение</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Если бы американцы попытались создать мануфактуры раньше времени, 
+          отвлекая капитал от земледелия — они бы <strong>замедлили</strong>, 
+          а не ускорили развитие богатства.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 6: Conclusion -->
+    <section class="chapter-section">
+      <h2>Порядок развития</h2>
+      
+      <p class="section-intro">
+        Естественный порядок накопления капитала:
+      </p>
+      
+      <ol style="margin: var(--space-4) 0; padding-left: var(--space-6);">
+        <li style="margin-bottom: var(--space-3);">
+          <strong>Сначала — земледелие</strong><br>
+          <span style="font-size: var(--text-sm); color: var(--color-text-light);">
+            Самый производительный способ, даёт наибольший доход для накопления
+          </span>
+        </li>
+        <li style="margin-bottom: var(--space-3);">
+          <strong>Затем — мануфактура</strong><br>
+          <span style="font-size: var(--text-sm); color: var(--color-text-light);">
+            Когда достаточно капитала для обработки сырья
+          </span>
+        </li>
+        <li style="margin-bottom: var(--space-3);">
+          <strong>Потом — внешняя торговля</strong><br>
+          <span style="font-size: var(--text-sm); color: var(--color-text-light);">
+            Когда есть избыток для вывоза
+          </span>
+        </li>
+      </ol>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Главный вывод Книги 2
+        </h3>
+        <p style="margin-bottom: 0;">
+          Капитал страны ограничен. Его выгоднее всего вкладывать в земледелие — 
+          это приводит в движение больше всего труда и добавляет наибольшую стоимость 
+          к годовому продукту. Пытаться перепрыгнуть этапы — ошибка.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>4 способа употребления капитала: земледелие, мануфактура, оптовая торговля, розница</li>
+          <li>Земледелие — самый производительный, потому что природа работает бесплатно</li>
+          <li>3 вида оптовой торговли: внутренняя, внешняя, транзитная</li>
+          <li>Внутренняя торговля оборачивается быстрее и поощряет промышленность больше</li>
+          <li>Естественный порядок: земледелие → мануфактура → внешняя торговля</li>
+          <li>Пытаться перепрыгнуть этапы — ошибка</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book2-chapter04.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава IV: О капитале под проценты</span>
+          </div>
+        </a>
+        <a href="book3-chapter01.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Книга 3, Глава I: О естественном развитии</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

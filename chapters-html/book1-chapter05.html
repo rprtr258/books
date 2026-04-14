@@ -1,0 +1,744 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Глава V: О действительной и номинальной цене товаров — Адам Смит, Богатство народов">
+  
+  <title>Глава V: Действительная и номинальная цена — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Core Concept */
+    .core-concept {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #e6fffa 0%, #ebf8ff 100%);
+      border: 2px solid #38a169;
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .core-concept-title {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-4);
+    }
+    
+    .core-concept-equation {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    .equation-item {
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      font-weight: 600;
+    }
+    
+    .equation-arrow {
+      font-size: var(--text-xl);
+      color: var(--color-accent);
+    }
+    
+    /* Real vs Nominal */
+    .price-comparison {
+      margin: var(--space-8) 0;
+    }
+    
+    .price-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .price-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .price-card {
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+    }
+    
+    .price-card.real {
+      background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .price-card.nominal {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #dd6b20;
+    }
+    
+    .price-card-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-3);
+    }
+    
+    .price-card-title {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+    }
+    
+    .price-card.real .price-card-title {
+      color: #276749;
+    }
+    
+    .price-card.nominal .price-card-title {
+      color: #c05621;
+    }
+    
+    .price-card-desc {
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-4);
+    }
+    
+    .price-card-examples {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .price-card-examples li {
+      padding: var(--space-2) 0;
+      border-top: 1px solid var(--color-border-light);
+      font-size: var(--text-sm);
+    }
+    
+    /* Labor Measure */
+    .labor-measure {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .measure-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .measure-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .measure-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .measure-item {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      text-align: center;
+      border: 1px solid var(--color-border);
+    }
+    
+    .measure-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .measure-label {
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+    
+    .measure-status {
+      display: inline-block;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+    }
+    
+    .measure-status.stable {
+      background: #c6f6d5;
+      color: #276749;
+    }
+    
+    .measure-status.unstable {
+      background: #fed7d7;
+      color: #c53030;
+    }
+    
+    .measure-status.mixed {
+      background: #fef3e2;
+      color: #c05621;
+    }
+    
+    /* Rent Comparison */
+    .rent-comparison {
+      margin: var(--space-8) 0;
+    }
+    
+    .rent-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-4);
+    }
+    
+    .rent-table th,
+    .rent-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .rent-table th {
+      background: var(--color-bg-section);
+      font-weight: 600;
+    }
+    
+    .rent-table tr:hover td {
+      background: var(--color-bg-section);
+    }
+    
+    .rent-badge {
+      display: inline-block;
+      padding: var(--space-1) var(--space-2);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 500;
+    }
+    
+    .rent-badge.good {
+      background: #c6f6d5;
+      color: #276749;
+    }
+    
+    .rent-badge.bad {
+      background: #fed7d7;
+      color: #c53030;
+    }
+    
+    /* Silver Discovery */
+    .silver-impact {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .silver-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .silver-icon {
+      font-size: var(--text-2xl);
+    }
+    
+    .silver-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .silver-stat {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    
+    .silver-stat-value {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+      color: #e53e3e;
+    }
+    
+    .silver-stat-label {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+    }
+    
+    /* Metal Hierarchy */
+    .metal-hierarchy {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .metal-levels {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    
+    .metal-level {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      border: 1px solid var(--color-border);
+    }
+    
+    .metal-icon {
+      font-size: var(--text-2xl);
+      width: 48px;
+      text-align: center;
+    }
+    
+    .metal-info {
+      flex: 1;
+    }
+    
+    .metal-name {
+      font-weight: 600;
+    }
+    
+    .metal-use {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    
+    .metal-example {
+      font-size: var(--text-xs);
+      color: var(--color-text-light);
+      margin-top: var(--space-1);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 1</span>
+        <span class="chapter-number">Глава V</span>
+      </div>
+      <h1 class="chapter-title">О действительной и номинальной цене товаров</h1>
+      <div class="chapter-summary">
+        <p>Труд — единственное всеобщее и точное мерило стоимости. Деньги — лишь номинальная цена, которая меняется со временем.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Core Concept -->
+    <section class="chapter-section">
+      <h2>Что делает человека богатым?</h2>
+      
+      <p class="section-intro">
+        Человек богат или беден в зависимости от того, сколько труда других людей 
+        он может купить. После разделения труда мы получаем почти всё от других.
+      </p>
+      
+      <div class="core-concept">
+        <div class="core-concept-title">💡 Главный вывод главы</div>
+        <div class="core-concept-equation">
+          <span class="equation-item">💰 Богатство</span>
+          <span class="equation-arrow">=</span>
+          <span class="equation-item">⚙️ Количество труда</span>
+          <span class="equation-arrow">→</span>
+          <span class="equation-item">📦 Товары</span>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Труд был первоначальной ценой, первоначальной покупной суммой, 
+          которая была уплачена за все предметы. Не на золото или серебро, 
+          а только на труд первоначально были приобретены все богатства мира.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          📖 Цитата Гоббса
+        </h3>
+        <p style="margin-bottom: 0;">
+          «Богатство — это сила». Смит уточняет: богатство даёт силу 
+          покупать труд других людей. Не политическую власть, а экономическую.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Real vs Nominal -->
+    <section class="chapter-section">
+      <h2>Действительная и номинальная цена</h2>
+      
+      <p class="section-intro">
+        Смит проводит фундаментальное различие:
+      </p>
+      
+      <div class="price-comparison">
+        <div class="price-grid">
+          <div class="price-card real">
+            <div class="price-card-icon">⚙️</div>
+            <div class="price-card-title">Действительная цена</div>
+            <div class="price-card-desc">
+              Количество труда, на которое товар может обменяться
+            </div>
+            <ul class="price-card-examples">
+              <li>✓ Измеряется в труде</li>
+              <li>✓ Стабильна во времени</li>
+              <li>✓ Всеобщее мерило</li>
+              <li>✓ «То, что действительно стоит предмет»</li>
+            </ul>
+          </div>
+          
+          <div class="price-card nominal">
+            <div class="price-card-icon">🪙</div>
+            <div class="price-card-title">Номинальная цена</div>
+            <div class="price-card-desc">
+              Количество денег, за которое товар продаётся
+            </div>
+            <ul class="price-card-examples">
+              <li>✗ Измеряется в деньгах</li>
+              <li>✗ Меняется со временем</li>
+              <li>✗ Зависит от стоимости металлов</li>
+              <li>✗ «То, что видим на ценнике»</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Практическое значение
+        </h3>
+        <p style="margin-bottom: 0;">
+          Рабочий богат или беден в зависимости от <strong>действительной</strong> цены 
+          его труда (сколько товаров может купить), а не от <strong>номинальной</strong> 
+          (сколько монет получает).
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 3: Labor as Measure -->
+    <section class="chapter-section">
+      <h2>Труд — единственное точное мерило</h2>
+      
+      <p class="section-intro">
+        Почему труд, а не деньги или хлеб? Смит сравнивает все три:
+      </p>
+      
+      <div class="labor-measure">
+        <h3 class="measure-title">Сравнение мерил стоимости</h3>
+        
+        <div class="measure-grid">
+          <div class="measure-item">
+            <div class="measure-icon">⚙️</div>
+            <div class="measure-label">Труд</div>
+            <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+              «Во все времена одинаковые количества труда имели одну стоимость»
+            </p>
+            <span class="measure-status stable">Стабильно</span>
+          </div>
+          
+          <div class="measure-item">
+            <div class="measure-icon">🥇</div>
+            <div class="measure-label">Серебро/Золото</div>
+            <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+              Меняется от открытия рудников, порчи монеты
+            </p>
+            <span class="measure-status unstable">Нестабильно</span>
+          </div>
+          
+          <div class="measure-item">
+            <div class="measure-icon">🌾</div>
+            <div class="measure-label">Хлеб</div>
+            <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+              Стабилен на долгих периодах, но колеблется по годам
+            </p>
+            <span class="measure-status mixed">Смешанно</span>
+          </div>
+        </div>
+      </div>
+      
+      <h3>Проблема измерения труда</h3>
+      
+      <div class="idea-cards grid gap-4 md:grid-cols-2" style="margin-top: var(--space-4);">
+        <div class="idea-card">
+          <div class="idea-icon">⏱️</div>
+          <h3>Не только время</h3>
+          <p>Один час тяжёлой работы ≠ два часа лёгкой работы</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🎓</div>
+          <h3>Не только усилие</h3>
+          <p>Час труда мастера = месяц труда новичка</p>
+        </div>
+      </div>
+      
+      <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-text-muted);">
+        Точное мерило найти трудно. Но рыночная конкуренция решает 
+        «согласно грубой справедливости, достаточной для обычных дел».
+      </p>
+    </section>
+    
+    <!-- Section 4: Silver Discovery -->
+    <section class="chapter-section">
+      <h2>Открытие американских рудников</h2>
+      
+      <p class="section-intro">
+        XVI век: открытие богатых рудников в Америке изменило стоимость денег.
+      </p>
+      
+      <div class="silver-impact">
+        <div class="silver-title">
+          <span class="silver-icon">⛏️</span>
+          <h3 style="margin: 0;">Революция в стоимости серебра</h3>
+        </div>
+        
+        <div class="silver-stats">
+          <div class="silver-stat">
+            <div class="silver-stat-value">~33%</div>
+            <div class="silver-stat-label">Падение стоимости серебра в Европе</div>
+          </div>
+          
+          <div class="silver-stat">
+            <div class="silver-stat-value">XVI в.</div>
+            <div class="silver-stat-label">Открытие рудников Америки</div>
+          </div>
+          
+          <div class="silver-stat">
+            <div class="silver-stat-value">↓</div>
+            <div class="silver-stat-label">Меньше труда на добычу = меньше стоимость</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          ⚠️ Вывод
+        </h3>
+        <p style="margin-bottom: 0;">
+          Товар (деньги), который сам меняется в стоимости, не может быть 
+          точным мерилом стоимости других товаров.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: Grain Rents -->
+    <section class="chapter-section">
+      <h2>Ренты деньгами vs ренты зерном</h2>
+      
+      <p class="section-intro">
+        Почему рента в зерне лучше сохраняет стоимость, чем рента в деньгах?
+      </p>
+      
+      <div class="rent-comparison">
+        <table class="rent-table">
+          <thead>
+            <tr>
+              <th>Тип ренты</th>
+              <th>Стабильность (века)</th>
+              <th>Стабильность (годы)</th>
+              <th>Пример</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Денежная рента</td>
+              <td><span class="rent-badge bad">Падает</span></td>
+              <td><span class="rent-badge good">Стабильна</span></td>
+              <td>Университеты: 1/4 бывшей стоимости</td>
+            </tr>
+            <tr>
+              <td>Рента зерном</td>
+              <td><span class="rent-badge good">Стабильна</span></td>
+              <td><span class="rent-badge bad">Колеблется</span></td>
+              <td>Доля в натуре: выросла в 2×</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p style="margin-top: var(--space-4);">
+        <strong>Пример:</strong> В Англии при Елизавете университетские коллегии 
+        перевели 1/3 рент на зерно. Сегодня эта доля составляет <strong>2/3</strong> 
+        дохода — денежные ренты обесценились.
+      </p>
+      
+      <h3 style="margin-top: var(--space-6);">Потери от порчи монеты</h3>
+      
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Страна</th>
+              <th>Уменьшение металла в монете</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Рим (поздняя республика)</td>
+              <td>Асс = 1/24 фунта вместо фунта</td>
+            </tr>
+            <tr>
+              <td>Шотландия</td>
+              <td>Ещё больше, чем в Англии</td>
+            </tr>
+            <tr>
+              <td>Франция</td>
+              <td>Ещё больше, чем в Шотландии</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- Section 6: Metal Standards -->
+    <section class="chapter-section">
+      <h2>Какой металл — мерило стоимости?</h2>
+      
+      <p class="section-intro">
+        Народы чеканили монеты из разных металлов, но признавали 
+        один главным мерилом.
+      </p>
+      
+      <div class="metal-hierarchy">
+        <h3 style="text-align: center; margin-bottom: var(--space-2);">Иерархия металлов</h3>
+        
+        <div class="metal-levels">
+          <div class="metal-level">
+            <div class="metal-icon">🥇</div>
+            <div class="metal-info">
+              <div class="metal-name">Золото</div>
+              <div class="metal-use">Крупные платежи</div>
+              <div class="metal-example">Гинея = 21 шиллинг (после закона)</div>
+            </div>
+          </div>
+          
+          <div class="metal-level">
+            <div class="metal-icon">🥈</div>
+            <div class="metal-info">
+              <div class="metal-name">Серебро</div>
+              <div class="metal-use">Средние покупки — главное мерило в Европе</div>
+              <div class="metal-example">«Фунты стерлингов» — счёт в серебре</div>
+            </div>
+          </div>
+          
+          <div class="metal-level">
+            <div class="metal-icon">🥉</div>
+            <div class="metal-info">
+              <div class="metal-name">Медь</div>
+              <div class="metal-use">Мелкие покупки</div>
+              <div class="metal-example">Рим: асс, сестерций; счёт «в меди»</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          В Риме про человека, который наделал долгов на большую сумму, 
+          говорили, что он имеет много чужой меди.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+      
+      <div class="key-insight">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Почему это важно
+        </h3>
+        <p style="margin-bottom: 0;">
+          Металл, в котором ведутся счета, считается мерилом. 
+          Если счёт в серебре — серебро стабильно, золото «колеблется». 
+          Если счёт в золоте — наоборот.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Действительная цена товара = количество труда</li>
+          <li>Номинальная цена = количество денег (меняется!)</li>
+          <li>Труд — единственное стабильное мерило стоимости</li>
+          <li>Открытие рудников обесценивает деньги</li>
+          <li>Ренты в зерне лучше сохраняют стоимость</li>
+          <li>Счёт ведётся в одном металле — он считается мерилом</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book1-chapter04.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава IV: Происхождение денег</span>
+          </div>
+        </a>
+        <a href="book1-chapter06.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава VI: Составные части цены</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,692 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 2, Глава II: О деньгах как особой части запасов — Адам Смит, Богатство народов">
+  
+  <title>Книга 2, Глава II: О деньгах — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Income Comparison */
+    .income-comparison {
+      margin: var(--space-8) 0;
+    }
+    
+    .income-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .income-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .income-box {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+    }
+    
+    .income-box.gross {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .income-box.net {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .income-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    .income-icon {
+      font-size: var(--text-2xl);
+    }
+    
+    .income-title {
+      font-weight: 700;
+    }
+    
+    .income-box.gross .income-title { color: #b7791f; }
+    .income-box.net .income-title { color: #2c5282; }
+    
+    .income-formula {
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      margin-top: var(--space-3);
+    }
+    
+    /* Money Wheel */
+    .money-wheel {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .wheel-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .wheel-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    .wheel-item {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      min-width: 150px;
+    }
+    
+    .wheel-item.money {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .wheel-item.goods {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .wheel-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .wheel-label {
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+    
+    .wheel-desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    
+    .wheel-arrow {
+      font-size: var(--text-xl);
+      color: var(--color-accent);
+    }
+    
+    /* Paper Money */
+    .paper-money {
+      margin: var(--space-8) 0;
+    }
+    
+    .paper-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .paper-comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .paper-box {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .paper-box.gold {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .paper-box.paper {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .paper-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .paper-title {
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    
+    .paper-amount {
+      font-size: var(--text-2xl);
+      font-weight: 700;
+    }
+    
+    .paper-box.gold .paper-amount { color: #b7791f; }
+    .paper-box.paper .paper-amount { color: #2c5282; }
+    
+    .paper-note {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-top: var(--space-2);
+    }
+    
+    /* Bank Operation */
+    .bank-operation {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #9f7aea;
+      border-radius: var(--radius-lg);
+    }
+    
+    .bank-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .bank-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin: var(--space-4) 0;
+    }
+    
+    .bank-item {
+      text-align: center;
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    /* Uses of Gold */
+    .uses-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .uses-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .uses-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .use-card {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .use-card.bad {
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+    }
+    
+    .use-card.good {
+      background: #f0fff4;
+      border: 2px solid #68d391;
+    }
+    
+    .use-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .use-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .use-title {
+      font-weight: 700;
+    }
+    
+    .use-card.bad .use-title { color: #c53030; }
+    .use-card.good .use-title { color: #276749; }
+    
+    .use-examples {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: var(--text-sm);
+    }
+    
+    .use-examples li {
+      padding: var(--space-1) 0;
+    }
+    
+    /* Key Points */
+    .key-points {
+      margin: var(--space-8) 0;
+    }
+    
+    .points-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: grid;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .point-item {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .point-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 36px;
+      height: 36px;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      flex-shrink: 0;
+    }
+    
+    .point-content {
+      flex: 1;
+    }
+    
+    .point-title {
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+    
+    .point-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 2</span>
+        <span class="chapter-number">Глава II</span>
+      </div>
+      <h1 class="chapter-title">О деньгах как особой части запасов общества</h1>
+      <div class="chapter-summary">
+        <p>Деньги — великое колесо обращения, но они не входят в доход общества. Бумажные деньги позволяют сэкономить золото и направить его на производительные цели.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Gross vs Net -->
+    <section class="chapter-section">
+      <h2>Валовой и чистый доход</h2>
+      
+      <p class="section-intro">
+        Как рента имения делится на валовую и чистую, так и доход страны:
+      </p>
+      
+      <div class="income-comparison">
+        <div class="income-grid">
+          <div class="income-box gross">
+            <div class="income-header">
+              <span class="income-icon">📊</span>
+              <span class="income-title">Валовой доход</span>
+            </div>
+            <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+              Весь годовой продукт земли и труда страны.
+            </p>
+            <div class="income-formula">
+              Валовой = Весь продукт
+            </div>
+          </div>
+          
+          <div class="income-box net">
+            <div class="income-header">
+              <span class="income-icon">💎</span>
+              <span class="income-title">Чистый доход</span>
+            </div>
+            <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+              То, что остаётся после возмещения капитала.
+            </p>
+            <div class="income-formula">
+              Чистый = Валовой − Издержки капитала
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Истинное богатство
+        </h3>
+        <p style="margin-bottom: 0;">
+          Богатство страны пропорционально не валовому, а чистому доходу — 
+          тому, что можно потребить без уменьшения капитала.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Money Not Income -->
+    <section class="chapter-section">
+      <h2>Деньги не входят в доход</h2>
+      
+      <div class="money-wheel">
+        <h3 class="wheel-title">🎡 Великое колесо обращения</h3>
+        
+        <div class="wheel-diagram">
+          <div class="wheel-item goods">
+            <div class="wheel-icon">📦</div>
+            <div class="wheel-label">Товары</div>
+            <div class="wheel-desc">Это и есть доход общества</div>
+          </div>
+          
+          <span class="wheel-arrow">↔️</span>
+          
+          <div class="wheel-item money">
+            <div class="wheel-icon">🪙</div>
+            <div class="wheel-label">Деньги</div>
+            <div class="wheel-desc">Орудие обмена, не доход</div>
+          </div>
+        </div>
+        
+        <p style="text-align: center; font-size: var(--text-sm); color: var(--color-text-light); margin-top: var(--space-4);">
+          Доход общества состоит в товарах, а не в колесе, при помощи которого они обращаются
+        </p>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Деньги — великое колесо обращения, великое орудие обмена. 
+          Но хотя они составляют ценную часть капитала, 
+          они не входят ни в какой части в доход общества.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 3: Three Similarities -->
+    <section class="chapter-section">
+      <h2>Три сходства денег с основным капиталом</h2>
+      
+      <div class="key-points">
+        <ul class="points-list">
+          <li class="point-item">
+            <div class="point-num">1</div>
+            <div class="point-content">
+              <div class="point-title">Требуют затрат на создание и поддержание</div>
+              <div class="point-desc">
+                Золото и серебро для монет — это материалы и труд, которые могли бы 
+                увеличить потребление. Это вычет из чистого дохода.
+              </div>
+            </div>
+          </li>
+          
+          <li class="point-item">
+            <div class="point-num">2</div>
+            <div class="point-content">
+              <div class="point-title">Не входят ни в валовой, ни в чистый доход</div>
+              <div class="point-desc">
+                Машина не входит в доход фабрики. Деньги — это колесо, 
+                не товары, которые по нему движутся.
+              </div>
+            </div>
+          </li>
+          
+          <li class="point-item">
+            <div class="point-num">3</div>
+            <div class="point-content">
+              <div class="point-title">Экономия на деньгах = рост чистого дохода</div>
+              <div class="point-desc">
+                Если дешевле поддерживать обращение, разница идёт на увеличение 
+                фонда для потребления или производительного труда.
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+    
+    <!-- Section 4: Paper Money -->
+    <section class="chapter-section">
+      <h2>Бумажные деньги — великая экономия</h2>
+      
+      <div class="paper-money">
+        <p class="section-intro">
+          Замена золотых и серебряных денег бумажными заменяет дорогое орудие 
+          обмена более дешёвым и столь же удобным.
+        </p>
+        
+        <div class="paper-comparison">
+          <div class="paper-box gold">
+            <div class="paper-icon">🪙</div>
+            <div class="paper-title">До бумажных денег</div>
+            <div class="paper-amount">£1,000,000</div>
+            <div class="paper-note">золота и серебра в обращении</div>
+          </div>
+          
+          <div class="paper-box paper">
+            <div class="paper-icon">📄</div>
+            <div class="paper-title">С бумажными деньгами</div>
+            <div class="paper-amount">£200,000</div>
+            <div class="paper-note">золота как резерв + £1,000,000 банкнот</div>
+          </div>
+        </div>
+        
+        <div class="key-insight" style="margin-top: var(--space-6);">
+          <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+            💡 Экономия £800,000
+          </h3>
+          <p style="margin-bottom: 0;">
+            Разница между £1,000,000 золотом и £200,000 резервом — 
+            это £800,000, которые можно употребить производительно.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 5: Bank Operation -->
+    <section class="chapter-section">
+      <h2>Как работают банки</h2>
+      
+      <div class="bank-operation">
+        <div class="bank-title">
+          <span style="font-size: var(--text-2xl);">🏦</span>
+          <h3 style="margin: 0;">Банковская операция</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-4);">
+          Банкир выпускает банкноты на £100,000, но держит резерв только £20,000:
+        </p>
+        
+        <div class="bank-flow">
+          <div class="bank-item">
+            <strong>£20,000</strong><br>
+            <span style="font-size: var(--text-xs);">золотой резерв</span>
+          </div>
+          
+          <span>→</span>
+          
+          <div class="bank-item">
+            <strong>£100,000</strong><br>
+            <span style="font-size: var(--text-xs);">банкнот в обращении</span>
+          </div>
+          
+          <span>=</span>
+          
+          <div class="bank-item">
+            <strong>£80,000</strong><br>
+            <span style="font-size: var(--text-xs);">экономия золота</span>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4);">
+          Одна и та же гинея платит пенсию сегодня одному, завтра другому, 
+          послезавтра третьему — и так всю годовую сумму пенсий.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 6: Two Uses of Gold -->
+    <section class="chapter-section">
+      <h2>Два способа употребить высвобожденное золото</h2>
+      
+      <div class="uses-section">
+        <div class="uses-grid">
+          <div class="use-card bad">
+            <div class="use-header">
+              <span class="use-icon">❌</span>
+              <span class="use-title">Вредный способ</span>
+            </div>
+            <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-3);">
+              Покупка товаров для праздных людей, которые ничего не производят:
+            </p>
+            <ul class="use-examples">
+              <li>🍷 Иностранные вина</li>
+              <li>🧣 Шёлковые материи</li>
+              <li>✨ Предметы роскоши</li>
+            </ul>
+            <p style="font-size: var(--text-sm); color: #c53030; margin-top: var(--space-3);">
+              Увеличивает потребление без увеличения производства.
+            </p>
+          </div>
+          
+          <div class="use-card good">
+            <div class="use-header">
+              <span class="use-icon">✅</span>
+              <span class="use-title">Полезный способ</span>
+            </div>
+            <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-3);">
+              Покупка материалов и инструментов для производительного труда:
+            </p>
+            <ul class="use-examples">
+              <li>🔧 Орудия производства</li>
+              <li>📦 Материалы</li>
+              <li>🍞 Продовольствие для рабочих</li>
+            </ul>
+            <p style="font-size: var(--text-sm); color: #276749; margin-top: var(--space-3);">
+              Создаёт постоянный фонд, рабочие воспроизводят с прибылью.
+            </p>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Главный вывод главы
+        </h3>
+        <p style="margin-bottom: 0;">
+          Бумажные деньги позволяют направить золото и серебро на производительные цели — 
+          материалы, инструменты, продовольствие для рабочих. 
+          Это увеличивает чистый доход общества.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Валовой доход = весь продукт, чистый = то, что остаётся после возмещения капитала</li>
+          <li>Деньги — колесо обращения, не часть дохода</li>
+          <li>Деньги похожи на основной капитал: требуют затрат, не входят в доход</li>
+          <li>Бумажные деньги экономят золото и серебро</li>
+          <li>Банки могут выпускать банкнот в 5 раз больше резерва</li>
+          <li>Высвобожденное золото лучше употреблять на производство, не роскошь</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book2-chapter01.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава I: О подразделении запасов</span>
+          </div>
+        </a>
+        <a href="book2-chapter03.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава III: О накоплении капитала</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

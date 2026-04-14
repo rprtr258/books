@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 4, Глава III: Об исключительных ограничениях ввоза — Адам Смит, Богатство народов">
+  
+  <title>Книга 4, Глава III: Исключительные ограничения — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* French Restrictions */
+    .french-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .french-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    .duty-scale {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-2);
+      margin-top: var(--space-4);
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .duty-item {
+      text-align: center;
+      padding: var(--space-2) var(--space-3);
+      border-radius: var(--radius-sm);
+    }
+    
+    .duty-item.low { background: #c6f6d5; }
+    .duty-item.medium { background: #fef3e2; }
+    .duty-item.high { background: #fed7d7; }
+    
+    /* Three Reasons */
+    .reasons-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .reasons-list {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .reason-item {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .reason-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      height: 48px;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: var(--text-lg);
+      flex-shrink: 0;
+    }
+    
+    .reason-content {
+      flex: 1;
+    }
+    
+    .reason-title {
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    
+    .reason-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Exchange Rate Problems */
+    .exchange-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .exchange-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .exchange-problems {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .exchange-problems li {
+      padding: var(--space-2) 0;
+      padding-left: var(--space-6);
+      position: relative;
+    }
+    
+    .exchange-problems li::before {
+      content: "⚠️";
+      position: absolute;
+      left: 0;
+    }
+    
+    /* Amsterdam Bank */
+    .bank-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+      border-radius: var(--radius-lg);
+    }
+    
+    .bank-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    .bank-features {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .bank-features {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .bank-feature {
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+    }
+    
+    .bank-feature-title {
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 4</span>
+        <span class="chapter-number">Глава III</span>
+      </div>
+      <h1 class="chapter-title">Об исключительных ограничениях ввоза</h1>
+      <div class="chapter-summary">
+        <p>Ограничения против стран с «неблагоприятным балансом» — ещё неразумнее, чем обычные. Пример: война с Францией через пошлины.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: French Restrictions -->
+    <section class="chapter-section">
+      <h2>Война пошлинами</h2>
+      
+      <div class="french-section">
+        <div class="french-title">
+          <span style="font-size: var(--text-xl);">🇫🇷</span>
+          <h3 style="margin: 0;">Особые ограничения против Франции</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Второе средство меркантилистов — особые ограничения против стран 
+          с «неблагоприятным балансом». Французские товары облагались особенно тяжело:
+        </p>
+        
+        <div class="duty-scale">
+          <div class="duty-item low">
+            <strong>5%</strong><br>
+            <span style="font-size: var(--text-xs);">Другие страны</span>
+          </div>
+          <div style="font-size: var(--text-lg);">→</div>
+          <div class="duty-item medium">
+            <strong>25%</strong><br>
+            <span style="font-size: var(--text-xs);">1692 г.</span>
+          </div>
+          <div style="font-size: var(--text-lg);">→</div>
+          <div class="duty-item medium">
+            <strong>50%</strong><br>
+            <span style="font-size: var(--text-xs);">1696 г.</span>
+          </div>
+          <div style="font-size: var(--text-lg);">→</div>
+          <div class="duty-item high">
+            <strong>75%+</strong><br>
+            <span style="font-size: var(--text-xs);">Итого</span>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-3); color: var(--color-text-light);">
+          Французы отвечали тем же. Легальная торговля прекратилась — 
+          контрабандисты стали главными поставщиками.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Source of Restrictions -->
+    <section class="chapter-section">
+      <h2>Источник ограничений</h2>
+      
+      <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-4);">
+        <div style="padding: var(--space-4); background: #fff5f5; border: 2px solid #fc8181; border-radius: var(--radius-lg);">
+          <h4 style="margin-bottom: var(--space-2);">📜 Глава II</h4>
+          <p style="font-size: var(--text-sm); margin: 0;">
+            Ограничения порождены <strong>частными интересами</strong> и духом монополии купцов.
+          </p>
+        </div>
+        
+        <div style="padding: var(--space-4); background: #f0fff4; border: 2px solid #38a169; border-radius: var(--radius-lg);">
+          <h4 style="margin-bottom: var(--space-2);">📜 Глава III</h4>
+          <p style="font-size: var(--text-sm); margin: 0;">
+            Ограничения порождены <strong>национальными предрассудками</strong> и враждой. Ещё неразумнее!
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Three Reasons -->
+    <section class="chapter-section">
+      <h2>Три причины неразумности</h2>
+      
+      <div class="reasons-section">
+        <div class="reasons-list">
+          <div class="reason-item">
+            <div class="reason-num">1</div>
+            <div class="reason-content">
+              <div class="reason-title">🍷 Французские товары могут быть дешевле</div>
+              <div class="reason-desc">
+                Если французское вино лучше и дешевле португальского, а полотно лучше немецкого — 
+                выгоднее покупать у Франции. Общий ввоз уменьшится, а не увеличится!
+              </div>
+            </div>
+          </div>
+          
+          <div class="reason-item">
+            <div class="reason-num">2</div>
+            <div class="reason-content">
+              <div class="reason-title">📦 Реэкспорт приносит прибыль</div>
+              <div class="reason-desc">
+                Часть французских товаров можно перепродать в другие страны. 
+                Голландия так и делает — закупает французские товары и продаёт по всей Европе. 
+                Англия могла бы тоже!
+              </div>
+            </div>
+          </div>
+          
+          <div class="reason-item">
+            <div class="reason-num">3</div>
+            <div class="reason-content">
+              <div class="reason-title">❓ Нет надёжного критерия баланса</div>
+              <div class="reason-desc">
+                Невозможно точно определить, в чью пользу баланс между двумя странами. 
+                Таможенные книги и вексельный курс — ненадёжные показатели.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 4: Exchange Rate Problems -->
+    <section class="chapter-section">
+      <h2>Проблемы вексельного курса</h2>
+      
+      <div class="exchange-section">
+        <div class="exchange-title">
+          <span style="font-size: var(--text-xl);">📊</span>
+          <h3 style="margin: 0;">Почему курс — плохой индикатор</h3>
+        </div>
+        
+        <ul class="exchange-problems">
+          <li>
+            <strong>Стирание монеты</strong> — реальная стоимость монеты отличается от номинала
+          </li>
+          <li>
+            <strong>Расходы на чеканку</strong> — во Франции удерживали 8% при чеканке, в Англии — бесплатно
+          </li>
+          <li>
+            <strong>Банковые деньги</strong> — в Амстердаме, Гамбурге платили банковыми деньгами, которые дороже ходячей монеты
+          </li>
+          <li>
+            <strong>Торговля с третьими странами</strong> — платили за гамбургские товары векселями на Голландию
+          </li>
+        </ul>
+        
+        <p style="font-size: var(--text-sm); margin-top: var(--space-4); color: var(--color-text-light);">
+          Вексельный курс между Лондоном и Парижем определяется не только их взаимной торговлей, 
+          но и торговлей с множеством других мест.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: Amsterdam Bank -->
+    <section class="chapter-section">
+      <h2>Отступление: Амстердамский банк</h2>
+      
+      <div class="bank-section">
+        <div class="bank-title">
+          <span style="font-size: var(--text-xl);">🏦</span>
+          <h3 style="margin: 0;">Почему нужен был депозитный банк?</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          В малых торговых государствах (Генуя, Гамбург, Амстердам) в обращении была 
+          стёртая монета всех соседних стран. Это создавало неустойчивость вексельного курса.
+        </p>
+        
+        <div class="bank-features">
+          <div class="bank-feature">
+            <div class="bank-feature-title">📅 Основан в 1609 г.</div>
+            Принимал иностранную и стёртую монету по реальной стоимости
+          </div>
+          
+          <div class="bank-feature">
+            <div class="bank-feature-title">💰 Банковые деньги</div>
+            Кредит в книгах банка = полноценная монета по весу и пробе
+          </div>
+          
+          <div class="bank-feature">
+            <div class="bank-feature-title">📈 Премия (лаж)</div>
+            Банковые деньги стоили на 5% больше ходячей монеты
+          </div>
+          
+          <div class="bank-feature">
+            <div class="bank-feature-title">🔒 Надёжность</div>
+            Защита от пожара, кражи; лёгкий перевод без пересчёта
+          </div>
+        </div>
+        
+        <div class="key-insight" style="margin-top: var(--space-4);">
+          <p style="margin-bottom: 0; font-size: var(--text-sm);">
+            <strong>Вывод:</strong> Банковые деньги всегда имели одинаковую стоимость. 
+            Это устранило неустойчивость векселей и облегчило торговлю.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Особые ограничения против «неблагоприятных» стран — порождение национальной вражды</li>
+          <li>Французские товары облагались пошлинами до 75%</li>
+          <li>Три причины неразумности: дешевле товары, реэкспорт, нет критерия баланса</li>
+          <li>Вексельный курс — ненадёжный индикатор торгового баланса</li>
+          <li>Амстердамский банк создал «банковые деньги» — стабильную валюту для торговли</li>
+          <li>Ограничения против Франции вредят обеим странам</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book4-chapter02.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава II: Об ограничении ввоза</span>
+          </div>
+        </a>
+        <a href="book4-chapter04.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава IV: О возвратных пошлинах</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

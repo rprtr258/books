@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 4, Глава VI: О торговых договорах — Адам Смит, Богатство народов">
+  
+  <title>Книга 4, Глава VI: Торговые договоры — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Treaty Effect */
+    .treaty-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .treaty-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .treaty-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    
+    .treaty-party {
+      text-align: center;
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      min-width: 120px;
+    }
+    
+    .treaty-party.gives {
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+    }
+    
+    .treaty-party.gets {
+      background: #f0fff4;
+      border: 2px solid #68d391;
+    }
+    
+    .treaty-icon {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-1);
+    }
+    
+    .treaty-label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+    
+    /* Methuen Treaty */
+    .methuen-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+      border-radius: var(--radius-lg);
+    }
+    
+    .methuen-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    .methuen-articles {
+      margin-top: var(--space-4);
+      display: grid;
+      gap: var(--space-3);
+    }
+    
+    .article-box {
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      border-left: 4px solid #3182ce;
+    }
+    
+    .article-num {
+      font-weight: 700;
+      color: #2c5282;
+      margin-bottom: var(--space-1);
+    }
+    
+    /* Gold Flow */
+    .gold-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .gold-flow {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-top: var(--space-4);
+    }
+    
+    .gold-step {
+      text-align: center;
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      min-width: 100px;
+    }
+    
+    .gold-step.highlight {
+      background: #fef3e2;
+      border: 2px solid #d69e2e;
+    }
+    
+    .gold-arrow {
+      font-size: var(--text-xl);
+      color: #d69e2e;
+    }
+    
+    /* Reality Check */
+    .reality-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+      border-radius: var(--radius-lg);
+    }
+    
+    .reality-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    /* Coinage */
+    .coinage-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .coinage-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    .coinage-problem {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .coinage-problem {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .coinage-box {
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .coinage-box.before { border: 2px solid #fc8181; }
+    .coinage-box.after { border: 2px solid #38a169; }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 4</span>
+        <span class="chapter-number">Глава VI</span>
+      </div>
+      <h1 class="chapter-title">О торговых договорах</h1>
+      <div class="chapter-summary">
+        <p>Торговый договор, дающий иностранцам монополию — невыгоден. Пример: договор Метуэна с Португалией. Англия покупает золото, но могла бы покупать товары напрямую.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Treaty Effect -->
+    <section class="chapter-section">
+      <h2>Кому выгодны торговые договоры?</h2>
+      
+      <div class="treaty-section">
+        <div class="treaty-title">
+          <span style="font-size: var(--text-xl);">📜</span>
+          <h3 style="margin: 0;">Когда одна страна даёт другой преимущество</h3>
+        </div>
+        
+        <div class="treaty-diagram">
+          <div class="treaty-party gets">
+            <div class="treaty-icon">✅</div>
+            <div class="treaty-label">Португалия</div>
+            <div style="font-size: var(--text-xs);">Монополия в Англии</div>
+          </div>
+          
+          <div style="font-size: var(--text-xl);">⚖️</div>
+          
+          <div class="treaty-party gives">
+            <div class="treaty-icon">❌</div>
+            <div class="treaty-label">Англия</div>
+            <div style="font-size: var(--text-xs);">Даёт льготу</div>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4); color: var(--color-text-light);">
+          Страна, получающая монополию, выигрывает. 
+          Страна, дающая льготу — проигрывает. 
+          Меновая стоимость годового продукта уменьшается!
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Methuen Treaty -->
+    <section class="chapter-section">
+      <h2>Договор Метуэна (1703)</h2>
+      
+      <div class="methuen-section">
+        <div class="methuen-title">
+          <span style="font-size: var(--text-xl);">🇬🇧 🤝 🇵🇹</span>
+          <h3 style="margin: 0;">«Лучший образчик торговой политики Англии»?</h3>
+        </div>
+        
+        <div class="methuen-articles">
+          <div class="article-box">
+            <div class="article-num">Статья I</div>
+            <p style="font-size: var(--text-sm); margin: 0;">
+              Португалия разрешает ввоз английского сукна 
+              на тех же условиях, что и до запрета.
+            </p>
+          </div>
+          
+          <div class="article-box">
+            <div class="article-num">Статья II</div>
+            <p style="font-size: var(--text-sm); margin: 0;">
+              Англия разрешает ввоз португальских вин 
+              с пошлиной на <strong>⅓ меньше</strong>, чем французские!
+            </p>
+          </div>
+        </div>
+        
+        <div style="margin-top: var(--space-4); padding: var(--space-3); background: #fff5f5; border-radius: var(--radius-md); text-align: center;">
+          <strong style="color: #c53030;">Очевидно выгоден Португалии, невыгоден Англии!</strong>
+          <br>
+          <span style="font-size: var(--text-sm);">
+            Португалия не дала Англии лучших условий, чем другим нациям.
+            Англия же дала Португалии льготу против Франции.
+          </span>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Gold Flow -->
+    <section class="chapter-section">
+      <h2>Зачем Англии золото из Португалии?</h2>
+      
+      <div class="gold-section">
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          Португалия получает золото из Бразилии. Излишек должен уходить за границу:
+        </p>
+        
+        <div class="gold-flow">
+          <div class="gold-step highlight">
+            <div style="font-size: var(--text-lg);">🇧🇷</div>
+            <div style="font-size: var(--text-xs);">Бразилия</div>
+            <div style="font-weight: 600;">Золото</div>
+          </div>
+          
+          <span class="gold-arrow">→</span>
+          
+          <div class="gold-step">
+            <div style="font-size: var(--text-lg);">🇵🇹</div>
+            <div style="font-size: var(--text-xs);">Португалия</div>
+            <div style="font-size: var(--text-sm);">Излишек</div>
+          </div>
+          
+          <span class="gold-arrow">→</span>
+          
+          <div class="gold-step highlight">
+            <div style="font-size: var(--text-lg);">🇬🇧</div>
+            <div style="font-size: var(--text-xs);">Англия</div>
+            <div style="font-weight: 600;">≈50 тыс. ф. в неделю</div>
+          </div>
+          
+          <span class="gold-arrow">→</span>
+          
+          <div class="gold-step">
+            <div style="font-size: var(--text-lg);">🌍</div>
+            <div style="font-size: var(--text-xs);">Другие страны</div>
+            <div style="font-size: var(--text-sm);">Товары</div>
+          </div>
+        </div>
+        
+        <div class="key-insight" style="margin-top: var(--space-6);">
+          <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+            💡 Смит: «В чём выгода?»
+          </h3>
+          <p style="margin-bottom: 0;">
+            Золото — просто товар. Большая часть уходит дальше в обмен на товары. 
+            Выгоднее покупать товары напрямую, чем через золото Португалии!
+            Торговля окольным путём менее выгодна, чем напрямую.
+          </p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 4: Reality Check -->
+    <section class="chapter-section">
+      <h2>Реальность</h2>
+      
+      <div class="reality-section">
+        <div class="reality-title">
+          <span style="font-size: var(--text-xl);">✅</span>
+          <h3 style="margin: 0;">Если бы Англия потеряла торговлю с Португалией</h3>
+        </div>
+        
+        <ul style="margin: 0; padding-left: var(--space-5); font-size: var(--text-sm);">
+          <li>Золото можно купить у других стран (чуть дороже)</li>
+          <li>Избавились бы от бремени защищать слабого союзника</li>
+          <li>Купцы, торгующие с Португалией, пострадали бы год-два</li>
+          <li>В этом был бы весь ущерб для Англии!</li>
+        </ul>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Это нелепое представление, что Англия не может существовать без торговли с Португалией.
+          Золото, как и любой товар, всегда можно достать за его стоимость.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 5: Coinage Problem -->
+    <section class="chapter-section">
+      <h2>Отступление: Чеканка монеты</h2>
+      
+      <div class="coinage-section">
+        <div class="coinage-title">
+          <span style="font-size: var(--text-xl);">🪙</span>
+          <h3 style="margin: 0;">Почему бесплатная чеканка — проблема</h3>
+        </div>
+        
+        <div class="coinage-problem">
+          <div class="coinage-box before">
+            <h4 style="color: #c53030; margin-bottom: var(--space-2);">❌ До перечеканки</h4>
+            <p style="font-size: var(--text-sm); margin: 0;">
+              Монета стёрта на 2%. Новые гинеи переплавляли в слитки — 
+              прибыль! Работа монетного двора как у Пенелопы: 
+              что сделано днём, уничтожалось ночью.
+            </p>
+          </div>
+          
+          <div class="coinage-box after">
+            <h4 style="color: #276749; margin-bottom: var(--space-2);">✅ Решение</h4>
+            <p style="font-size: var(--text-sm); margin: 0;">
+              Пошлина за чеканку (как во Франции — 8%). 
+              Тогда переплавка станет невыгодной. 
+              Английский банк терял бы меньше!
+            </p>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); margin-top: var(--space-4); color: var(--color-text-light);">
+          <strong>Ирония:</strong> Английский банк поддерживал бесплатную чеканку, 
+          думая что это в его интересах. На самом деле — терял миллионы!
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Торговый договор, дающий льготу — невыгоден дающей стороне</li>
+          <li>Договор Метуэна (1703): Португалия получила выгоду, Англия — нет</li>
+          <li>Золото из Португалии — не особая ценность, просто товар</li>
+          <li>Выгоднее покупать товары напрямую, чем через золото</li>
+          <li>Англия могла бы обойтись без торговли с Португалией</li>
+          <li>Бесплатная чеканка монеты — проблема для Английского банка</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book4-chapter05.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава V: О премиях</span>
+          </div>
+        </a>
+        <a href="book4-chapter07.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава VII: О колониях</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

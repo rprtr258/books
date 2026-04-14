@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Глава VII: О естественной и рыночной цене товаров — Адам Смит, Богатство народов">
+  
+  <title>Глава VII: Естественная и рыночная цена — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Two Prices */
+    .two-prices {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin: var(--space-8) 0;
+    }
+    
+    @media (max-width: 768px) {
+      .two-prices {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .price-box {
+      padding: var(--space-6);
+      border-radius: var(--radius-lg);
+    }
+    
+    .price-box.natural {
+      background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .price-box.market {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .price-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-3);
+    }
+    
+    .price-title {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    
+    .price-box.natural .price-title {
+      color: #276749;
+    }
+    
+    .price-box.market .price-title {
+      color: #2c5282;
+    }
+    
+    .price-definition {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-bottom: var(--space-4);
+    }
+    
+    .price-formula {
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      font-family: var(--font-mono);
+      font-size: var(--text-sm);
+      text-align: center;
+    }
+    
+    /* Gravitation Diagram */
+    .gravitation {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .gravitation-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .gravitation-visual {
+      position: relative;
+      height: 200px;
+      margin: var(--space-4) 0;
+    }
+    
+    .center-line {
+      position: absolute;
+      left: 50%;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: #38a169;
+      transform: translateX(-50%);
+    }
+    
+    .center-point {
+      position: absolute;
+      left: 50%;
+      top: 50%;
+      transform: translate(-50%, -50%);
+      padding: var(--space-3) var(--space-5);
+      background: #38a169;
+      color: white;
+      border-radius: var(--radius-lg);
+      font-weight: 700;
+      white-space: nowrap;
+    }
+    
+    .orbit-left, .orbit-right {
+      position: absolute;
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      border: 2px dashed var(--color-border);
+    }
+    
+    .orbit-left {
+      left: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .orbit-right {
+      right: 10%;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+    
+    .orbit-label {
+      position: absolute;
+      font-size: var(--text-sm);
+      white-space: nowrap;
+    }
+    
+    .orbit-left .orbit-label {
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .orbit-right .orbit-label {
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+    
+    .arrow-left, .arrow-right {
+      position: absolute;
+      top: 50%;
+      font-size: var(--text-2xl);
+      color: var(--color-accent);
+    }
+    
+    .arrow-left {
+      left: 25%;
+      transform: translateY(-50%) scaleX(-1);
+    }
+    
+    .arrow-right {
+      right: 25%;
+      transform: translateY(-50%);
+    }
+    
+    /* Supply Demand */
+    .supply-demand {
+      margin: var(--space-8) 0;
+    }
+    
+    .sd-grid {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-4);
+      align-items: stretch;
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .sd-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .sd-case {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .sd-case.deficit {
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+    }
+    
+    .sd-case.balance {
+      background: #f0fff4;
+      border: 2px solid #9ae6b4;
+    }
+    
+    .sd-case.surplus {
+      background: #ebf8ff;
+      border: 2px solid #90cdf4;
+    }
+    
+    .sd-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .sd-title {
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    
+    .sd-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-bottom: var(--space-3);
+    }
+    
+    .sd-result {
+      padding: var(--space-2);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+    
+    .sd-case.deficit .sd-result {
+      color: #c53030;
+    }
+    
+    .sd-case.balance .sd-result {
+      color: #276749;
+    }
+    
+    .sd-case.surplus .sd-result {
+      color: #2c5282;
+    }
+    
+    .sd-arrows {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-xl);
+      color: var(--color-text-muted);
+    }
+    
+    /* Monopoly Effects */
+    .monopoly-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .monopoly-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .monopoly-card {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .monopoly-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    .monopoly-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .monopoly-title {
+      font-weight: 600;
+    }
+    
+    .monopoly-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-bottom: var(--space-3);
+    }
+    
+    .monopoly-effect {
+      padding: var(--space-2);
+      background: #fef3e2;
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      text-align: center;
+    }
+    
+    /* Price Comparison */
+    .price-comparison {
+      margin: var(--space-6) 0;
+      padding: var(--space-4);
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #d69e2e;
+      border-radius: var(--radius-lg);
+    }
+    
+    .comparison-title {
+      text-align: center;
+      margin-bottom: var(--space-4);
+    }
+    
+    .comparison-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-6);
+      flex-wrap: wrap;
+    }
+    
+    .comparison-item {
+      text-align: center;
+      padding: var(--space-3);
+    }
+    
+    .comparison-label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    
+    .comparison-bar {
+      width: 120px;
+      height: 24px;
+      border-radius: var(--radius-md);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: var(--text-xs);
+      font-weight: 600;
+    }
+    
+    .comparison-bar.monopoly {
+      background: #e53e3e;
+      height: 36px;
+    }
+    
+    .comparison-bar.natural {
+      background: #38a169;
+    }
+    
+    .comparison-bar.lowest {
+      background: #3182ce;
+      height: 16px;
+    }
+    
+    /* Chapter Preview */
+    .chapter-preview {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .preview-title {
+      margin-bottom: var(--space-4);
+    }
+    
+    .preview-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .preview-list li {
+      padding: var(--space-2) 0;
+      padding-left: var(--space-6);
+      position: relative;
+      font-size: var(--text-sm);
+    }
+    
+    .preview-list li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--color-accent);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 1</span>
+        <span class="chapter-number">Глава VII</span>
+      </div>
+      <h1 class="chapter-title">О естественной и рыночной цене товаров</h1>
+      <div class="chapter-summary">
+        <p>Рыночная цена колеблется вокруг естественной, как планеты вокруг солнца. Разберём законы этого движения.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Two Prices -->
+    <section class="chapter-section">
+      <h2>Два вида цены</h2>
+      
+      <p class="section-intro">
+        Смит различает две цены товара:
+      </p>
+      
+      <div class="two-prices">
+        <div class="price-box natural">
+          <div class="price-icon">🌿</div>
+          <div class="price-title">Естественная цена</div>
+          <div class="price-definition">
+            Цена, которая покрывает ренту, заработную плату и прибыль 
+            по их естественным нормам.
+          </div>
+          <div class="price-formula">
+            Рента + Зарплата + Прибыль<br>
+            (по естественным нормам)
+          </div>
+        </div>
+        
+        <div class="price-box market">
+          <div class="price-icon">📊</div>
+          <div class="price-title">Рыночная цена</div>
+          <div class="price-definition">
+            Фактическая цена, по которой товар продаётся на рынке.
+          </div>
+          <div class="price-formula">
+            Определяется спросом и предложением<br>
+            (может отклоняться)
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Ключевое различие
+        </h3>
+        <p style="margin-bottom: 0;">
+          Естественная цена — это <strong>минимум</strong>, при котором продавец 
+          согласен вести дело длительное время. Меньше — убыток, больше — временная удача.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Gravitation -->
+    <section class="chapter-section">
+      <h2>Тяготение к центру</h2>
+      
+      <blockquote class="important-quote">
+        <p>
+          Естественная цена как бы представляет собою центральную цену, 
+          к которой постоянно тяготеют цены всех товаров.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+      
+      <div class="gravitation">
+        <h3 class="gravitation-title">🎯 Рыночная цена тяготеет к естественной</h3>
+        
+        <div class="gravitation-visual">
+          <div class="center-line"></div>
+          <div class="center-point">Естественная цена</div>
+          
+          <div class="orbit-left">
+            <span class="orbit-label">Ниже естественной</span>
+          </div>
+          <div class="orbit-right">
+            <span class="orbit-label">Выше естественной</span>
+          </div>
+          
+          <span class="arrow-left">→</span>
+          <span class="arrow-right">→</span>
+        </div>
+      </div>
+      
+      <p>
+        Различные случайные обстоятельства могут держать цены выше или ниже центра, 
+        но они <strong>постоянно тяготеют к нему</strong>.
+      </p>
+    </section>
+    
+    <!-- Section 3: Supply and Demand -->
+    <section class="chapter-section">
+      <h2>Спрос и предложение</h2>
+      
+      <p class="section-intro">
+        Отношение между количеством товара и спросом определяет рыночную цену:
+      </p>
+      
+      <div class="supply-demand">
+        <div class="sd-grid">
+          <div class="sd-case deficit">
+            <div class="sd-icon">📉</div>
+            <div class="sd-title">Предложение &lt; Спрос</div>
+            <div class="sd-desc">
+              Товара недостаточно. Покупатели конкурируют, предлагая больше.
+            </div>
+            <div class="sd-result">Рыночная цена ↑ Выше естественной</div>
+          </div>
+          
+          <div class="sd-arrows">
+            <span>↓</span>
+            <span>↓</span>
+          </div>
+          
+          <div class="sd-case balance">
+            <div class="sd-icon">⚖️</div>
+            <div class="sd-title">Предложение = Спрос</div>
+            <div class="sd-desc">
+              Товара ровно столько, сколько нужно покупателям.
+            </div>
+            <div class="sd-result">Рыночная цена = Естественная</div>
+          </div>
+        </div>
+        
+        <div class="sd-grid" style="margin-top: var(--space-4);">
+          <div class="sd-case surplus">
+            <div class="sd-icon">📈</div>
+            <div class="sd-title">Предложение &gt; Спрос</div>
+            <div class="sd-desc">
+              Товара избыток. Продавцы конкурируют, снижая цену.
+            </div>
+            <div class="sd-result">Рыночная цена ↓ Ниже естественной</div>
+          </div>
+        </div>
+      </div>
+      
+      <h3 style="margin-top: var(--space-6);">Действительный vs абсолютный спрос</h3>
+      
+      <div class="idea-cards grid gap-4 md:grid-cols-2" style="margin-top: var(--space-4);">
+        <div class="idea-card">
+          <div class="idea-icon">✅</div>
+          <h3>Действительный спрос</h3>
+          <p>Спрос тех, кто готов заплатить естественную цену. Вызывает доставку товара на рынок.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">❌</div>
+          <h3>Абсолютный спрос</h3>
+          <p>«Бедный человек предъявляет спрос на карету с шестёркой лошадей» — но не может купить.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 4: Deviations Above -->
+    <section class="chapter-section">
+      <h2>Когда цена держится выше естественной?</h2>
+      
+      <p class="section-intro">
+        Три причины могут долго держать цену выше естественной:
+      </p>
+      
+      <div class="monopoly-section">
+        <div class="monopoly-grid">
+          <div class="monopoly-card">
+            <div class="monopoly-header">
+              <span class="monopoly-icon">🤫</span>
+              <span class="monopoly-title">Производственный секрет</span>
+            </div>
+            <div class="monopoly-desc">
+              Если метод производства известен только одному — он получает 
+              сверхприбыль, пока секрет не раскрыт.
+            </div>
+            <div class="monopoly-effect">
+              Цена выше, пока секрет не раскроется
+            </div>
+          </div>
+          
+          <div class="monopoly-card">
+            <div class="monopoly-header">
+              <span class="monopoly-icon">👑</span>
+              <span class="monopoly-title">Монополия</span>
+            </div>
+            <div class="monopoly-desc">
+              Монополист поддерживает искусственный дефицит и продаёт 
+              дороже естественной цены.
+            </div>
+            <div class="monopoly-effect">
+              Высшая возможная цена
+            </div>
+          </div>
+          
+          <div class="monopoly-card">
+            <div class="monopoly-header">
+              <span class="monopoly-icon">📜</span>
+              <span class="monopoly-title">Законы и привилегии</span>
+            </div>
+            <div class="monopoly-desc">
+              Цеховые уставы, законы об ученичестве ограничивают конкуренцию 
+              в отдельных отраслях.
+            </div>
+            <div class="monopoly-effect">
+              Цена выше в течение столетий
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="price-comparison">
+        <div class="comparison-title">
+          <strong>Сравнение цен</strong>
+        </div>
+        <div class="comparison-visual">
+          <div class="comparison-item">
+            <div class="comparison-label">Монопольная цена</div>
+            <div class="comparison-bar monopoly">Высшая возможная</div>
+          </div>
+          
+          <div class="comparison-item">
+            <div class="comparison-label">Естественная цена</div>
+            <div class="comparison-bar natural">Центр тяготения</div>
+          </div>
+          
+          <div class="comparison-item">
+            <div class="comparison-label">Цена конкуренции</div>
+            <div class="comparison-bar lowest">Низшая возможная</div>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Монопольная цена во всех случаях является высшей ценой, 
+          какая только может быть получена. Естественная цена — 
+          самая низкая, на какую можно согласиться.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 5: Deviations Below -->
+    <section class="chapter-section">
+      <h2>Может ли цена быть ниже естественной?</h2>
+      
+      <p class="section-intro">
+        Рыночная цена редко долго держится ниже естественной:
+      </p>
+      
+      <div class="key-insight" style="background: #fff5f5; border-color: #fc8181;">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          ⚠️ Почему цена возвращается вверх
+        </h3>
+        <p style="margin-bottom: 0;">
+          Если часть цены (зарплата, прибыль, рента) ниже естественной нормы — 
+          пострадавшие извлекают землю, труд или капитал из этого дела. 
+          Предложение падает, цена растёт.
+        </p>
+      </div>
+      
+      <p style="margin-top: var(--space-4);">
+        <strong>Исключение:</strong> законы о корпорациях могут удерживать 
+        зарплату ниже естественной нормы, пока живы рабочие, обученные в период процветания.
+      </p>
+    </section>
+    
+    <!-- Section 6: Preview -->
+    <section class="chapter-section">
+      <h2>Что будет дальше?</h2>
+      
+      <p class="section-intro">
+        Естественная норма зарплаты, прибыли и ренты зависит от состояния общества. 
+        Следующие главы объяснят:
+      </p>
+      
+      <div class="chapter-preview">
+        <h3 class="preview-title">📋 План следующих глав</h3>
+        
+        <ul class="preview-list">
+          <li><strong>Глава VIII:</strong> Что определяет норму заработной платы?</li>
+          <li><strong>Глава IX:</strong> Что определяет норму прибыли?</li>
+          <li><strong>Глава X:</strong> Соотношение зарплат и прибылей в разных профессиях</li>
+          <li><strong>Глава XI:</strong> Что определяет земельную ренту?</li>
+        </ul>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Главный вывод главы
+        </h3>
+        <p style="margin-bottom: 0;">
+          Рыночная цена постоянно колеблется, но <strong>тяготеет к естественной</strong>. 
+          Это тяготение — проявление «невидимой руки» рынка, которая приводит 
+          предложение в соответствие со спросом.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Естественная цена = рента + зарплата + прибыль по естественным нормам</li>
+          <li>Рыночная цена определяется спросом и предложением</li>
+          <li>Рыночная цена тяготеет к естественной</li>
+          <li>Дефицит → цена выше, избыток → цена ниже</li>
+          <li>Монополии и законы могут держать цену выше естественной</li>
+          <li>Цена редко держится ниже естественной — продавцы уходят</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book1-chapter06.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава VI: Составные части цены</span>
+          </div>
+        </a>
+        <a href="book1-chapter08.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава VIII: О заработной плате</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

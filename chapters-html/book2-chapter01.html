@@ -1,0 +1,738 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 2, Глава I: О подразделении накопленных запасов — Адам Смит, Богатство народов">
+  
+  <title>Книга 2, Глава I: О подразделении запасов — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Stocks Division */
+    .stocks-division {
+      margin: var(--space-8) 0;
+    }
+    
+    .stocks-diagram {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+    
+    .stocks-main {
+      text-align: center;
+      padding: var(--space-5);
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-lg);
+    }
+    
+    .stocks-main-title {
+      font-size: var(--text-xl);
+      font-weight: 700;
+    }
+    
+    .stocks-branches {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .stocks-branches {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .stock-branch {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .stock-branch.consumption {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .stock-branch.fixed {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .stock-branch.circulating {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .branch-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .branch-title {
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    
+    .branch-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    .branch-income {
+      margin-top: var(--space-3);
+      padding: var(--space-2);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      font-size: var(--text-xs);
+      font-weight: 600;
+    }
+    
+    /* Capital Comparison */
+    .capital-comparison {
+      margin: var(--space-8) 0;
+    }
+    
+    .capital-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .capital-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .capital-type {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+    }
+    
+    .capital-type.fixed {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .capital-type.circulating {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .capital-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .capital-icon {
+      font-size: var(--text-2xl);
+    }
+    
+    .capital-title {
+      font-weight: 700;
+      font-size: var(--text-lg);
+    }
+    
+    .capital-type.fixed .capital-title {
+      color: #2c5282;
+    }
+    
+    .capital-type.circulating .capital-title {
+      color: #276749;
+    }
+    
+    .capital-definition {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-bottom: var(--space-4);
+      padding-bottom: var(--space-4);
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .capital-items {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .capital-items li {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-2);
+      padding: var(--space-2) 0;
+      font-size: var(--text-sm);
+    }
+    
+    .capital-items li::before {
+      content: "•";
+      color: var(--color-accent);
+      font-weight: bold;
+    }
+    
+    /* Capital Flow */
+    .capital-flow {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .flow-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .flow-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+    }
+    
+    .flow-item {
+      text-align: center;
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      min-width: 120px;
+    }
+    
+    .flow-icon {
+      font-size: var(--text-xl);
+      margin-bottom: var(--space-1);
+    }
+    
+    .flow-label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+    
+    .flow-arrow {
+      font-size: var(--text-xl);
+      color: var(--color-accent);
+    }
+    
+    /* Profession Examples */
+    .profession-examples {
+      margin: var(--space-8) 0;
+    }
+    
+    .examples-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .examples-table th,
+    .examples-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .examples-table th {
+      background: var(--color-bg-section);
+      font-weight: 600;
+    }
+    
+    .examples-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .examples-table tr:hover td {
+      background: var(--color-bg-section);
+    }
+    
+    .ratio-bar {
+      display: flex;
+      height: 8px;
+      border-radius: var(--radius-full);
+      overflow: hidden;
+      background: var(--color-border-light);
+    }
+    
+    .ratio-fixed {
+      background: #3182ce;
+    }
+    
+    .ratio-circulating {
+      background: #38a169;
+    }
+    
+    /* Human Capital */
+    .human-capital {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #9f7aea;
+      border-radius: var(--radius-lg);
+    }
+    
+    .human-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .human-insight {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      margin-top: var(--space-4);
+    }
+    
+    /* Key Insight Box */
+    .purpose-box {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-left: 4px solid var(--color-accent);
+      border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+    }
+    
+    .purpose-title {
+      font-weight: 700;
+      margin-bottom: var(--space-3);
+    }
+    
+    /* Asia Warning */
+    .asia-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .asia-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 2</span>
+        <span class="chapter-number">Глава I</span>
+      </div>
+      <h1 class="chapter-title">О подразделении накопленных запасов</h1>
+      <div class="chapter-summary">
+        <p>Запасы общества делятся на три части: для потребления, основной и оборотный капитал. Как они взаимодействуют?</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Three Parts -->
+    <section class="chapter-section">
+      <h2>Три части запасов общества</h2>
+      
+      <p class="section-intro">
+        Когда человек владеет запасами, он может употребить их тремя способами:
+      </p>
+      
+      <div class="stocks-division">
+        <div class="stocks-diagram">
+          <div class="stocks-main">
+            <div class="stocks-main-title">📦 Все запасы человека</div>
+          </div>
+          
+          <div class="stocks-branches">
+            <div class="stock-branch consumption">
+              <div class="branch-icon">🍽️</div>
+              <div class="branch-title">Для потребления</div>
+              <div class="branch-desc">
+                Еда, одежда, жильё. Не приносят дохода.
+              </div>
+              <div class="branch-income">❌ Нет дохода</div>
+            </div>
+            
+            <div class="stock-branch fixed">
+              <div class="branch-icon">🏭</div>
+              <div class="branch-title">Основной капитал</div>
+              <div class="branch-desc">
+                Машины, постройки, улучшения. Приносят доход без смены владельца.
+              </div>
+              <div class="branch-income">✅ Доход без обращения</div>
+            </div>
+            
+            <div class="stock-branch circulating">
+              <div class="branch-icon">🔄</div>
+              <div class="branch-title">Оборотный капитал</div>
+              <div class="branch-desc">
+                Товары, деньги, материалы. Приносят доход через обращение.
+              </div>
+              <div class="branch-income">✅ Доход через продажу</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Критерий разделения
+        </h3>
+        <p style="margin-bottom: 0;">
+          Если запасы приносят доход без смены владельца — это основной капитал. 
+          Если через продажу или обмен — оборотный.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Fixed Capital -->
+    <section class="chapter-section">
+      <h2>Основной капитал</h2>
+      
+      <div class="capital-comparison">
+        <div class="capital-grid">
+          <div class="capital-type fixed">
+            <div class="capital-header">
+              <span class="capital-icon">🏭</span>
+              <span class="capital-title">Основной капитал</span>
+            </div>
+            <div class="capital-definition">
+              Приносит доход, оставаясь у владельца. Не меняет хозяина, не обращается.
+            </div>
+            <ul class="capital-items">
+              <li><strong>Машины и орудия</strong> — облегчают и сокращают труд</li>
+              <li><strong>Доходные постройки</strong> — лавки, склады, мастерские, фермы</li>
+              <li><strong>Улучшения земли</strong> — расчистка, осушение, огораживание</li>
+              <li><strong>Способности людей</strong> — навыки, умения, образование</li>
+            </ul>
+          </div>
+          
+          <div class="capital-type circulating">
+            <div class="capital-header">
+              <span class="capital-icon">🔄</span>
+              <span class="capital-title">Оборотный капитал</span>
+            </div>
+            <div class="capital-definition">
+              Приносит доход только через обращение — продажу или обмен.
+            </div>
+            <ul class="capital-items">
+              <li><strong>Деньги</strong> — средство обращения</li>
+              <li><strong>Запасы продовольствия</strong> — у торговцев</li>
+              <li><strong>Материалы</strong> — сырые и обработанные</li>
+              <li><strong>Готовые изделия</strong> — ещё не проданные</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Human Capital -->
+    <section class="chapter-section">
+      <h2>Человеческий капитал</h2>
+      
+      <div class="human-capital">
+        <div class="human-title">
+          <span style="font-size: var(--text-2xl);">👨‍🎓</span>
+          <h3 style="margin: 0;">Четвёртая статья основного капитала</h3>
+        </div>
+        
+        <p>
+          Смит впервые в истории экономической мысли включил <strong>способности людей</strong> 
+          в состав капитала общества. Обучение и воспитание требуют затрат, 
+          но эти затраты окупаются с прибылью.
+        </p>
+        
+        <div class="human-insight">
+          <p style="margin-bottom: var(--space-2);">
+            <strong>Аналогия с машинами:</strong>
+          </p>
+          <ul style="margin: 0; padding-left: var(--space-4);">
+            <li>Машина требует затрат на создание → приносит доход</li>
+            <li>Рабочий требует затрат на обучение → приносит доход</li>
+            <li>И то и другое — основной капитал общества</li>
+          </ul>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Большую ловкость и умение рабочего можно рассматривать с той же точки зрения, 
+          как и машины и орудия производства, которые сокращают или облегчают труд.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 4: By Profession -->
+    <section class="chapter-section">
+      <h2>Соотношение капиталов по профессиям</h2>
+      
+      <p class="section-intro">
+        Разные профессии требуют разного соотношения основного и оборотного капитала:
+      </p>
+      
+      <div class="profession-examples">
+        <table class="examples-table">
+          <thead>
+            <tr>
+              <th>Профессия</th>
+              <th>Основной</th>
+              <th>Оборотный</th>
+              <th>Соотношение</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>🧵 Портной</td>
+              <td>Иглы</td>
+              <td>Ткань, нитки</td>
+              <td>
+                <div class="ratio-bar">
+                  <div class="ratio-fixed" style="width: 5%;"></div>
+                  <div class="ratio-circulating" style="width: 95%;"></div>
+                </div>
+                <span style="font-size: var(--text-xs);">5% / 95%</span>
+              </td>
+            </tr>
+            <tr>
+              <td>👞 Сапожник</td>
+              <td>Инструменты</td>
+              <td>Кожа, нитки</td>
+              <td>
+                <div class="ratio-bar">
+                  <div class="ratio-fixed" style="width: 10%;"></div>
+                  <div class="ratio-circulating" style="width: 90%;"></div>
+                </div>
+                <span style="font-size: var(--text-xs);">10% / 90%</span>
+              </td>
+            </tr>
+            <tr>
+              <td>🛒 Купец</td>
+              <td>Лавка</td>
+              <td>Товары, деньги</td>
+              <td>
+                <div class="ratio-bar">
+                  <div class="ratio-fixed" style="width: 5%;"></div>
+                  <div class="ratio-circulating" style="width: 95%;"></div>
+                </div>
+                <span style="font-size: var(--text-xs);">5% / 95%</span>
+              </td>
+            </tr>
+            <tr>
+              <td>🏭 Железоделательный завод</td>
+              <td>Печь, горн, мельница</td>
+              <td>Руда, уголь, зарплата</td>
+              <td>
+                <div class="ratio-bar">
+                  <div class="ratio-fixed" style="width: 60%;"></div>
+                  <div class="ratio-circulating" style="width: 40%;"></div>
+                </div>
+                <span style="font-size: var(--text-xs);">60% / 40%</span>
+              </td>
+            </tr>
+            <tr>
+              <td>⛏️ Рудник</td>
+              <td>Насосы, механизмы</td>
+              <td>Труд, материалы</td>
+              <td>
+                <div class="ratio-bar">
+                  <div class="ratio-fixed" style="width: 70%;"></div>
+                  <div class="ratio-circulating" style="width: 30%;"></div>
+                </div>
+                <span style="font-size: var(--text-xs);">70% / 30%</span>
+              </td>
+            </tr>
+            <tr>
+              <td>🌾 Фермер</td>
+              <td>Скот, орудия, улучшения</td>
+              <td>Семена, корм, зарплата</td>
+              <td>
+                <div class="ratio-bar">
+                  <div class="ratio-fixed" style="width: 50%;"></div>
+                  <div class="ratio-circulating" style="width: 50%;"></div>
+                </div>
+                <span style="font-size: var(--text-xs);">50% / 50%</span>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- Section 5: Capital Relationship -->
+    <section class="chapter-section">
+      <h2>Взаимосвязь капиталов</h2>
+      
+      <div class="capital-flow">
+        <h3 class="flow-title">📊 Кругооборот капитала</h3>
+        
+        <div class="flow-diagram">
+          <div class="flow-item">
+            <div class="flow-icon">🔄</div>
+            <div class="flow-label">Оборотный</div>
+          </div>
+          
+          <span class="flow-arrow">→</span>
+          
+          <div class="flow-item">
+            <div class="flow-icon">🏭</div>
+            <div class="flow-label">Основной</div>
+          </div>
+          
+          <span class="flow-arrow">→</span>
+          
+          <div class="flow-item">
+            <div class="flow-icon">🍽️</div>
+            <div class="flow-label">Потребление</div>
+          </div>
+        </div>
+        
+        <p style="text-align: center; font-size: var(--text-sm); color: var(--color-text-light); margin-top: var(--space-4);">
+          Оборотный капитал создаёт основной, а оба служат потреблению
+        </p>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Важный принцип
+        </h3>
+        <p style="margin-bottom: 0;">
+          Всякий основной капитал первоначально возникает из оборотного 
+          и требует постоянного пополнения из него же.
+        </p>
+      </div>
+      
+      <div class="purpose-box" style="margin-top: var(--space-6);">
+        <div class="purpose-title">🎯 Единая цель обоих капиталов</div>
+        <p style="margin-bottom: 0;">
+          Сохранение и увеличение запасов для непосредственного потребления — 
+          единственная цель и основного, и оборотного капитала. 
+          За их счёт люди питаются, одеваются и находят кров.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 6: Historical Context -->
+    <section class="chapter-section">
+      <h2>Когда запасы прячут</h2>
+      
+      <div class="asia-section">
+        <div class="asia-title">
+          <span style="font-size: var(--text-xl);">⚠️</span>
+          <h3 style="margin: 0;">В странах с неустойчивым порядком</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm);">
+          В Турции, Индостане и большей части Азии люди закапывают и прячут запасы. 
+          Они боятся насилия со стороны вышестоящих и хотят иметь возможность 
+          быстро унести сокровища в безопасное место.
+        </p>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-top: var(--space-3);">
+          В феодальной Европе зарытие кладов было обычным делом. 
+          Присвоение кладов — важная статья доходов государей.
+        </p>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Условие развития капитала
+        </h3>
+        <p style="margin-bottom: 0;">
+          Только в стране с достаточно устойчивым порядком человек со здравым смыслом 
+          употребит все запасы на потребление или прибыль. 
+          Иначе — спрячет их в землю.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Запасы делятся на три части: потребление, основной и оборотный капитал</li>
+          <li>Основной капитал приносит доход без смены владельца</li>
+          <li>Оборотный капитал приносит доход через обращение</li>
+          <li>Способности людей — тоже основной капитал</li>
+          <li>Основной капитал возникает из оборотного</li>
+          <li>Оба вида капитала служат одной цели — потреблению</li>
+          <li>Неустойчивый порядок заставляет прятать капитал</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book1-chapter11.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Книга 1, Глава XI: О земельной ренте</span>
+          </div>
+        </a>
+        <a href="book2-chapter02.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава II: О деньгах как части запасов</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

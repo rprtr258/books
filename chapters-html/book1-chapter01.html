@@ -1,0 +1,815 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Глава I: О разделении труда — Адам Смит, Исследование о природе и причинах богатства народов">
+  
+  <title>Глава I: О разделении труда — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Pin Factory Interactive */
+    .pin-factory {
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+      margin: var(--space-6) 0;
+    }
+    
+    .pin-stages {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+      gap: var(--space-2);
+      margin-bottom: var(--space-6);
+    }
+    
+    .pin-stage {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-2) var(--space-3);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border-light);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+      cursor: pointer;
+      transition: all var(--transition-fast);
+    }
+    
+    .pin-stage:hover {
+      border-color: var(--color-accent);
+      background: var(--color-bg-card);
+      transform: translateX(4px);
+    }
+    
+    .pin-stage.active {
+      border-color: var(--color-accent);
+      background: linear-gradient(135deg, var(--color-bg-card) 0%, #fef3e2 100%);
+    }
+    
+    .pin-stage-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 24px;
+      height: 24px;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 600;
+    }
+    
+    /* Production comparison */
+    .production-comparison {
+      display: grid;
+      grid-template-columns: 1fr auto 1fr;
+      gap: var(--space-4);
+      align-items: stretch;
+      margin: var(--space-6) 0;
+    }
+    
+    @media (max-width: 768px) {
+      .production-comparison {
+        grid-template-columns: 1fr;
+      }
+      
+      .comparison-arrow-col {
+        transform: rotate(90deg);
+        margin: var(--space-4) auto;
+      }
+    }
+    
+    .production-box {
+      padding: var(--space-6);
+      background: var(--color-bg-card);
+      border: 2px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .production-box.before {
+      border-color: #e53e3e;
+      background: linear-gradient(135deg, #fff5f5 0%, var(--color-bg-card) 100%);
+    }
+    
+    .production-box.after {
+      border-color: #38a169;
+      background: linear-gradient(135deg, #f0fff4 0%, var(--color-bg-card) 100%);
+    }
+    
+    .production-label {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2);
+    }
+    
+    .production-output {
+      font-size: var(--text-4xl);
+      font-weight: 700;
+      font-family: var(--font-heading);
+    }
+    
+    .production-box.before .production-output {
+      color: #e53e3e;
+    }
+    
+    .production-box.after .production-output {
+      color: #38a169;
+    }
+    
+    .production-unit {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    .production-desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-3);
+    }
+    
+    .comparison-arrow-col {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: var(--text-4xl);
+      color: var(--color-accent);
+    }
+    
+    .comparison-multiplier {
+      display: inline-block;
+      padding: var(--space-2) var(--space-4);
+      background: var(--color-accent);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: var(--text-lg);
+      margin-top: var(--space-4);
+    }
+    
+    /* Three reasons */
+    .reasons-grid {
+      display: grid;
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+    }
+    
+    .reason-card {
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      transition: all var(--transition-fast);
+    }
+    
+    .reason-card:hover {
+      box-shadow: var(--shadow-md);
+    }
+    
+    .reason-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4) var(--space-5);
+      background: var(--color-bg-card);
+      cursor: pointer;
+      transition: background var(--transition-fast);
+    }
+    
+    .reason-header:hover {
+      background: var(--color-bg-section);
+    }
+    
+    .reason-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 44px;
+      height: 44px;
+      background: var(--color-accent);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: var(--text-xl);
+      flex-shrink: 0;
+    }
+    
+    .reason-title {
+      flex: 1;
+      font-size: var(--text-lg);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin: 0;
+    }
+    
+    .reason-toggle {
+      color: var(--color-text-muted);
+      transition: transform var(--transition-fast);
+    }
+    
+    .reason-header[aria-expanded="true"] .reason-toggle {
+      transform: rotate(180deg);
+    }
+    
+    .reason-content {
+      max-height: 0;
+      overflow: hidden;
+      transition: max-height var(--transition-slow);
+    }
+    
+    .reason-content[aria-hidden="false"] {
+      max-height: 1000px;
+    }
+    
+    .reason-body {
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-top: 1px solid var(--color-border-light);
+    }
+    
+    .reason-example {
+      margin-top: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      border-left: 3px solid var(--color-accent);
+    }
+    
+    .reason-example-title {
+      font-size: var(--text-sm);
+      font-weight: 600;
+      color: var(--color-accent);
+      margin-bottom: var(--space-2);
+    }
+    
+    /* Supply chain */
+    .supply-chain {
+      position: relative;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+      margin: var(--space-6) 0;
+    }
+    
+    .chain-nodes {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+      justify-content: center;
+    }
+    
+    .chain-node {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+      padding: var(--space-3) var(--space-4);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      min-width: 100px;
+      transition: all var(--transition-fast);
+    }
+    
+    .chain-node:hover {
+      border-color: var(--color-accent);
+      transform: translateY(-2px);
+      box-shadow: var(--shadow-sm);
+    }
+    
+    .chain-node-icon {
+      font-size: var(--text-2xl);
+    }
+    
+    .chain-node-label {
+      font-size: var(--text-xs);
+      text-align: center;
+      color: var(--color-text-main);
+    }
+    
+    .chain-connector {
+      display: flex;
+      align-items: center;
+      color: var(--color-text-muted);
+      font-size: var(--text-lg);
+    }
+    
+    .chain-result {
+      margin-top: var(--space-6);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border: 2px solid var(--color-primary);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .chain-result-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .chain-result-label {
+      font-weight: 600;
+      color: var(--color-primary);
+    }
+    
+    /* Chapter stats */
+    .chapter-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+    }
+    
+    @media (max-width: 640px) {
+      .chapter-stats {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .stat-card {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .stat-value {
+      font-size: var(--text-3xl);
+      font-weight: 700;
+      color: var(--color-primary);
+      font-family: var(--font-heading);
+    }
+    
+    .stat-label {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 1</span>
+        <span class="chapter-number">Глава I</span>
+      </div>
+      <h1 class="chapter-title">О разделении труда</h1>
+      <div class="chapter-summary">
+        <p>Разделение труда — величайший прогресс в развитии производительной силы труда. Эта глава объясняет, как специализация увеличивает выработку и создаёт основу всеобщего благосостояния.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Key Ideas -->
+    <section class="chapter-section">
+      <h2>Ключевые идеи главы</h2>
+      
+      <div class="idea-cards grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        
+        <div class="idea-card">
+          <div class="idea-icon">⚙️</div>
+          <h3>Главный двигатель прогресса</h3>
+          <p>Разделение труда — основная причина роста производительности в обществе.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">📌</div>
+          <h3>Пример булавок</h3>
+          <p>18 операций вместо одного мастера = рост производительности в 240 раз.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🌾</div>
+          <h3>Отраслевое различие</h3>
+          <p>Промышленность выигрывает от разделения больше, чем земледелие.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🎯</div>
+          <h3>Ловкость мастера</h3>
+          <p>Специализация на одной операции развивает исключительное мастерство.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">⏱️</div>
+          <h3>Экономия времени</h3>
+          <p>Нет потерь на переключение между задачами и инструментами.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🔧</div>
+          <h3>Изобретение машин</h3>
+          <p>Специализация стимулирует создание инструментов и механизмов.</p>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Section 2: Pin Factory -->
+    <section class="chapter-section">
+      <h2>Знаменитый пример: производство булавок</h2>
+      
+      <p class="section-intro">
+        Смит использует производство булавок как иллюстрацию разделения труда. 
+        Один неквалифицированный рабочий может сделать не более 20 булавок в день. 
+        Но когда труд разделён на 18 операций — результат поразителен.
+      </p>
+      
+      <!-- Interactive Stages -->
+      <div class="pin-factory">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-3);">18 операций производства булавки:</h3>
+        <div class="pin-stages">
+          <div class="pin-stage" data-stage="1">
+            <span class="pin-stage-num">1</span>
+            <span>Тянуть проволоку</span>
+          </div>
+          <div class="pin-stage" data-stage="2">
+            <span class="pin-stage-num">2</span>
+            <span>Выпрямлять</span>
+          </div>
+          <div class="pin-stage" data-stage="3">
+            <span class="pin-stage-num">3</span>
+            <span>Обрезать</span>
+          </div>
+          <div class="pin-stage" data-stage="4">
+            <span class="pin-stage-num">4</span>
+            <span>Заострять конец</span>
+          </div>
+          <div class="pin-stage" data-stage="5">
+            <span class="pin-stage-num">5</span>
+            <span>Обтачивать для головки</span>
+          </div>
+          <div class="pin-stage" data-stage="6">
+            <span class="pin-stage-num">6-8</span>
+            <span>Изготовить головку</span>
+          </div>
+          <div class="pin-stage" data-stage="9">
+            <span class="pin-stage-num">9</span>
+            <span>Насадить головку</span>
+          </div>
+          <div class="pin-stage" data-stage="10">
+            <span class="pin-stage-num">10</span>
+            <span>Полировать</span>
+          </div>
+          <div class="pin-stage" data-stage="11">
+            <span class="pin-stage-num">11-18</span>
+            <span>Упаковка и др.</span>
+          </div>
+        </div>
+      </div>
+      
+      <!-- Comparison -->
+      <div class="production-comparison">
+        <div class="production-box before">
+          <div class="production-label">Один неквалифицированный рабочий</div>
+          <div class="production-output">20</div>
+          <div class="production-unit">булавок в день</div>
+          <div class="production-desc">Делает всё сам, без навыков и инструментов</div>
+        </div>
+        
+        <div class="comparison-arrow-col">→</div>
+        
+        <div class="production-box after">
+          <div class="production-label">10 рабочих с разделением труда</div>
+          <div class="production-output">48 000</div>
+          <div class="production-unit">булавок в день</div>
+          <div class="production-desc">Каждый специализируется на 1-2 операциях</div>
+        </div>
+      </div>
+      
+      <p class="text-center">
+        <span class="comparison-multiplier">× 240 раз больше</span>
+      </p>
+    </section>
+    
+    <!-- Section 3: Three Reasons -->
+    <section class="chapter-section">
+      <h2>Три причины роста производительности</h2>
+      
+      <p class="section-intro">
+        Увеличение количества работы при разделении труда зависит от трёх условий:
+      </p>
+      
+      <div class="reasons-grid">
+        
+        <!-- Reason 1 -->
+        <div class="reason-card">
+          <button class="reason-header" aria-expanded="false">
+            <span class="reason-num">1</span>
+            <h3 class="reason-title">Увеличение ловкости каждого рабочего</h3>
+            <span class="reason-toggle">▼</span>
+          </button>
+          <div class="reason-content" aria-hidden="true">
+            <div class="reason-body">
+              <p>
+                Разделение труда сводит работу каждого к простой операции, 
+                делая её единственным занятием всей жизни. Это неизбежно 
+                увеличивает ловкость рабочего до невероятного уровня.
+              </p>
+              <div class="reason-example">
+                <div class="reason-example-title">📌 Пример: гвозди</div>
+                <p style="font-size: var(--text-sm); margin-bottom: 0;">
+                  Обычный кузнец: <strong>200-300</strong> гвоздей/день<br>
+                  Специалист: <strong>2 300+</strong> гвоздей/день
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Reason 2 -->
+        <div class="reason-card">
+          <button class="reason-header" aria-expanded="false">
+            <span class="reason-num">2</span>
+            <h3 class="reason-title">Экономия времени на переключении</h3>
+            <span class="reason-toggle">▼</span>
+          </button>
+          <div class="reason-content" aria-hidden="true">
+            <div class="reason-body">
+              <p>
+                При переходе от одной работы к другой теряется время: 
+                нужно сменить место, инструменты, настрой. Рабочий «смотрит 
+                по сторонам» прежде чем войти в ритм.
+              </p>
+              <div class="reason-example">
+                <div class="reason-example-title">📌 Пример: деревенский ткач</div>
+                <p style="font-size: var(--text-sm); margin-bottom: 0;">
+                  Ткач, совмещающий работу с фермерством, теряет часы на 
+                  переходы между станком и полем. Привычка переключаться 
+                  делает его «ленивым и нерадивым».
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+        <!-- Reason 3 -->
+        <div class="reason-card">
+          <button class="reason-header" aria-expanded="false">
+            <span class="reason-num">3</span>
+            <h3 class="reason-title">Изобретение машин</h3>
+            <span class="reason-toggle">▼</span>
+          </button>
+          <div class="reason-content" aria-hidden="true">
+            <div class="reason-body">
+              <p>
+                Когда внимание рабочего сосредоточено на одной простой операции, 
+                он естественным образом ищет способы её облегчить и ускорить. 
+                Так рождаются машины.
+              </p>
+              <div class="reason-example">
+                <div class="reason-example-title">📌 Пример: паровая машина</div>
+                <p style="font-size: var(--text-sm); margin-bottom: 0;">
+                  Подросток, открывавший клапан паровой машины, привязал 
+                  верёвку к поршню — и освободил себя для игр. Одно из 
+                  важнейших улучшений паровой машины!
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Section 4: Agriculture vs Industry -->
+    <section class="chapter-section">
+      <h2>Почему промышленность выигрывает больше?</h2>
+      
+      <p class="section-intro">
+        Земледелие по своей природе не допускает такого полного разделения труда, 
+        как мануфактура. Пахота, боронование, сев и жатва часто выполняются одним 
+        человеком в разные сезоны.
+      </p>
+      
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Критерий</th>
+              <th>Земледелие</th>
+              <th>Промышленность</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Глубина разделения труда</td>
+              <td><span class="badge badge-low">Ограниченная</span></td>
+              <td><span class="badge badge-high">Высокая</span></td>
+            </tr>
+            <tr>
+              <td>Сезонность</td>
+              <td>Работы в разные сезоны</td>
+              <td>Круглый год</td>
+            </tr>
+            <tr>
+              <td>Один работник</td>
+              <td>Пашет, сеет, жнёт</td>
+              <td>Одна операция</td>
+            </tr>
+            <tr>
+              <td>Рост производительности</td>
+              <td><span class="badge badge-medium">Умеренный</span></td>
+              <td><span class="badge badge-high">Высокий</span></td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p class="text-muted text-sm">
+        <strong>Пример Смита:</strong> Хлеб Польши стоит столько же, сколько французский, 
+        несмотря на богатство Франции. Но железные товары и сукна Англии несравненно 
+        лучше и дешевле французских.
+      </p>
+    </section>
+    
+    <!-- Section 5: Supply Chain -->
+    <section class="chapter-section">
+      <h2>Сложность простой вещи</h2>
+      
+      <p class="section-intro">
+        Шерстяная куртка подённого рабочего — продукт соединённого труда десятков 
+        профессий. Смит показывает, как разделение труда создаёт невидимую сеть 
+        кооперации тысяч людей.
+      </p>
+      
+      <div class="supply-chain">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-4); text-align: center;">
+          Цепочка создания шерстяной куртки:
+        </h3>
+        
+        <div class="chain-nodes">
+          <div class="chain-node">
+            <span class="chain-node-icon">🐑</span>
+            <span class="chain-node-label">Пастух</span>
+          </div>
+          <span class="chain-connector">→</span>
+          <div class="chain-node">
+            <span class="chain-node-icon">✂️</span>
+            <span class="chain-node-label">Сортировщик</span>
+          </div>
+          <span class="chain-connector">→</span>
+          <div class="chain-node">
+            <span class="chain-node-icon">🧤</span>
+            <span class="chain-node-label">Чесальщик</span>
+          </div>
+          <span class="chain-connector">→</span>
+          <div class="chain-node">
+            <span class="chain-node-icon">🎨</span>
+            <span class="chain-node-label">Красильщик</span>
+          </div>
+          <span class="chain-connector">→</span>
+          <div class="chain-node">
+            <span class="chain-node-icon">🧶</span>
+            <span class="chain-node-label">Прядильщик</span>
+          </div>
+          <span class="chain-connector">→</span>
+          <div class="chain-node">
+            <span class="chain-node-icon">🧵</span>
+            <span class="chain-node-label">Ткач</span>
+          </div>
+          <span class="chain-connector">→</span>
+          <div class="chain-node">
+            <span class="chain-node-icon">👔</span>
+            <span class="chain-node-label">Ворсировщик</span>
+          </div>
+          <span class="chain-connector">→</span>
+          <div class="chain-node">
+            <span class="chain-node-icon">🧥</span>
+            <span class="chain-node-label">Аппретурщик</span>
+          </div>
+        </div>
+        
+        <p style="text-align: center; font-size: var(--text-sm); color: var(--color-text-muted); margin-top: var(--space-4);">
+          + купцы, грузчики, судостроители, матросы, рудокопы, кузнецы...
+        </p>
+        
+        <div class="chain-result">
+          <div class="chain-result-icon">👕</div>
+          <div class="chain-result-label">Шерстяная куртка рабочего</div>
+          <p style="font-size: var(--text-sm); color: var(--color-text-muted); margin: var(--space-2) 0 0;">
+            Продукт труда <strong>тысяч людей</strong>
+          </p>
+        </div>
+      </div>
+      
+      <div class="chapter-stats">
+        <div class="stat-card">
+          <div class="stat-value">50+</div>
+          <div class="stat-label">профессий</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">1000+</div>
+          <div class="stat-label">людей участвуют</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-value">500+ км</div>
+          <div class="stat-label">логистика материалов</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 6: Quote -->
+    <section class="chapter-section">
+      <h2>Ключевая цитата</h2>
+      
+      <blockquote class="important-quote">
+        <p>
+          В сравнении с чрезвычайной роскошью богача обстановка простого ремесленника 
+          кажется крайне простой, и тем не менее обстановка европейского государя не 
+          всегда настолько превосходит обстановку трудолюбивого крестьянина, насколько 
+          обстановка последнего превосходит обстановку многих африканских царьков.
+        </p>
+        <cite>— Адам Смит, конец Главы I</cite>
+      </blockquote>
+      
+      <p>
+        <strong>Вывод:</strong> Разделение труда приводит к всеобщему благосостоянию, 
+        которое распространяется и на самые низшие слои народа. Каждый работник производит 
+        излишек для обмена — и все выигрывают.
+      </p>
+    </section>
+    
+    <!-- Section 7: Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Разделение труда многократно увеличивает производительность</li>
+          <li>Три причины: ловкость, экономия времени, изобретение машин</li>
+          <li>Промышленность выигрывает от специализации больше, чем земледелие</li>
+          <li>Современное общество — сложная сеть взаимозависимых профессий</li>
+          <li>Благосостояние распространяется на все слои общества</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="00-introduction.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Введение</span>
+          </div>
+        </a>
+        <a href="book1-chapter02.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава II: О причине разделения труда</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

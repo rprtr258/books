@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 3, Глава I: О естественном развитии благосостояния — Адам Смит, Богатство народов">
+  
+  <title>Книга 3, Глава I: О естественном развитии — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* City-Village Exchange */
+    .exchange-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .exchange-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .exchange-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    
+    .exchange-side {
+      text-align: center;
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+      min-width: 150px;
+    }
+    
+    .exchange-side.village {
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .exchange-side.city {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .exchange-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .exchange-name {
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    
+    .exchange-side.village .exchange-name { color: #276749; }
+    .exchange-side.city .exchange-name { color: #2c5282; }
+    
+    .exchange-items {
+      font-size: var(--text-sm);
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    
+    .exchange-items li {
+      padding: var(--space-1) 0;
+    }
+    
+    .exchange-arrows {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .arrow-item {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    
+    /* Natural Order */
+    .natural-order {
+      margin: var(--space-8) 0;
+    }
+    
+    .order-steps {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .order-step {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .step-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      height: 48px;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: var(--text-lg);
+      flex-shrink: 0;
+    }
+    
+    .step-content {
+      flex: 1;
+    }
+    
+    .step-title {
+      font-weight: 700;
+      margin-bottom: var(--space-1);
+    }
+    
+    .step-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    .step-security {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-top: var(--space-2);
+    }
+    
+    .security-bar {
+      flex: 1;
+      height: 6px;
+      background: var(--color-border-light);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    
+    .security-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+    }
+    
+    .order-step:nth-child(1) .security-fill { background: #38a169; width: 100%; }
+    .order-step:nth-child(2) .security-fill { background: #3182ce; width: 70%; }
+    .order-step:nth-child(3) .security-fill { background: #d69e2e; width: 40%; }
+    
+    /* America Example */
+    .america-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+      border-radius: var(--radius-lg);
+    }
+    
+    .america-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    /* Europe Reversal */
+    .europe-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .europe-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-3);
+    }
+    
+    .reversed-diagram {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-3);
+      flex-wrap: wrap;
+      margin-top: var(--space-4);
+    }
+    
+    .reversed-item {
+      text-align: center;
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .reversed-arrow {
+      font-size: var(--text-xl);
+      color: #e53e3e;
+    }
+    
+    /* Benefits */
+    .benefits-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .benefits-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .benefits-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .benefit-card {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .benefit-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-2);
+    }
+    
+    .benefit-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .benefit-title {
+      font-weight: 600;
+    }
+    
+    .benefit-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 3</span>
+        <span class="chapter-number">Глава I</span>
+      </div>
+      <h1 class="chapter-title">О естественном развитии благосостояния</h1>
+      <div class="chapter-summary">
+        <p>Естественный порядок: сначала земледелие, потом мануфактура, затем торговля. Но в Европе этот порядок был перевёрнут.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: City-Village Exchange -->
+    <section class="chapter-section">
+      <h2>Обмен между городом и деревней</h2>
+      
+      <div class="exchange-section">
+        <h3 class="exchange-title">🔄 Взаимовыгодный обмен</h3>
+        
+        <div class="exchange-diagram">
+          <div class="exchange-side village">
+            <div class="exchange-icon">🌾</div>
+            <div class="exchange-name">Деревня</div>
+            <ul class="exchange-items">
+              <li>🍞 Продовольствие</li>
+              <li>🧶 Материалы</li>
+              <li> Сырой продукт</li>
+            </ul>
+          </div>
+          
+          <div class="exchange-arrows">
+            <div class="arrow-item">→ готовые изделия →</div>
+            <div style="font-size: var(--text-lg);">↔️</div>
+            <div class="arrow-item">← сырьё и еда ←</div>
+          </div>
+          
+          <div class="exchange-side city">
+            <div class="exchange-icon">🏙️</div>
+            <div class="exchange-name">Город</div>
+            <ul class="exchange-items">
+              <li>🔧 Готовые изделия</li>
+              <li>🛠️ Орудия труда</li>
+              <li> Предметы удобства</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Взаимная выгода
+        </h3>
+        <p style="margin-bottom: 0;">
+          Город — рынок для избыточного продукта деревни. 
+          Чем больше город, тем обширнее рынок для деревни. 
+          Выгоды обоюдны!
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Natural Order -->
+    <section class="chapter-section">
+      <h2>Естественный порядок развития</h2>
+      
+      <p class="section-intro">
+        Природа вещей диктует определённую последовательность:
+      </p>
+      
+      <div class="natural-order">
+        <div class="order-steps">
+          <div class="order-step">
+            <div class="step-num">1</div>
+            <div class="step-content">
+              <div class="step-title">🌾 Земледелие</div>
+              <div class="step-desc">
+                Пища — первая потребность. Обработка земли предшествует всему остальному. 
+                Капитал наиболее защищён: земля всегда под боком.
+              </div>
+              <div class="step-security">
+                <span style="font-size: var(--text-xs);">Надёжность:</span>
+                <div class="security-bar"><div class="security-fill"></div></div>
+                <span style="font-size: var(--text-xs); font-weight: 600; color: #276749;">MAX</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="order-step">
+            <div class="step-num">2</div>
+            <div class="step-content">
+              <div class="step-title">🏭 Мануфактура</div>
+              <div class="step-desc">
+                Когда есть избыток еды — появляются ремесленники. 
+                Капитал на виду, но менее надёжен чем земля.
+              </div>
+              <div class="step-security">
+                <span style="font-size: var(--text-xs);">Надёжность:</span>
+                <div class="security-bar"><div class="security-fill"></div></div>
+                <span style="font-size: var(--text-xs); font-weight: 600; color: #2c5282;">Средняя</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="order-step">
+            <div class="step-num">3</div>
+            <div class="step-content">
+              <div class="step-title">🚢 Внешняя торговля</div>
+              <div class="step-desc">
+                Когда есть избыток продуктов и изделий — вывозим за границу. 
+                Капитал в руках ветров, волн и человеческой несправедливости.
+              </div>
+              <div class="step-security">
+                <span style="font-size: var(--text-xs);">Надёжность:</span>
+                <div class="security-bar"><div class="security-fill"></div></div>
+                <span style="font-size: var(--text-xs); font-weight: 600; color: #b7791f;">Низкая</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Why Agriculture First -->
+    <section class="chapter-section">
+      <h2>Почему земледелие предпочитают?</h2>
+      
+      <div class="benefits-section">
+        <div class="benefits-grid">
+          <div class="benefit-card">
+            <div class="benefit-header">
+              <span class="benefit-icon">🔒</span>
+              <span class="benefit-title">Надёжность</span>
+            </div>
+            <div class="benefit-desc">
+              Капитал в земле защищён от случайностей. 
+              Купец зависит от ветров, волн и чужих людей.
+            </div>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-header">
+              <span class="benefit-icon">👀</span>
+              <span class="benefit-title">Контроль</span>
+            </div>
+            <div class="benefit-desc">
+              Землевладелец видит свой капитал. 
+              Купец отдаёт деньги в далёкие страны незнакомцам.
+            </div>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-header">
+              <span class="benefit-icon">🌳</span>
+              <span class="benefit-title">Красота природы</span>
+            </div>
+            <div class="benefit-desc">
+              Удовольствия сельской жизни, спокойствие духа, 
+              независимость — всё это привлекает людей.
+            </div>
+          </div>
+          
+          <div class="benefit-card">
+            <div class="benefit-header">
+              <span class="benefit-icon">📜</span>
+              <span class="benefit-title">Исконное предназначение</span>
+            </div>
+            <div class="benefit-desc">
+              Возделывание земли — первое занятие человека. 
+              Он сохранил к нему особое предрасположение.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Фермер, обрабатывающий свою землю, — сам себе хозяин и независим от кого бы то ни было. 
+          Ремесленник — слуга своих потребителей.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 4: America -->
+    <section class="chapter-section">
+      <h2>Пример американских колоний</h2>
+      
+      <div class="america-section">
+        <div class="america-title">
+          <span style="font-size: var(--text-xl);">🇺🇸</span>
+          <h3 style="margin: 0;">Естественный порядок в действии</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          В колониях дешёвая невозделанная земля. Ремесленник, накопив капитал, 
+          не строит мануфактуру — он покупает землю и становится фермером. 
+          Это естественно!
+        </p>
+        
+        <div style="display: flex; align-items: center; justify-content: center; gap: var(--space-3); margin-top: var(--space-4); flex-wrap: wrap;">
+          <div style="text-align: center; padding: var(--space-3); background: var(--color-bg-card); border-radius: var(--radius-md);">
+            👨‍🔧 Ремесленник<br>
+            <span style="font-size: var(--text-xs);">накопил капитал</span>
+          </div>
+          
+          <span style="font-size: var(--text-xl);">→</span>
+          
+          <div style="text-align: center; padding: var(--space-3); background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%); border-radius: var(--radius-md); border: 2px solid #38a169;">
+            👨‍🌾 Фермер<br>
+            <span style="font-size: var(--text-xs);">купил землю</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 5: Europe Reversed -->
+    <section class="chapter-section">
+      <h2>Европа: перевёрнутый порядок</h2>
+      
+      <div class="europe-section">
+        <div class="europe-title">
+          <span style="font-size: var(--text-xl);">⚠️</span>
+          <h3 style="margin: 0;">Противоестественный путь</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-3);">
+          В Европе естественный порядок был перевёрнут из-за политики государей 
+          и феодальных учреждений:
+        </p>
+        
+        <div class="reversed-diagram">
+          <div class="reversed-item">
+            <strong>1</strong><br>
+            🚢 Внешняя торговля
+          </div>
+          
+          <span class="reversed-arrow">→</span>
+          
+          <div class="reversed-item">
+            <strong>2</strong><br>
+            🏭 Мануфактура
+          </div>
+          
+          <span class="reversed-arrow">→</span>
+          
+          <div class="reversed-item">
+            <strong>3</strong><br>
+            🌾 Земледелие
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Главный вывод главы
+        </h3>
+        <p style="margin-bottom: 0;">
+          Естественный порядок — земледелие → мануфактура → торговля. 
+          Европа прошла путь наоборот из-за феодальных учреждений. 
+          Но человеческие наклонности всегда тянутся к естественному порядку.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Город и деревня обмениваются сырьём и готовыми изделиями</li>
+          <li>Естественный порядок: земледелие → мануфактура → торговля</li>
+          <li>Земледелие — самое надёжное вложение капитала</li>
+          <li>Ремесленник зависим, фермер независим</li>
+          <li>В колониях естественный порядок соблюдается</li>
+          <li>В Европе порядок был перевёрнут феодализмом</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book2-chapter05.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Книга 2, Глава V: О помещениях капиталов</span>
+          </div>
+        </a>
+        <a href="book3-chapter02.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава II: О препятствиях земледелию</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

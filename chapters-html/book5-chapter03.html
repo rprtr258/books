@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Книга 5, Глава III: О государственных долгах — Адам Смит, Богатство народов">
+  
+  <title>Книга 5, Глава III: Государственные долги — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Why Debts Arise */
+    .why-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .why-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .why-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .why-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .why-card {
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .why-card-title {
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    
+    .why-card-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Evolution */
+    .evolution-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .evolution-timeline {
+      display: flex;
+      flex-direction: column;
+      gap: var(--space-3);
+      margin-top: var(--space-4);
+    }
+    
+    .evolution-stage {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .evolution-icon {
+      font-size: var(--text-2xl);
+      min-width: 40px;
+      text-align: center;
+    }
+    
+    .evolution-content {
+      flex: 1;
+    }
+    
+    .evolution-title {
+      font-weight: 700;
+      margin-bottom: var(--space-1);
+    }
+    
+    .evolution-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Problems */
+    .problems-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .problems-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    /* Conclusion */
+    .conclusion-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #f0fff4 0%, #e6fffa 100%);
+      border: 2px solid #38a169;
+      border-radius: var(--radius-lg);
+    }
+    
+    .conclusion-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 5</span>
+        <span class="chapter-number">Глава III</span>
+      </div>
+      <h1 class="chapter-title">О государственных долгах</h1>
+      <div class="chapter-summary">
+        <p>Почему государства влезают в долги? Эволюция от сокровищ к долгам. Проблемы и последствия. Когда приходится повышать налоги?</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Why Debts Arise -->
+    <section class="chapter-section">
+      <h2>Почему государства влезают в долги?</h2>
+      
+      <div class="why-section">
+        <div class="why-title">
+          <span style="font-size: var(--text-xl);">💸</span>
+          <h3 style="margin: 0;">От сбережений к долгам</h3>
+        </div>
+        
+        <div class="why-grid">
+          <div class="why-card">
+            <div class="why-card-title">🏰 Раньше: копили</div>
+            <div class="why-card-desc">
+              Государь, как и подданные, копил деньги. 
+              Торговли мало, роскоши мало. 
+              Государи имели сокровища.
+            </div>
+          </div>
+          
+          <div class="why-card">
+            <div class="why-card-title">🏛️ Теперь: тратят</div>
+            <div class="why-card-desc">
+              Торговля принесла роскошь. 
+              Государь тратит на пышность двора. 
+              Сокровищ нет — в войну нужны займы.
+            </div>
+          </div>
+          
+          <div class="why-card">
+            <div class="why-card-title">💵 Возможность занять</div>
+            <div class="why-card-desc">
+              Купцы и мануфактуристы имеют капиталы. 
+              Через их руки проходят огромные суммы. 
+              Они готовы ссужать правительству.
+            </div>
+          </div>
+          
+          <div class="why-card">
+            <div class="why-card-title">⚠️ Легкомыслие</div>
+            <div class="why-card-desc">
+              Правительство предвидит лёгкость займа 
+              и освобождает себя от сбережений. 
+              «Удовлетворение момента» важнее будущего.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 2: Evolution -->
+    <section class="chapter-section">
+      <h2>Эволюция государственных займов</h2>
+      
+      <div class="evolution-section">
+        <div class="evolution-timeline">
+          <div class="evolution-stage">
+            <div class="evolution-icon">1️⃣</div>
+            <div class="evolution-content">
+              <div class="evolution-title">Займы под личный кредит</div>
+              <div class="evolution-desc">
+                Без залога, как частное лицо по счетам. 
+                Неконсолидированный долг — билеты казначейства и адмиралтейства.
+              </div>
+            </div>
+          </div>
+          
+          <div class="evolution-stage">
+            <div class="evolution-icon">2️⃣</div>
+            <div class="evolution-content">
+              <div class="evolution-title">Срочные займы</div>
+              <div class="evolution-desc">
+                Под залог налогов на короткий срок (4-7 лет). 
+                Налоги продлевались, недоимки росли.
+              </div>
+            </div>
+          </div>
+          
+          <div class="evolution-stage">
+            <div class="evolution-icon">3️⃣</div>
+            <div class="evolution-content">
+              <div class="evolution-title">Консолидированные долги</div>
+              <div class="evolution-desc">
+                Бессрочный залог налогов. Выплачиваются только проценты. 
+                Государство может выкупить долг в любое время.
+              </div>
+            </div>
+          </div>
+          
+          <div class="evolution-stage">
+            <div class="evolution-icon">4️⃣</div>
+            <div class="evolution-content">
+              <div class="evolution-title">Фонд погашения</div>
+              <div class="evolution-desc">
+                Излишек от понижения ставки процента (с 6% до 3%). 
+                Должен погашать долги, но часто идёт на новые займы.
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Problems -->
+    <section class="chapter-section">
+      <h2>Проблемы государственных долгов</h2>
+      
+      <div class="problems-section">
+        <div class="problems-title">
+          <span style="font-size: var(--text-xl);">⚠️</span>
+          <h3 style="margin: 0;">Бремя для нации</h3>
+        </div>
+        
+        <ul style="margin: 0; padding-left: var(--space-5); font-size: var(--text-sm);">
+          <li>
+            <strong>Угроза банкротства:</strong> Когда долги превышают возможность платить, 
+            государство разоряет своих кредиторов или обесценивает монету.
+          </li>
+          <li>
+            <strong>Новые налоги:</strong> Для уплаты процентов нужно повышать налоги. 
+            Народ несёт двойное бремя: долг и проценты.
+          </li>
+          <li>
+            <strong>Неверное распределение:</strong> Богатые кредиторы получают проценты, 
+            а платят все налогоплательщики.
+          </li>
+          <li>
+            <strong>Фонд погашения:</strong> Часто используется не для погашения, 
+            а для новых займов под видом «безопасности».
+          </li>
+        </ul>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          Рост громадных долгов, которые в настоящее время гнетут и в конечном счёте, 
+          вероятно, разорят все великие нации Европы, происходил почти везде однообразно.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 4: Conclusion -->
+    <section class="chapter-section">
+      <h2>Итог всего труда</h2>
+      
+      <div class="conclusion-section">
+        <div class="conclusion-title">
+          <span style="font-size: var(--text-xl);">📚</span>
+          <h3 style="margin: 0;">Что должен помнить каждый правитель</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light); margin-bottom: var(--space-3);">
+          Адам Смит завершает свой труд предостережением о государственных долгах:
+        </p>
+        
+        <div style="padding: var(--space-3); background: var(--color-bg-card); border-radius: var(--radius-md);">
+          <ol style="margin: 0; padding-left: var(--space-4); font-size: var(--text-sm);">
+            <li>Не накапливать долги без крайней нужды</li>
+            <li>Погашать долги, когда есть возможность</li>
+            <li>Не использовать фонд погашения для новых займов</li>
+            <li>Помнить: будущее освобождение от долгов — забота потомства</li>
+          </ol>
+        </div>
+        
+        <p style="font-size: var(--text-sm); margin-top: var(--space-4); text-align: center; font-style: italic; color: var(--color-text-light);">
+          «Богатство народов» (1776) — один из важнейших трудов в истории экономической мысли.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Final Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали из всей книги</h2>
+        <ul>
+          <li><strong>Книга 1:</strong> Разделение труда — источник богатства. Труд — мера стоимости.</li>
+          <li><strong>Книга 2:</strong> Капитал — накопленный труд. Производительный и непроизводительный труд.</li>
+          <li><strong>Книга 3:</strong> Естественный порядок: земледелие → мануфактура → торговля.</li>
+          <li><strong>Книга 4:</strong> Меркантилизм — система заблуждений. Свобода торговли лучше ограничений.</li>
+          <li><strong>Книга 5:</strong> Государство должно экономить, не влезать в долги, справедливо облагать налогами.</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book5-chapter02.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава II: О государственных доходах</span>
+          </div>
+        </a>
+        <a href="../index.html" class="nav-next">
+          <div>
+            <span class="nav-label">Завершить чтение</span>
+            <span class="nav-title">Вернуться к оглавлению</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026 — <strong>ПОЛНОСТЬЮ ЗАВЕРШЕНО</strong>
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

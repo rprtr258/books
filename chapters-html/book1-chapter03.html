@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Глава III: Разделение труда ограничивается размерами рынка — Адам Смит, Богатство народов">
+  
+  <title>Глава III: Размеры рынка — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Market Size Visualization */
+    .market-scale {
+      margin: var(--space-8) 0;
+    }
+    
+    .market-comparison {
+      display: grid;
+      gap: var(--space-4);
+    }
+    
+    .market-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .market-icon {
+      font-size: var(--text-2xl);
+      width: 48px;
+      text-align: center;
+    }
+    
+    .market-info {
+      flex: 1;
+    }
+    
+    .market-label {
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+    
+    .market-bar {
+      height: 8px;
+      background: var(--color-bg-section);
+      border-radius: var(--radius-full);
+      overflow: hidden;
+    }
+    
+    .market-bar-fill {
+      height: 100%;
+      border-radius: var(--radius-full);
+      transition: width 1s ease;
+    }
+    
+    .market-item.small .market-bar-fill {
+      width: 5%;
+      background: #e53e3e;
+    }
+    
+    .market-item.medium .market-bar-fill {
+      width: 25%;
+      background: #dd6b20;
+    }
+    
+    .market-item.large .market-bar-fill {
+      width: 70%;
+      background: #38a169;
+    }
+    
+    .market-item.huge .market-bar-fill {
+      width: 100%;
+      background: var(--color-primary);
+    }
+    
+    .market-size {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+    }
+    
+    /* Transport Comparison */
+    .transport-comparison {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .transport-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+      margin-top: var(--space-6);
+    }
+    
+    @media (max-width: 768px) {
+      .transport-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .transport-option {
+      padding: var(--space-5);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 2px solid var(--color-border);
+    }
+    
+    .transport-option.land {
+      border-color: #dd6b20;
+    }
+    
+    .transport-option.water {
+      border-color: #3182ce;
+    }
+    
+    .transport-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .transport-icon {
+      font-size: var(--text-3xl);
+    }
+    
+    .transport-title {
+      font-size: var(--text-lg);
+      font-weight: 600;
+    }
+    
+    .transport-stats {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-3);
+    }
+    
+    .stat-box {
+      padding: var(--space-3);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    
+    .stat-number {
+      font-size: var(--text-xl);
+      font-weight: 700;
+      font-family: var(--font-heading);
+    }
+    
+    .transport-option.land .stat-number {
+      color: #dd6b20;
+    }
+    
+    .transport-option.water .stat-number {
+      color: #3182ce;
+    }
+    
+    .stat-unit {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    
+    .transport-result {
+      margin-top: var(--space-4);
+      padding: var(--space-3);
+      border-radius: var(--radius-md);
+      text-align: center;
+      font-size: var(--text-sm);
+    }
+    
+    .transport-option.land .transport-result {
+      background: #fef3e2;
+      color: #c05621;
+    }
+    
+    .transport-option.water .transport-result {
+      background: #ebf8ff;
+      color: #2c5282;
+    }
+    
+    /* World Map Section */
+    .civilization-map {
+      margin: var(--space-8) 0;
+    }
+    
+    .map-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .map-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .map-card-header {
+      padding: var(--space-4);
+      background: var(--color-bg-section);
+      border-bottom: 1px solid var(--color-border-light);
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+    }
+    
+    .map-card-icon {
+      font-size: var(--text-2xl);
+    }
+    
+    .map-card-title {
+      font-weight: 600;
+    }
+    
+    .map-card-body {
+      padding: var(--space-4);
+    }
+    
+    .map-card-body p {
+      font-size: var(--text-sm);
+      margin-bottom: var(--space-2);
+    }
+    
+    .map-card-body p:last-child {
+      margin-bottom: 0;
+    }
+    
+    .waterway-badge {
+      display: inline-block;
+      padding: var(--space-1) var(--space-2);
+      background: #ebf8ff;
+      color: #2c5282;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+      font-weight: 500;
+    }
+    
+    /* Professions Diagram */
+    .profession-scale {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .scale-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+      color: var(--color-primary);
+    }
+    
+    .scale-visual {
+      position: relative;
+      padding: var(--space-4) 0;
+    }
+    
+    .scale-line {
+      height: 4px;
+      background: linear-gradient(to right, #e53e3e, #dd6b20, #38a169, var(--color-primary));
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-6);
+    }
+    
+    .scale-points {
+      display: flex;
+      justify-content: space-between;
+    }
+    
+    .scale-point {
+      text-align: center;
+      flex: 1;
+    }
+    
+    .scale-point-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .scale-point-label {
+      font-size: var(--text-xs);
+      font-weight: 600;
+      color: var(--color-text-main);
+    }
+    
+    .scale-point-desc {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-1);
+    }
+    
+    /* River comparison */
+    .rivers-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .rivers-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .river-card {
+      padding: var(--space-4);
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 1px solid #90cdf4;
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .river-icon {
+      font-size: var(--text-3xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .river-name {
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+    
+    .river-region {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-bottom: var(--space-2);
+    }
+    
+    .river-status {
+      display: inline-block;
+      padding: var(--space-1) var(--space-2);
+      background: #38a169;
+      color: white;
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+    }
+    
+    .river-status.problematic {
+      background: #dd6b20;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 1</span>
+        <span class="chapter-number">Глава III</span>
+      </div>
+      <h1 class="chapter-title">Разделение труда ограничивается размерами рынка</h1>
+      <div class="chapter-summary">
+        <p>Возможность обмена определяет глубину разделения труда. Водный транспорт расширяет рынки и ускоряет развитие цивилизации.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Core Principle -->
+    <section class="chapter-section">
+      <h2>Главный принцип</h2>
+      
+      <blockquote class="important-quote">
+        <p>
+          Степень разделения труда всегда должна ограничиваться пределами 
+          возможности обмена, или, другими словами, размерами рынка.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+      
+      <p>
+        Если рынок мал, никто не может посвятить себя одному занятию — 
+        невозможно обменять весь излишек продукта труда на нужные товары.
+      </p>
+      
+      <div class="key-insight" style="margin: var(--space-6) 0;">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Ключевой тезис
+        </h3>
+        <p style="margin-bottom: 0;">
+          <strong>Малый рынок → мало специализации</strong><br>
+          <strong>Большой рынок → глубокое разделение труда</strong>
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Market Sizes -->
+    <section class="chapter-section">
+      <h2>Примеры размеров рынков</h2>
+      
+      <p class="section-intro">
+        Смит показывает, как размер населённого пункта определяет, 
+        какие профессии могут в нём существовать.
+      </p>
+      
+      <div class="market-scale">
+        <div class="market-comparison">
+          <div class="market-item small">
+            <div class="market-icon">🏚️</div>
+            <div class="market-info">
+              <div class="market-label">Уединённая ферма в горной Шотландии</div>
+              <div class="market-bar"><div class="market-bar-fill"></div></div>
+              <div class="market-size">Фермер = мясник + булочник + пивовар + кузнец + плотник</div>
+            </div>
+          </div>
+          
+          <div class="market-item medium">
+            <div class="market-icon">🏘️</div>
+            <div class="market-info">
+              <div class="market-label">Деревня</div>
+              <div class="market-bar"><div class="market-bar-fill"></div></div>
+              <div class="market-size">Есть кузнец, плотник, каменщик — но универсалы</div>
+            </div>
+          </div>
+          
+          <div class="market-item large">
+            <div class="market-icon">🏙️</div>
+            <div class="market-info">
+              <div class="market-label">Город средней величины</div>
+              <div class="market-bar"><div class="market-bar-fill"></div></div>
+              <div class="market-size">Появляются специализированные ремесленники</div>
+            </div>
+          </div>
+          
+          <div class="market-item huge">
+            <div class="market-icon">🌆</div>
+            <div class="market-info">
+              <div class="market-label">Большой город</div>
+              <div class="market-bar"><div class="market-bar-fill"></div></div>
+              <div class="market-size">Носильщик, гвоздарь, узкие специалисты</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="idea-cards grid gap-4 md:grid-cols-2" style="margin-top: var(--space-6);">
+        <div class="idea-card">
+          <div class="idea-icon">📍</div>
+          <h3>Носильщик</h3>
+          <p>Профессия существует только в больших городах. В деревне — некому носить.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🔩</div>
+          <h3>Гвоздарь</h3>
+          <p>300 000 гвоздей в год. В горной Шотландии невозможно сбыть даже 1 000.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Transport -->
+    <section class="chapter-section">
+      <h2>Водный транспорт против сухопутного</h2>
+      
+      <p class="section-intro">
+        Смит приводит расчёт: перевозка между Лондоном и Эдинбургом.
+      </p>
+      
+      <div class="transport-comparison">
+        <h3 style="text-align: center;">🚚 Маршрут: Лондон ↔ Эдинбург</h3>
+        
+        <div class="transport-grid">
+          <div class="transport-option land">
+            <div class="transport-header">
+              <span class="transport-icon">🚚</span>
+              <span class="transport-title">Сухопутный путь</span>
+            </div>
+            <div class="transport-stats">
+              <div class="stat-box">
+                <div class="stat-number">50</div>
+                <div class="stat-unit">фургонов</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">100</div>
+                <div class="stat-unit">работников</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">400</div>
+                <div class="stat-unit">лошадей</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">4</div>
+                <div class="stat-unit">тонны груза</div>
+              </div>
+            </div>
+            <div class="transport-result">
+              6 недель в пути • Огромные расходы
+            </div>
+          </div>
+          
+          <div class="transport-option water">
+            <div class="transport-header">
+              <span class="transport-icon">⛵</span>
+              <span class="transport-title">Водный путь</span>
+            </div>
+            <div class="transport-stats">
+              <div class="stat-box">
+                <div class="stat-number">1</div>
+                <div class="stat-unit">судно</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">6-8</div>
+                <div class="stat-unit">человек экипаж</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">0</div>
+                <div class="stat-unit">лошадей</div>
+              </div>
+              <div class="stat-box">
+                <div class="stat-number">200</div>
+                <div class="stat-unit">тонн груза</div>
+              </div>
+            </div>
+            <div class="transport-result">
+              То же время • В 50 раз больше груза!
+            </div>
+          </div>
+        </div>
+        
+        <p style="text-align: center; margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-text-muted);">
+          6-8 человек по воде = 100 работников + 400 лошадей по суше
+        </p>
+      </div>
+      
+      <div class="key-insight">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Вывод Смита
+        </h3>
+        <p style="margin-bottom: 0;">
+          Какие товары могли бы выдержать расходы по сухопутной перевозке между 
+          Лондоном и Калькуттой? Но эти города ведут значительную торговлю — 
+          благодаря морю.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 4: Historical Civilizations -->
+    <section class="chapter-section">
+      <h2>Колыбели цивилизации</h2>
+      
+      <p class="section-intro">
+        Первые цивилизации возникали там, где водные пути открывали 
+        доступ к широким рынкам.
+      </p>
+      
+      <div class="civilization-map">
+        <div class="map-cards">
+          <div class="map-card">
+            <div class="map-card-header">
+              <span class="map-card-icon">🌊</span>
+              <span class="map-card-title">Средиземное море</span>
+            </div>
+            <div class="map-card-body">
+              <p>Величайшее внутреннее море. Без приливов и отливов. Обилие островов.</p>
+              <p>Идеально для зарождения мореплавания, когда ещё не знали компаса.</p>
+              <span class="waterway-badge">Главная артерия древности</span>
+            </div>
+          </div>
+          
+          <div class="map-card">
+            <div class="map-card-header">
+              <span class="map-card-icon">🏛️</span>
+              <span class="map-card-title">Египет и Нил</span>
+            </div>
+            <div class="map-card-body">
+              <p>Первые земледелие и промышленность. Нил разветвляется на множество рукавов.</p>
+              <p>Водное сообщение между всеми городами и даже поместьями.</p>
+              <span class="waterway-badge">Ранняя цивилизация</span>
+            </div>
+          </div>
+          
+          <div class="map-card">
+            <div class="map-card-header">
+              <span class="map-card-icon">🇮🇳</span>
+              <span class="map-card-title">Бенгалия и Ганг</span>
+            </div>
+            <div class="map-card-body">
+              <p>Ганг и другие реки образуют множество судоходных рукавов.</p>
+              <p>Древние богатства без внешней торговли — только внутреннее судоходство.</p>
+              <span class="waterway-badge">Древняя цивилизация</span>
+            </div>
+          </div>
+          
+          <div class="map-card">
+            <div class="map-card-header">
+              <span class="map-card-icon">🐉</span>
+              <span class="map-card-title">Восточный Китай</span>
+            </div>
+            <div class="map-card-body">
+              <p>Несколько больших рек с притоками образуют судоходные пути.</p>
+              <p>Внутреннее судоходство оживлённее, чем по Нилу и Гангу вместе.</p>
+              <span class="waterway-badge">Древняя цивилизация</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 5: Contrast -->
+    <section class="chapter-section">
+      <h2>Почему одни регионы остались варварскими?</h2>
+      
+      <p class="section-intro">
+        Смит объясняет отсталость внутренних областей отсутствием водных путей.
+      </p>
+      
+      <div class="rivers-section">
+        <h3 style="margin-bottom: var(--space-2);">⚔️ Проблемные регионы</h3>
+        
+        <div class="rivers-grid">
+          <div class="river-card">
+            <div class="river-icon">❄️</div>
+            <div class="river-name">Татария и Сибирь</div>
+            <div class="river-region">Внутренняя Азия</div>
+            <p style="font-size: var(--text-sm); margin-bottom: var(--space-2);">
+              Ледовитый океан не допускает судоходства. Реки слишком далеко друг от друга.
+            </p>
+            <span class="river-status problematic">Варварское состояние</span>
+          </div>
+          
+          <div class="river-card">
+            <div class="river-icon">🌍</div>
+            <div class="river-name">Внутренняя Африка</div>
+            <div class="river-region">Центр материка</div>
+            <p style="font-size: var(--text-sm); margin-bottom: var(--space-2);">
+              Нет внутренних морей. Реки далеко друг от друга. Недоступна для морской торговли.
+            </p>
+            <span class="river-status problematic">Без выхода к морю</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          ⚠️ Проблема транзитных рек
+        </h3>
+        <p style="margin-bottom: var(--space-3);">
+          Торговля по реке, протекающей через чужую территорию, всегда ограничена:
+        </p>
+        <p style="margin-bottom: 0; font-size: var(--text-sm);">
+          <strong>Дунай:</strong> Бавария, Австрия, Венгрия получают мало пользы — 
+          ведь устье принадлежит другому государству. Оно может в любой момент 
+          заблокировать сообщение с морем.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 6: Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Размер рынка определяет глубину разделения труда</li>
+          <li>Водный транспорт в 50 раз эффективнее сухопутного</li>
+          <li>Первые цивилизации возникли у судоходных водных путей</li>
+          <li>Внутренние области без выхода к морю оставались варварскими</li>
+          <li>Контроль над устьем реки — ключ к торговле</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book1-chapter02.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава II: О причине разделения труда</span>
+          </div>
+        </a>
+        <a href="book1-chapter04.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава IV: Происхождение и употребление денег</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

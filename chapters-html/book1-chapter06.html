@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Глава VI: О составных частях цены товаров — Адам Смит, Богатство народов">
+  
+  <title>Глава VI: Составные части цены — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Price Equation */
+    .price-equation {
+      margin: var(--space-8) 0;
+      padding: var(--space-8);
+      background: linear-gradient(135deg, #1a365d 0%, #2c5282 100%);
+      border-radius: var(--radius-lg);
+      color: white;
+      text-align: center;
+    }
+    
+    .equation-title {
+      font-size: var(--text-lg);
+      margin-bottom: var(--space-6);
+      opacity: 0.9;
+    }
+    
+    .equation-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+      margin-bottom: var(--space-4);
+    }
+    
+    .equation-part {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .equation-icon {
+      font-size: var(--text-3xl);
+    }
+    
+    .equation-label {
+      font-weight: 600;
+      font-size: var(--text-lg);
+    }
+    
+    .equation-desc {
+      font-size: var(--text-xs);
+      opacity: 0.8;
+    }
+    
+    .equation-plus {
+      font-size: var(--text-2xl);
+      opacity: 0.6;
+    }
+    
+    .equation-result {
+      margin-top: var(--space-4);
+      padding-top: var(--space-4);
+      border-top: 1px solid rgba(255,255,255,0.2);
+      font-size: var(--text-sm);
+      opacity: 0.9;
+    }
+    
+    /* Stages of Development */
+    .development-stages {
+      margin: var(--space-8) 0;
+    }
+    
+    .stage-timeline {
+      position: relative;
+      padding-left: var(--space-8);
+    }
+    
+    .stage-timeline::before {
+      content: '';
+      position: absolute;
+      left: 12px;
+      top: 0;
+      bottom: 0;
+      width: 4px;
+      background: linear-gradient(to bottom, #38a169, #d69e2e, var(--color-accent));
+      border-radius: var(--radius-full);
+    }
+    
+    .stage-item {
+      position: relative;
+      padding: var(--space-4);
+      padding-left: var(--space-8);
+      margin-bottom: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .stage-item::before {
+      content: '';
+      position: absolute;
+      left: -20px;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 16px;
+      height: 16px;
+      background: var(--color-bg-card);
+      border: 4px solid var(--color-accent);
+      border-radius: var(--radius-full);
+    }
+    
+    .stage-item.primitive::before {
+      border-color: #38a169;
+    }
+    
+    .stage-item.capital::before {
+      border-color: #d69e2e;
+    }
+    
+    .stage-item.land::before {
+      border-color: var(--color-accent);
+    }
+    
+    .stage-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-2);
+    }
+    
+    .stage-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .stage-title {
+      font-weight: 600;
+    }
+    
+    .stage-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    .stage-price {
+      margin-top: var(--space-3);
+      padding: var(--space-2) var(--space-3);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-md);
+      font-size: var(--text-sm);
+    }
+    
+    .stage-price-label {
+      color: var(--color-text-muted);
+    }
+    
+    /* Income Sources */
+    .income-sources {
+      margin: var(--space-8) 0;
+    }
+    
+    .sources-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .sources-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .source-card {
+      padding: var(--space-5);
+      border-radius: var(--radius-lg);
+      text-align: center;
+    }
+    
+    .source-card.wages {
+      background: linear-gradient(135deg, #e6fffa 0%, #f0fff4 100%);
+      border: 2px solid #38a169;
+    }
+    
+    .source-card.profit {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .source-card.rent {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .source-icon {
+      font-size: var(--text-4xl);
+      margin-bottom: var(--space-3);
+    }
+    
+    .source-title {
+      font-size: var(--text-lg);
+      font-weight: 700;
+      margin-bottom: var(--space-2);
+    }
+    
+    .source-card.wages .source-title {
+      color: #276749;
+    }
+    
+    .source-card.profit .source-title {
+      color: #b7791f;
+    }
+    
+    .source-card.rent .source-title {
+      color: #2c5282;
+    }
+    
+    .source-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+      margin-bottom: var(--space-3);
+    }
+    
+    .source-receiver {
+      padding: var(--space-2);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      font-size: var(--text-xs);
+    }
+    
+    /* Price Breakdown */
+    .price-breakdown {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-lg);
+    }
+    
+    .breakdown-title {
+      text-align: center;
+      margin-bottom: var(--space-6);
+    }
+    
+    .breakdown-example {
+      margin-bottom: var(--space-6);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+    }
+    
+    .example-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .example-icon {
+      font-size: var(--text-2xl);
+    }
+    
+    .example-name {
+      font-weight: 600;
+      font-size: var(--text-lg);
+    }
+    
+    .breakdown-bars {
+      display: flex;
+      height: 32px;
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      margin-bottom: var(--space-3);
+    }
+    
+    .bar-wages {
+      background: #38a169;
+    }
+    
+    .bar-profit {
+      background: #d69e2e;
+    }
+    
+    .bar-rent {
+      background: #3182ce;
+    }
+    
+    .breakdown-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-4);
+      font-size: var(--text-sm);
+    }
+    
+    .legend-item {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+    }
+    
+    .legend-color {
+      width: 16px;
+      height: 16px;
+      border-radius: var(--radius-sm);
+    }
+    
+    /* Beaver Example */
+    .beaver-example {
+      margin: var(--space-6) 0;
+      padding: var(--space-5);
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #9f7aea;
+      border-radius: var(--radius-lg);
+    }
+    
+    .beaver-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .beaver-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .beaver-item {
+      text-align: center;
+    }
+    
+    .beaver-icon {
+      font-size: var(--text-3xl);
+    }
+    
+    .beaver-label {
+      font-size: var(--text-sm);
+      font-weight: 600;
+    }
+    
+    .beaver-time {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+    
+    .beaver-equals {
+      font-size: var(--text-xl);
+      color: var(--color-accent);
+    }
+    
+    /* Exception Cases */
+    .exceptions {
+      margin: var(--space-8) 0;
+    }
+    
+    .exception-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .exception-item {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      text-align: center;
+    }
+    
+    .exception-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .exception-name {
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+    
+    .exception-parts {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 1</span>
+        <span class="chapter-number">Глава VI</span>
+      </div>
+      <h1 class="chapter-title">О составных частях цены товаров</h1>
+      <div class="chapter-summary">
+        <p>Цена товара складывается из заработной платы, прибыли и ренты. Эти три части — источники всякого дохода.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Primitive Society -->
+    <section class="chapter-section">
+      <h2>Первоначальное общество: только труд</h2>
+      
+      <p class="section-intro">
+        В первобытном обществе, до накопления капиталов и частной собственности на землю, 
+        единственным основанием для обмена было соотношение труда.
+      </p>
+      
+      <div class="beaver-example">
+        <div class="beaver-title">
+          <span style="font-size: var(--text-2xl);">🦫</span>
+          <h3 style="margin: 0;">Пример охотничьего народа</h3>
+        </div>
+        
+        <p>Если убить бобра нужно вдвое больше труда, чем оленя:</p>
+        
+        <div class="beaver-visual">
+          <div class="beaver-item">
+            <div class="beaver-icon">🦫</div>
+            <div class="beaver-label">1 бобр</div>
+            <div class="beaver-time">2 дня труда</div>
+          </div>
+          
+          <span class="beaver-equals">=</span>
+          
+          <div class="beaver-item">
+            <div class="beaver-icon">🦌</div>
+            <div class="beaver-label">2 оленя</div>
+            <div class="beaver-time">по 1 дню каждый</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Вывод
+        </h3>
+        <p style="margin-bottom: 0;">
+          В первобытном обществе <strong>весь продукт труда принадлежит работнику</strong>. 
+          Труд — единственное условие, определяющее меновую стоимость.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 2: Development Stages -->
+    <section class="chapter-section">
+      <h2>Появление новых частей цены</h2>
+      
+      <p class="section-intro">
+        С развитием общества к труду добавляются прибыль и рента:
+      </p>
+      
+      <div class="development-stages">
+        <div class="stage-timeline">
+          <div class="stage-item primitive">
+            <div class="stage-header">
+              <span class="stage-icon">🏕️</span>
+              <span class="stage-title">Этап 1: Первобытное общество</span>
+            </div>
+            <div class="stage-desc">
+              Нет капиталов, нет частной земли. Весь продукт — работнику.
+            </div>
+            <div class="stage-price">
+              <span class="stage-price-label">Цена = </span>
+              <strong>Труд</strong>
+            </div>
+          </div>
+          
+          <div class="stage-item capital">
+            <div class="stage-header">
+              <span class="stage-icon">💰</span>
+              <span class="stage-title">Этап 2: Накопление капитала</span>
+            </div>
+            <div class="stage-desc">
+              Капиталист снабжает материалами и платит зарплату. Добавляется прибыль.
+            </div>
+            <div class="stage-price">
+              <span class="stage-price-label">Цена = </span>
+              <strong>Заработная плата + Прибыль</strong>
+            </div>
+          </div>
+          
+          <div class="stage-item land">
+            <div class="stage-header">
+              <span class="stage-icon">🌾</span>
+              <span class="stage-title">Этап 3: Частная собственность на землю</span>
+            </div>
+            <div class="stage-desc">
+              Землевладельцы требуют ренту за естественные плоды земли.
+            </div>
+            <div class="stage-price">
+              <span class="stage-price-label">Цена = </span>
+              <strong>Заработная плата + Прибыль + Рента</strong>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Price Equation -->
+    <section class="chapter-section">
+      <h2>Три составные части цены</h2>
+      
+      <div class="price-equation">
+        <div class="equation-title">Формула цены в развитом обществе</div>
+        
+        <div class="equation-visual">
+          <div class="equation-part">
+            <div class="equation-icon">👷</div>
+            <div class="equation-label">Заработная плата</div>
+            <div class="equation-desc">Оплата труда</div>
+          </div>
+          
+          <span class="equation-plus">+</span>
+          
+          <div class="equation-part">
+            <div class="equation-icon">💰</div>
+            <div class="equation-label">Прибыль</div>
+            <div class="equation-desc">Доход капитала</div>
+          </div>
+          
+          <span class="equation-plus">+</span>
+          
+          <div class="equation-part">
+            <div class="equation-icon">🌾</div>
+            <div class="equation-label">Рента</div>
+            <div class="equation-desc">Доход земли</div>
+          </div>
+          
+          <span class="equation-plus">=</span>
+          
+          <div class="equation-part">
+            <div class="equation-icon">🏷️</div>
+            <div class="equation-label">Цена товара</div>
+          </div>
+        </div>
+        
+        <div class="equation-result">
+          Эти три части распределяются между жителями страны как их доход
+        </div>
+      </div>
+      
+      <h3 style="margin-top: var(--space-6);">Почему прибыль — не зарплата?</h3>
+      
+      <p>Смит объясняет: прибыль не зависит от труда управляющего.</p>
+      
+      <div class="comparison-table" style="margin-top: var(--space-4);">
+        <table>
+          <thead>
+            <tr>
+              <th>Мануфактура</th>
+              <th>Капитал</th>
+              <th>Прибыль (10%)</th>
+              <th>Труд управления</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Дешёвое сырьё</td>
+              <td>£1 000</td>
+              <td>£100</td>
+              <td>Одинаковый</td>
+            </tr>
+            <tr>
+              <td>Дорогое сырьё</td>
+              <td>£7 300</td>
+              <td>£730</td>
+              <td>Одинаковый</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <p style="margin-top: var(--space-3); font-size: var(--text-sm); color: var(--color-text-muted);">
+        Труд управления одинаков, а прибыль различается в 7 раз. 
+        Прибыль определяется размером капитала, а не усилиями.
+      </p>
+    </section>
+    
+    <!-- Section 4: Price Breakdown Examples -->
+    <section class="chapter-section">
+      <h2>Примеры разложения цены</h2>
+      
+      <p class="section-intro">
+        Смит показывает, как цена разных товаров складывается из трёх частей:
+      </p>
+      
+      <div class="price-breakdown">
+        <h3 class="breakdown-title">📊 Из чего складывается цена</h3>
+        
+        <div class="breakdown-example">
+          <div class="example-header">
+            <span class="example-icon">🌾</span>
+            <span class="example-name">Хлеб</span>
+          </div>
+          <div class="breakdown-bars">
+            <div class="bar-rent" style="width: 20%;" title="Рента землевладельца"></div>
+            <div class="bar-wages" style="width: 50%;" title="Заработная плата"></div>
+            <div class="bar-profit" style="width: 30%;" title="Прибыль фермера"></div>
+          </div>
+          <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+            Рента за землю + зарплата рабочих и скота + прибыль фермера
+          </p>
+        </div>
+        
+        <div class="breakdown-example">
+          <div class="example-header">
+            <span class="example-icon">🍞</span>
+            <span class="example-name">Печёный хлеб</span>
+          </div>
+          <div class="breakdown-bars">
+            <div class="bar-rent" style="width: 10%;" title="Рента"></div>
+            <div class="bar-wages" style="width: 60%;" title="Заработная плата"></div>
+            <div class="bar-profit" style="width: 30%;" title="Прибыль"></div>
+          </div>
+          <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+            Цена зерна + прибыль мельника + зарплата мельника + прибыль пекаря + зарплата пекаря + транспорт
+          </p>
+        </div>
+        
+        <div class="breakdown-example">
+          <div class="example-header">
+            <span class="example-icon">🧵</span>
+            <span class="example-name">Полотно</span>
+          </div>
+          <div class="breakdown-bars">
+            <div class="bar-rent" style="width: 10%;" title="Рента"></div>
+            <div class="bar-wages" style="width: 45%;" title="Заработная плата"></div>
+            <div class="bar-profit" style="width: 45%;" title="Прибыль"></div>
+          </div>
+          <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+            Чем больше обработка, тем больше доля зарплаты и прибыли
+          </p>
+        </div>
+        
+        <div class="breakdown-legend">
+          <div class="legend-item">
+            <div class="legend-color" style="background: #38a169;"></div>
+            <span>Заработная плата</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background: #d69e2e;"></div>
+            <span>Прибыль</span>
+          </div>
+          <div class="legend-item">
+            <div class="legend-color" style="background: #3182ce;"></div>
+            <span>Рента</span>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Закономерность
+        </h3>
+        <p style="margin-bottom: 0;">
+          Чем больше товар нуждается в обработке, тем большую долю цены 
+          составляют заработная плата и прибыль (и их последовательный ряд).
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 5: Income Sources -->
+    <section class="chapter-section">
+      <h2>Три источника всякого дохода</h2>
+      
+      <p class="section-intro">
+        Заработная плата, прибыль и рента — три первоначальных источника 
+        всякого дохода и всякой меновой стоимости:
+      </p>
+      
+      <div class="income-sources">
+        <div class="sources-grid">
+          <div class="source-card wages">
+            <div class="source-icon">👷</div>
+            <div class="source-title">Заработная плата</div>
+            <div class="source-desc">
+              Доход от труда. Получает тот, кто работает.
+            </div>
+            <div class="source-receiver">
+              Рабочие, ремесленники, управляющие
+            </div>
+          </div>
+          
+          <div class="source-card profit">
+            <div class="source-icon">💰</div>
+            <div class="source-title">Прибыль</div>
+            <div class="source-desc">
+              Доход от капитала. Получает тот, кто вкладывает средства.
+            </div>
+            <div class="source-receiver">
+              Предприниматели, капиталисты
+            </div>
+          </div>
+          
+          <div class="source-card rent">
+            <div class="source-icon">🌾</div>
+            <div class="source-title">Рента</div>
+            <div class="source-desc">
+              Доход от земли. Получает землевладелец.
+            </div>
+            <div class="source-receiver">
+              Землевладельцы
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <h3 style="margin-top: var(--space-6);">Производные доходы</h3>
+      
+      <p>Все прочие доходы происходят из этих трёх источников:</p>
+      
+      <div class="idea-cards grid gap-4 md:grid-cols-2" style="margin-top: var(--space-4);">
+        <div class="idea-card">
+          <div class="idea-icon">📊</div>
+          <h3>Процент</h3>
+          <p>Часть прибыли, которую заёмщик платит кредитору за пользование деньгами.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">🏛️</div>
+          <h3>Налоги</h3>
+          <p>Все налоги в конечном счёте платятся из зарплаты, прибыли или ренты.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 6: Exceptions -->
+    <section class="chapter-section">
+      <h2>Исключения</h2>
+      
+      <p class="section-intro">
+        В развитом обществе есть товары, цена которых состоит не из всех трёх частей:
+      </p>
+      
+      <div class="exceptions">
+        <div class="exception-grid">
+          <div class="exception-item">
+            <div class="exception-icon">🐟</div>
+            <div class="exception-name">Морская рыба</div>
+            <div class="exception-parts">
+              Заработная плата + Прибыль<br>
+              <span style="color: var(--color-text-muted);">(Рента редко)</span>
+            </div>
+          </div>
+          
+          <div class="exception-item">
+            <div class="exception-icon">🐠</div>
+            <div class="exception-name">Речная форель</div>
+            <div class="exception-parts">
+              Заработная плата + Прибыль + Рента<br>
+              <span style="color: var(--color-text-muted);">(за право ловли)</span>
+            </div>
+          </div>
+          
+          <div class="exception-item">
+            <div class="exception-icon">💎</div>
+            <div class="exception-name">Шотландские голыши</div>
+            <div class="exception-parts">
+              Только Заработная плата<br>
+              <span style="color: var(--color-text-muted);">(труд сборщика)</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Фундаментальный вывод
+        </h3>
+        <p style="margin-bottom: 0;">
+          Годичный продукт труда общества распределяется между его членами 
+          как заработная плата, прибыль и рента. Этим способом всё, что производится, 
+          превращается в доход различных слоёв населения.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>В первобытном обществе цена определялась только трудом</li>
+          <li>С накоплением капитала появилась прибыль</li>
+          <li>С частной собственностью на землю появилась рента</li>
+          <li>Цена = Заработная плата + Прибыль + Рента</li>
+          <li>Эти три части — источники всякого дохода</li>
+          <li>Чем больше обработка товара, тем больше доля зарплаты и прибыли</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book1-chapter05.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава V: Действительная и номинальная цена</span>
+          </div>
+        </a>
+        <a href="book1-chapter07.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава VII: Естественная и рыночная цена</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

@@ -1,0 +1,783 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Глава X: О заработной плате и прибыли при различных применениях труда и капитала — Адам Смит, Богатство народов">
+  
+  <title>Глава X: Различия зарплат и прибылей — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <style>
+    /* Five Factors */
+    .five-factors {
+      margin: var(--space-8) 0;
+    }
+    
+    .factors-grid {
+      display: grid;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    .factor-card {
+      display: flex;
+      gap: var(--space-4);
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      transition: all var(--transition-fast);
+    }
+    
+    .factor-card:hover {
+      border-color: var(--color-accent);
+      box-shadow: var(--shadow-md);
+    }
+    
+    .factor-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 48px;
+      height: 48px;
+      background: var(--color-primary);
+      color: var(--color-text-inverse);
+      border-radius: var(--radius-full);
+      font-weight: 700;
+      font-size: var(--text-xl);
+      flex-shrink: 0;
+    }
+    
+    .factor-content {
+      flex: 1;
+    }
+    
+    .factor-title {
+      font-weight: 600;
+      margin-bottom: var(--space-2);
+    }
+    
+    .factor-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    .factor-examples {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-2);
+      margin-top: var(--space-3);
+    }
+    
+    .factor-example {
+      padding: var(--space-1) var(--space-2);
+      background: var(--color-bg-section);
+      border-radius: var(--radius-full);
+      font-size: var(--text-xs);
+    }
+    
+    /* Wage Comparison */
+    .wage-comparison {
+      margin: var(--space-8) 0;
+    }
+    
+    .wage-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+    }
+    
+    .wage-table th,
+    .wage-table td {
+      padding: var(--space-3) var(--space-4);
+      text-align: left;
+      border-bottom: 1px solid var(--color-border-light);
+    }
+    
+    .wage-table th {
+      background: var(--color-bg-section);
+      font-weight: 600;
+    }
+    
+    .wage-table tr:last-child td {
+      border-bottom: none;
+    }
+    
+    .wage-table tr:hover td {
+      background: var(--color-bg-section);
+    }
+    
+    .wage-diff {
+      font-weight: 600;
+    }
+    
+    .wage-diff.high {
+      color: #38a169;
+    }
+    
+    .wage-diff.low {
+      color: #e53e3e;
+    }
+    
+    /* Lottery Analogy */
+    .lottery-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-6);
+      background: linear-gradient(135deg, #faf5ff 0%, #fef3e2 100%);
+      border: 2px solid #9f7aea;
+      border-radius: var(--radius-lg);
+    }
+    
+    .lottery-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .lottery-visual {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+      flex-wrap: wrap;
+    }
+    
+    .lottery-group {
+      text-align: center;
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .lottery-count {
+      font-size: var(--text-3xl);
+      font-weight: 700;
+    }
+    
+    .lottery-label {
+      font-size: var(--text-sm);
+      color: var(--color-text-muted);
+    }
+    
+    .lottery-arrow {
+      font-size: var(--text-2xl);
+      color: var(--color-accent);
+    }
+    
+    .lottery-result {
+      padding: var(--space-3);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+      text-align: center;
+    }
+    
+    /* Profession Cards */
+    .profession-cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: var(--space-4);
+      margin: var(--space-6) 0;
+    }
+    
+    .profession-card {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-lg);
+      border: 1px solid var(--color-border);
+      text-align: center;
+    }
+    
+    .profession-icon {
+      font-size: var(--text-2xl);
+      margin-bottom: var(--space-2);
+    }
+    
+    .profession-name {
+      font-weight: 600;
+      margin-bottom: var(--space-1);
+    }
+    
+    .profession-wage {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    .profession-reason {
+      font-size: var(--text-xs);
+      color: var(--color-text-muted);
+      margin-top: var(--space-2);
+      padding-top: var(--space-2);
+      border-top: 1px solid var(--color-border-light);
+    }
+    
+    /* Human Psychology */
+    .psychology-section {
+      margin: var(--space-8) 0;
+    }
+    
+    .psychology-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+      margin-top: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .psychology-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .psychology-card {
+      padding: var(--space-4);
+      border-radius: var(--radius-lg);
+    }
+    
+    .psychology-card.abilities {
+      background: linear-gradient(135deg, #ebf8ff 0%, #e6fffa 100%);
+      border: 2px solid #3182ce;
+    }
+    
+    .psychology-card.luck {
+      background: linear-gradient(135deg, #fef3e2 0%, #fffaf0 100%);
+      border: 2px solid #d69e2e;
+    }
+    
+    .psychology-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .psychology-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .psychology-title {
+      font-weight: 600;
+    }
+    
+    .psychology-desc {
+      font-size: var(--text-sm);
+      color: var(--color-text-light);
+    }
+    
+    /* Military Service */
+    .military-section {
+      margin: var(--space-8) 0;
+      padding: var(--space-5);
+      background: #fff5f5;
+      border: 2px solid #fc8181;
+      border-radius: var(--radius-lg);
+    }
+    
+    .military-title {
+      display: flex;
+      align-items: center;
+      gap: var(--space-3);
+      margin-bottom: var(--space-4);
+    }
+    
+    .military-comparison {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-4);
+    }
+    
+    @media (max-width: 768px) {
+      .military-comparison {
+        grid-template-columns: 1fr;
+      }
+    }
+    
+    .military-side {
+      padding: var(--space-4);
+      background: var(--color-bg-card);
+      border-radius: var(--radius-md);
+    }
+    
+    .military-header {
+      display: flex;
+      align-items: center;
+      gap: var(--space-2);
+      margin-bottom: var(--space-3);
+    }
+    
+    .military-icon {
+      font-size: var(--text-xl);
+    }
+    
+    .military-name {
+      font-weight: 600;
+    }
+    
+    .military-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      font-size: var(--text-sm);
+    }
+    
+    .military-list li {
+      padding: var(--space-1) 0;
+    }
+  </style>
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга 1</span>
+        <span class="chapter-number">Глава X</span>
+      </div>
+      <h1 class="chapter-title">О заработной плате и прибыли при различных применениях труда</h1>
+      <div class="chapter-summary">
+        <p>Почему одни профессии платят больше других? Смит выявляет пять факторов, которые компенсируют различия в оплате труда.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Main Principle -->
+    <section class="chapter-section">
+      <h2>Принцип равенства</h2>
+      
+      <blockquote class="important-quote">
+        <p>
+          Совокупность выгод и невыгод различных применений труда и капитала 
+          в одной и той же местности должна быть совершенно одинаковой 
+          или постоянно иметь тенденцию к равенству.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+      
+      <p class="section-intro">
+        Если бы одна профессия была явно выгоднее другой — люди хлынули бы туда, 
+        а из невыгодной ушли. Но в реальности различия существуют. Почему?
+      </p>
+      
+      <div class="key-insight">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Две причины неравенства
+        </h3>
+        <ol style="margin-bottom: 0;">
+          <li><strong>Условия самих занятий</strong> — компенсируют малую выгоду</li>
+          <li><strong>Политика государства</strong> — ограничивает свободу</li>
+        </ol>
+      </div>
+    </section>
+    
+    <!-- Section 2: Five Factors -->
+    <section class="chapter-section">
+      <h2>Пять компенсирующих факторов</h2>
+      
+      <p class="section-intro">
+        Смит выделяет пять условий, которые уравнивают привлекательность профессий:
+      </p>
+      
+      <div class="five-factors">
+        <div class="factors-grid">
+          
+          <div class="factor-card">
+            <div class="factor-num">1</div>
+            <div class="factor-content">
+              <div class="factor-title">Приятность или неприятность занятий</div>
+              <div class="factor-desc">
+                Грязная, опасная, презираемая работа оплачивается выше. 
+                Почётная — часто ниже, потому что люди готовы платить за престиж.
+              </div>
+              <div class="factor-examples">
+                <span class="factor-example">🔪 Мясник — хорошо платят</span>
+                <span class="factor-example">⚖️ Юрист — престиж, но недооплата</span>
+                <span class="factor-example">🗡️ Палач — самые высокие ставки</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="factor-card">
+            <div class="factor-num">2</div>
+            <div class="factor-content">
+              <div class="factor-title">Лёгкость или трудность обучения</div>
+              <div class="factor-desc">
+                Дорогое и долгое обучение требует компенсации. 
+                Человек сравним с дорогой машиной — затраты должны окупиться.
+              </div>
+              <div class="factor-examples">
+                <span class="factor-example">👨‍⚕️ Врач — годы обучения</span>
+                <span class="factor-example">👷 Чернорабочий — не учится</span>
+                <span class="factor-example">🔨 Подмастерье — ученичество</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="factor-card">
+            <div class="factor-num">3</div>
+            <div class="factor-content">
+              <div class="factor-title">Постоянство или перерывы в работе</div>
+              <div class="factor-desc">
+                Сезонная работа должна оплачиваться выше, 
+                чтобы компенсировать простои.
+              </div>
+              <div class="factor-examples">
+                <span class="factor-example">🧱 Каменщик — 1.5-2× зарплата</span>
+                <span class="factor-example">🏭 Мануфактура — постоянно</span>
+                <span class="factor-example">⛏️ Рудокоп — 2-3× зарплата</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="factor-card">
+            <div class="factor-num">4</div>
+            <div class="factor-content">
+              <div class="factor-title">Большее или меньшее доверие</div>
+              <div class="factor-desc">
+                Мы вверяем здоровье врачу, состояние — юристу. 
+                Они должны получать достаточно для поддержания статуса.
+              </div>
+              <div class="factor-examples">
+                <span class="factor-example">💍 Ювелир — дорогое сырьё</span>
+                <span class="factor-example">⚖️ Адвокат — судьба клиента</span>
+                <span class="factor-example">💊 Врач — жизнь пациента</span>
+              </div>
+            </div>
+          </div>
+          
+          <div class="factor-card">
+            <div class="factor-num">5</div>
+            <div class="factor-content">
+              <div class="factor-title">Вероятность или невероятность успеха</div>
+              <div class="factor-desc">
+                Рискованные профессии: один успешный должен заработать 
+                за себя и за всех неудачников.
+              </div>
+              <div class="factor-examples">
+                <span class="factor-example">👞 Сапожник — успех почти гарантирован</span>
+                <span class="factor-example">⚖️ Юрист — 20 неудач на 1 успех</span>
+                <span class="factor-example">🎭 Актёр — огромное вознаграждение</span>
+              </div>
+            </div>
+          </div>
+          
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Wage Examples -->
+    <section class="chapter-section">
+      <h2>Примеры различий в оплате</h2>
+      
+      <div class="wage-comparison">
+        <table class="wage-table">
+          <thead>
+            <tr>
+              <th>Профессия</th>
+              <th>Отношение к чернорабочему</th>
+              <th>Причина</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>📉 Портной</td>
+              <td class="wage-diff low">Ниже</td>
+              <td>Лёгкий труд</td>
+            </tr>
+            <tr>
+              <td>🔨 Кузнец</td>
+              <td>Выше</td>
+              <td>Грязная работа</td>
+            </tr>
+            <tr>
+              <td>⛏️ Рудокоп</td>
+              <td class="wage-diff high">2-3× выше</td>
+              <td>Тяжело, грязно, опасно</td>
+            </tr>
+            <tr>
+              <td>🧱 Каменщик</td>
+              <td class="wage-diff high">1.5-2× выше</td>
+              <td>Сезонная работа</td>
+            </tr>
+            <tr>
+              <td>炭 Грузчик угля</td>
+              <td class="wage-diff high">4-5× выше</td>
+              <td>Тяжело + непостоянно</td>
+            </tr>
+            <tr>
+              <td>🗡️ Палач</td>
+              <td class="wage-diff high">Очень высоко</td>
+              <td>Презираемая профессия</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Парадокс
+        </h3>
+        <p style="margin-bottom: 0;">
+          Охота и рыбная ловля — приятные занятия для богатых, 
+          но для бедных — скудное существование. Слишком многие 
+          готовы заниматься тем, что другим нравится.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 4: Lottery -->
+    <section class="chapter-section">
+      <h2>Профессия как лотерея</h2>
+      
+      <div class="lottery-section">
+        <div class="lottery-title">
+          <span style="font-size: var(--text-2xl);">🎲</span>
+          <h3 style="margin: 0;">Невероятность успеха</h3>
+        </div>
+        
+        <p style="font-size: var(--text-sm); color: var(--color-text-light);">
+          В некоторых профессиях успех гарантирован. В других — один успешный 
+          должен компенсировать провалы двадцати неудачников.
+        </p>
+        
+        <div class="lottery-visual">
+          <div class="lottery-group">
+            <div class="lottery-count" style="color: #e53e3e;">20</div>
+            <div class="lottery-label">неудачников</div>
+          </div>
+          
+          <span class="lottery-arrow">→</span>
+          
+          <div class="lottery-group">
+            <div class="lottery-count" style="color: #38a169;">1</div>
+            <div class="lottery-label">успешный</div>
+          </div>
+          
+          <span class="lottery-arrow">=</span>
+          
+          <div class="lottery-result">
+            <strong>Успешный получает за всех 21</strong>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4);">
+          Адвокат, начавший зарабатывать в 40 лет, должен получить вознаграждение 
+          за своё обучение И за обучение 20 неудачников.
+        </p>
+      </div>
+      
+      <h3 style="margin-top: var(--space-6);">Почему люди идут в рискованные профессии?</h3>
+      
+      <div class="profession-cards">
+        <div class="profession-card">
+          <div class="profession-icon">⚖️</div>
+          <div class="profession-name">Юрист</div>
+          <div class="profession-wage">Недооплата в среднем</div>
+          <div class="profession-reason">Надежда на славу + престиж</div>
+        </div>
+        
+        <div class="profession-card">
+          <div class="profession-icon">🎭</div>
+          <div class="profession-name">Актёр/Певец</div>
+          <div class="profession-wage">Огромные гонорары</div>
+          <div class="profession-reason">Редкость + «плохая репутация»</div>
+        </div>
+        
+        <div class="profession-card">
+          <div class="profession-icon">👞</div>
+          <div class="profession-name">Сапожник</div>
+          <div class="profession-wage">Стабильно</div>
+          <div class="profession-reason">Успех почти гарантирован</div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 5: Psychology -->
+    <section class="chapter-section">
+      <h2>Психология риска</h2>
+      
+      <p class="section-intro">
+        Смит описывает два заблуждения, заставляющих людей выбирать 
+        рискованные профессии:
+      </p>
+      
+      <div class="psychology-section">
+        <div class="psychology-grid">
+          <div class="psychology-card abilities">
+            <div class="psychology-header">
+              <span class="psychology-icon">🧠</span>
+              <span class="psychology-title">Переоценка способностей</span>
+            </div>
+            <div class="psychology-desc">
+              «Давнее зло, отмеченное философами всех веков». 
+              Каждый считает себя способнее большинства.
+            </div>
+          </div>
+          
+          <div class="psychology-card luck">
+            <div class="psychology-header">
+              <span class="psychology-icon">🍀</span>
+              <span class="psychology-title">Вера в свою удачу</span>
+            </div>
+            <div class="psychology-desc">
+              «Ещё более распространена». Люди переоценивают шансы на выигрыш 
+              и недооценивают риски. Отсюда успех лотерей.
+            </div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="key-insight" style="margin-top: var(--space-6);">
+        <h3 style="font-size: var(--text-base); margin-bottom: var(--space-2);">
+          💡 Лотерея — доказательство
+        </h3>
+        <p style="margin-bottom: 0;">
+          Билеты государственных лотерей продаются с наценкой 20-40% 
+          — люди платят больше реальной стоимости шанса. 
+          Чем больше билетов покупаешь — тем вернее проиграешь.
+        </p>
+      </div>
+    </section>
+    
+    <!-- Section 6: Military -->
+    <section class="chapter-section">
+      <h2>Солдат и матрос</h2>
+      
+      <p class="section-intro">
+        Яркий пример переоценки удачи — выбор военной карьеры:
+      </p>
+      
+      <div class="military-section">
+        <div class="military-title">
+          <span style="font-size: var(--text-xl);">⚔️</span>
+          <h3 style="margin: 0;">Сравнение карьеры</h3>
+        </div>
+        
+        <div class="military-comparison">
+          <div class="military-side">
+            <div class="military-header">
+              <span class="military-icon">🎖️</span>
+              <span class="military-name">Солдат</span>
+            </div>
+            <ul class="military-list">
+              <li>• Зарплата ниже подёнщика</li>
+              <li>• Почти нулевой шанс повышения</li>
+              <li>• Опасность смерти</li>
+              <li>• Труднее служба</li>
+              <li>• Надежда на славу — вся плата</li>
+            </ul>
+          </div>
+          
+          <div class="military-side">
+            <div class="military-header">
+              <span class="military-icon">⚓</span>
+              <span class="military-name">Матрос</span>
+            </div>
+            <ul class="military-list">
+              <li>• Зарплата = чернорабочий</li>
+              <li>• Больше шансов на повышение</li>
+              <li>• Тоже опасно</li>
+              <li>• Требует мастерства</li>
+              <li>• Надежда на удачу в лотерее</li>
+            </ul>
+          </div>
+        </div>
+        
+        <p style="font-size: var(--text-sm); text-align: center; margin-top: var(--space-4); color: var(--color-text-light);">
+          «Романтические надежды составляют всю плату за проливаемую ими кровь»
+        </p>
+      </div>
+      
+      <blockquote class="important-quote" style="margin-top: var(--space-6);">
+        <p>
+          В какой малой степени опасение неудачи способно тогда уравновешивать 
+          надежды на удачу, очевиднее всего сказывается в готовности простонародья 
+          завербоваться в солдаты или отправиться в море.
+        </p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали</h2>
+        <ul>
+          <li>Различия зарплат компенсируют условия труда</li>
+          <li>5 факторов: приятность, обучение, постоянство, доверие, успех</li>
+          <li>Грязная и опасная работа оплачивается выше</li>
+          <li>Престижные профессии часто недооплачиваются</li>
+          <li>Люди переоценивают свои способности и удачу</li>
+          <li>Рискованные профессии — как лотерея</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="book1-chapter09.html" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Глава IX: О прибыли на капитал</span>
+          </div>
+        </a>
+        <a href="book1-chapter11.html" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Глава XI: О земельной ренте</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>

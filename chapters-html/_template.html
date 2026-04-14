@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Адам Смит — Исследование о природе и причинах богатства народов. Интерактивное издание.">
+  <meta name="keywords" content="Адам Смит, экономика, политическая экономия, разделение труда, классическая экономика">
+  
+  <title>Глава — Богатство народов</title>
+  
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Serif:wght@400;500;600;700&family=Inter:wght@400;500;600&family=JetBrains+Mono&display=swap" rel="stylesheet">
+  
+  <!-- Styles -->
+  <link rel="stylesheet" href="../css/design-system.css">
+  <link rel="stylesheet" href="../css/components.css">
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="../images/favicon.svg">
+</head>
+<body>
+  
+  <!-- Skip to main content -->
+  <a href="#main" class="sr-only">Перейти к основному содержанию</a>
+  
+  <!-- Header -->
+  <header class="site-header">
+    <div class="container">
+      <nav class="site-nav flex items-center justify-between py-4">
+        <a href="../index.html" class="site-logo font-heading text-xl text-primary">
+          📚 Богатство народов
+        </a>
+        <div class="nav-links flex gap-4">
+          <a href="../index.html" class="nav-link">Оглавление</a>
+          <a href="../about.html" class="nav-link">О книге</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+  
+  <!-- Main content -->
+  <main id="main" class="container container-reading py-8">
+    
+    <!-- Chapter header -->
+    <header class="chapter-header">
+      <div class="chapter-meta">
+        <span class="book-part">Книга X</span>
+        <span class="chapter-number">Глава X</span>
+      </div>
+      <h1 class="chapter-title">Название главы</h1>
+      <div class="chapter-summary">
+        <p>Краткое резюме главы в 2-3 предложения.</p>
+      </div>
+    </header>
+    
+    <!-- Section 1: Key Ideas -->
+    <section class="chapter-section">
+      <h2>Ключевые идеи главы</h2>
+      <div class="idea-cards grid gap-4 md:grid-cols-2 lg:grid-cols-3">
+        
+        <div class="idea-card">
+          <div class="idea-icon">⚙️</div>
+          <h3>Идея 1</h3>
+          <p>Краткое описание первой ключевой идеи главы.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">📊</div>
+          <h3>Идея 2</h3>
+          <p>Краткое описание второй ключевой идеи главы.</p>
+        </div>
+        
+        <div class="idea-card">
+          <div class="idea-icon">💡</div>
+          <h3>Идея 3</h3>
+          <p>Краткое описание третьей ключевой идеи главы.</p>
+        </div>
+        
+      </div>
+    </section>
+    
+    <!-- Section 2: Main Content -->
+    <section class="chapter-section">
+      <h2>Основной заголовок секции</h2>
+      
+      <p class="section-intro">
+        Вводный параграф секции, объясняющий её содержание.
+      </p>
+      
+      <p>
+        Основной текст главы. Смит пишет в своём характерном стиле, 
+        развивая аргументацию шаг за шагом.
+      </p>
+      
+      <!-- Expandable block -->
+      <div class="expandable">
+        <button class="expandable-header" aria-expanded="false">
+          <span>Подробнее о теме</span>
+          <span class="expandable-icon">▼</span>
+        </button>
+        <div class="expandable-content" aria-hidden="true">
+          <div class="expandable-body">
+            <p>Дополнительное содержимое, которое раскрывается при клике.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Section 3: Interactive Diagram -->
+    <section class="chapter-section">
+      <h2>Интерактивная схема</h2>
+      
+      <div class="interactive-diagram">
+        <div class="diagram-stage" data-stage="1">
+          <div class="stage-icon">1</div>
+          <span class="stage-label">Этап первый</span>
+          <span class="stage-arrow">→</span>
+        </div>
+        <div class="diagram-stage" data-stage="2">
+          <div class="stage-icon">2</div>
+          <span class="stage-label">Этап второй</span>
+          <span class="stage-arrow">→</span>
+        </div>
+        <div class="diagram-stage" data-stage="3">
+          <div class="stage-icon">3</div>
+          <span class="stage-label">Этап третий</span>
+        </div>
+      </div>
+      
+      <!-- Stage descriptions -->
+      <div class="stage-description hidden" data-stage="1">
+        <p>Описание первого этапа...</p>
+      </div>
+      <div class="stage-description hidden" data-stage="2">
+        <p>Описание второго этапа...</p>
+      </div>
+      <div class="stage-description hidden" data-stage="3">
+        <p>Описание третьего этапа...</p>
+      </div>
+    </section>
+    
+    <!-- Section 4: Comparison Table -->
+    <section class="chapter-section">
+      <h2>Сравнительная таблица</h2>
+      
+      <div class="comparison-table">
+        <table>
+          <thead>
+            <tr>
+              <th>Критерий</th>
+              <th>Вариант А</th>
+              <th>Вариант Б</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Характеристика 1</td>
+              <td><span class="badge badge-high">Высокая</span></td>
+              <td><span class="badge badge-low">Низкая</span></td>
+            </tr>
+            <tr>
+              <td>Характеристика 2</td>
+              <td>Описание</td>
+              <td>Описание</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+    
+    <!-- Section 5: Quote -->
+    <section class="chapter-section">
+      <h2>Ключевая цитата</h2>
+      
+      <blockquote class="important-quote">
+        <p>Важная цитата из главы, которую стоит особо отметить.</p>
+        <cite>— Адам Смит</cite>
+      </blockquote>
+    </section>
+    
+    <!-- Section 6: Quiz -->
+    <section class="chapter-section">
+      <h2>Проверка понимания</h2>
+      
+      <div class="quiz-container" data-correct="a">
+        <p class="quiz-question">Вопрос для самопроверки?</p>
+        <div class="quiz-options">
+          <div class="quiz-option" data-option="a">
+            <span>A.</span> Вариант ответа A
+          </div>
+          <div class="quiz-option" data-option="b">
+            <span>B.</span> Вариант ответа B
+          </div>
+          <div class="quiz-option" data-option="c">
+            <span>C.</span> Вариант ответа C
+          </div>
+        </div>
+        <div class="quiz-feedback hidden"></div>
+      </div>
+    </section>
+    
+    <!-- Section 7: Footer -->
+    <footer class="chapter-footer">
+      <div class="chapter-conclusions">
+        <h2>Что мы узнали?</h2>
+        <ul>
+          <li>Первый ключевой вывод главы</li>
+          <li>Второй ключевой вывод главы</li>
+          <li>Третий ключевой вывод главы</li>
+        </ul>
+      </div>
+      
+      <div class="chapter-navigation">
+        <a href="#" class="nav-prev">
+          <span class="nav-arrow">←</span>
+          <div>
+            <span class="nav-label">Предыдущая</span>
+            <span class="nav-title">Название предыдущей главы</span>
+          </div>
+        </a>
+        <a href="#" class="nav-next">
+          <div>
+            <span class="nav-label">Следующая</span>
+            <span class="nav-title">Название следующей главы</span>
+          </div>
+          <span class="nav-arrow">→</span>
+        </a>
+      </div>
+      
+    </footer>
+    
+  </main>
+  
+  <!-- Footer -->
+  <footer class="site-footer py-8 mt-12" style="background-color: var(--color-bg-section); border-top: 1px solid var(--color-border);">
+    <div class="container text-center text-muted">
+      <p class="text-sm">
+        Адам Смит — «Исследование о природе и причинах богатства народов» (1776)
+      </p>
+      <p class="text-sm mt-2">
+        Интерактивное веб-издание, 2026
+      </p>
+    </div>
+  </footer>
+  
+  <!-- Scripts -->
+  <script src="../js/common.js"></script>
+  
+</body>
+</html>
